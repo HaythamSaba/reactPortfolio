@@ -4,7 +4,7 @@ import {
   HomeIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   motion,
   AnimatePresence,
@@ -36,17 +36,19 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 1, when: "beforeChildren" },
+    transition: { duration: 1 },
   },
 };
 
 function Header() {
   const [nav, setNav] = useState(false);
-  const lenis = useLenis(); // hook to control scrolling
+  const lenis = useLenis();
 
   const handleScroll = (href) => {
-    lenis?.scrollTo(href);
-    setNav(false); // also close mobile menu
+    if (lenis) {
+      lenis.scrollTo(href, { offset: 0, duration: 1.2 });
+    }
+    setNav(false); // Always close the mobile menu after a click
   };
 
   const { scrollY } = useScroll();
@@ -56,44 +58,105 @@ function Header() {
     setScrolled(latest > 200); // scroll threshold
   });
 
+  useEffect(() => {
+  const handleResize = () => {
+    // Set the mobile menu to closed if the screen size is larger than 'lg' breakpoint
+    if (window.innerWidth >= 1024) {
+      setNav(false);
+    }
+  };
+
+  window.addEventListener("resize", handleResize);
+
+  // Cleanup the event listener when the component unmounts
+  return () => {
+    window.removeEventListener("resize", handleResize);
+  };
+}, []);
+
   return (
     <>
-      {/* Normal nav (visible before 200px scroll) */}
-      {scrolled ? (
-        <motion.nav
-          initial={{ y: -80, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          style={{
-            backgroundColor: "rgba(255, 255, 255, 0.1)",
-            backdropFilter: "blur(16px)",
-            WebkitBackdropFilter: "blur(6px)",
-          }}
-          className="fixed top-0 left-0 w-full z-50 border-b border-white/20 shadow-lg"
-        >
-          <div className="template flex justify-between items-center py-4">
+      <AnimatePresence mode="wait">
+        {scrolled ? (
+          <motion.nav
+            key="scrolled-nav"
+            initial={{ y: -80, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -80, opacity: 0 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            style={{
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
+              backdropFilter: "blur(16px)",
+              WebkitBackdropFilter: "blur(6px)",
+            }}
+            className="fixed top-0 left-0 w-full z-20 border-b border-white/20 shadow-lg"
+          >
+            <div className="template flex justify-between items-center py-4">
+              {/* Home Icon */}
+              <button
+                onClick={() => handleScroll("#home")}
+                className="text-primary-400 p-4 hover:bg-background rounded-full bg-primary-500 hover:text-darkBackground transition-colors duration-300"
+              >
+                <HomeIcon className="w-8 h-8 text-darkBackground" />
+              </button>
+
+              {/* Desktop Menu */}
+              <ul className="hidden lg:flex gap-6 text-lg font-semibold border border-background rounded-full">
+                {NavItems.map((item) => (
+                  <li key={item.name}>
+                    <motion.button
+                      onClick={() => handleScroll(item.href)}
+                      className="text-primary-500 px-4 py-2 rounded-full"
+                      whileHover={{
+                        backgroundColor: "#161b22",
+                        transition: { duration: 0.4, ease: "easeInOut" },
+                      }}
+                    >
+                      {item.name}
+                    </motion.button>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Mobile Menu Button */}
+              <div
+                onClick={() => setNav(!nav)}
+                className="lg:hidden border border-background rounded-full p-3 cursor-pointer z-20"
+              >
+                {nav ? (
+                  <XMarkIcon className="h-8 w-8 text-background" />
+                ) : (
+                  <Bars3Icon className="h-8 w-8 text-background" />
+                )}
+              </div>
+
+              {/* Contact Icon (Desktop Only) */}
+              <button
+                onClick={() => handleScroll("#contact")}
+                className="hidden lg:inline-flex text-secondary-400 p-4 hover:bg-background rounded-full bg-secondary-500 hover:text-darkBackground transition-colors duration-300"
+              >
+                <EnvelopeIcon className="h-8 w-8 text-darkBackground" />
+              </button>
+            </div>
+          </motion.nav>
+        ) : (
+          <div
+            key="initial-nav"
+            className="flex w-full justify-between items-center py-4"
+          >
             {/* Home Icon */}
-            <a
-              href="#home"
-              className="text-primary-400 p-4 hover:bg-background rounded-full bg-primary-500 hover:text-darkBackground transition-colors duration-300"
+            <button
+              onClick={() => handleScroll("#home")}
+              className="text-primary-400 p-4 hover:bg-background rounded-full bg-primary-500 hover:text-darkBackground transition-colors duration-300 z-50"
             >
               <HomeIcon className="w-8 h-8 text-darkBackground" />
-            </a>
+            </button>
 
             {/* Desktop Menu */}
-            <motion.ul
-              variants={menuVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              className="hidden lg:flex gap-6 text-lg font-semibold border border-background rounded-full"
-            >
+            <ul className="hidden lg:flex gap-6 text-lg font-semibold border border-background rounded-full px-[2px] py-2">
               {NavItems.map((item) => (
                 <li key={item.name}>
                   <motion.button
-                    initial="hidden"
-                    animate="visible"
-                    variants={itemVariants}
                     onClick={() => handleScroll(item.href)}
                     className="text-primary-500 px-4 py-2 rounded-full"
                     whileHover={{
@@ -105,12 +168,12 @@ function Header() {
                   </motion.button>
                 </li>
               ))}
-            </motion.ul>
+            </ul>
 
             {/* Mobile Menu Button */}
             <div
               onClick={() => setNav(!nav)}
-              className="lg:hidden border border-background rounded-full p-3 cursor-pointer z-50"
+              className="lg:hidden border border-background rounded-full p-3 cursor-pointer z-50 "
             >
               {nav ? (
                 <XMarkIcon className="h-8 w-8 text-background" />
@@ -120,123 +183,39 @@ function Header() {
             </div>
 
             {/* Contact Icon (Desktop Only) */}
-            <a
-              href="#contact"
+            <button
+              onClick={() => handleScroll("#contact")}
               className="hidden lg:inline-flex text-secondary-400 p-4 hover:bg-background rounded-full bg-secondary-500 hover:text-darkBackground transition-colors duration-300"
             >
               <EnvelopeIcon className="h-8 w-8 text-darkBackground" />
-            </a>
-
-            {/* Mobile Menu */}
-            <AnimatePresence>
-              {nav && (
-                <motion.ul
-                  variants={menuVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  className="fixed top-0 right-0 h-full w-full bg-darkBackground/95 flex flex-col items-center justify-center gap-6 z-40"
-                >
-                  {NavItems.map((item) => (
-                    <motion.li
-                      variants={itemVariants}
-                      key={item.name}
-                      onClick={() => {
-                        lenis?.scrollTo(item.href);
-                        setNav(false); // also closes menu
-                      }}
-                      className="text-primary-500 text-xl"
-                    >
-                      {item.name}
-                    </motion.li>
-                  ))}
-                </motion.ul>
-              )}
-            </AnimatePresence>
+            </button>
           </div>
-        </motion.nav>
-      ) : (
-        <div className="flex justify-between items-center py-4 tamplate">
-          {/* Home Icon */}
-          <a
-            href="#home"
-            className="text-primary-400 p-4 hover:bg-background rounded-full bg-primary-500 hover:text-darkBackground transition-colors duration-300"
-          >
-            <HomeIcon className="w-8 h-8 text-darkBackground" />
-          </a>
+        )}
+      </AnimatePresence>
 
-          {/* Desktop Menu */}
+      {/* Mobile Menu (conditionally rendered with AnimatePresence) */}
+      <AnimatePresence>
+        {nav && (
           <motion.ul
             variants={menuVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="hidden lg:flex gap-6 text-lg font-semibold border border-background
-        rounded-full  px-[2px] py-2"
+            className="fixed top-0 right-0 h-full w-full bg-darkBackground/95 flex flex-col items-center justify-center gap-6 z-30"
           >
             {NavItems.map((item) => (
-              <li key={item.name}>
-                <motion.a
-                  href={item.href}
-                  className="text-primary-500 px-4 py-2 rounded-full"
-                  whileHover={{
-                    backgroundColor: "#161b22",
-                    transition: { duration: 0.4, ease: "easeInOut" },
-                  }}
-                  key={item.name}
-                  variants={itemVariants}
-                >
-                  {item.name}
-                </motion.a>
-              </li>
+              <motion.li
+                variants={itemVariants}
+                key={item.name}
+                onClick={() => handleScroll(item.href)}
+                className="text-primary-500 text-xl cursor-pointer"
+              >
+                {item.name}
+              </motion.li>
             ))}
           </motion.ul>
-
-          {/* Mobile Menu Button */}
-          <div
-            onClick={() => setNav(!nav)}
-            className="lg:hidden border border-background rounded-full p-3 cursor-pointer z-50 "
-          >
-            {nav ? (
-              <XMarkIcon className="h-8 w-8 text-background" />
-            ) : (
-              <Bars3Icon className="h-8 w-8 text-background" />
-            )}
-          </div>
-
-          {/* Contact Icon (Desktop Only) */}
-          <a
-            href="#contact"
-            className="hidden lg:inline-flex text-secondary-400 p-4 hover:bg-background rounded-full  bg-secondary-500 hover:text-darkBackground transition-colors duration-300"
-          >
-            <EnvelopeIcon className="h-8 w-8 text-darkBackground" />
-          </a>
-
-          {/* Mobile Menu */}
-          <AnimatePresence>
-            {nav && (
-              <motion.ul
-                variants={menuVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                className="fixed top-0 right-0 h-full w-full bg-darkBackground/95 flex flex-col items-center justify-center gap-6 z-40"
-              >
-                {NavItems.map((item) => (
-                  <motion.li
-                    variants={itemVariants}
-                    key={item.name}
-                    onClick={() => setNav(false)}
-                    className="text-primary-500 text-xl"
-                  >
-                    <a href={item.href}>{item.name}</a>
-                  </motion.li>
-                ))}
-              </motion.ul>
-            )}
-          </AnimatePresence>
-        </div>
-      )}
+        )}
+      </AnimatePresence>
     </>
   );
 }

@@ -5,7 +5,7 @@ function Hero() {
     <div className="relative overflow-clip min-h-screen text-textColor bg-[linear-gradient(to_bottom,_#161b22,_#82e0aa_85%)] flex items-center justify-center template">
       {" "}
       <div className="absolute bg-darkBackground w-[2400px] h-[1000px] rounded-[50%] left-1/2 -translate-x-1/2 bg-[radial-gradient(closest-side,#161b22_80%,#82e0aa)] top-[450px] border-[1px] border-[#82e0aa]/30"></div>{" "}
-      <div className="container relative mx-auto pb-24 tamplate">
+      <div className="container relative mx-auto pb-24">
         {" "}
         <Header />{" "}
         <div className="sticky top-0 flex flex-col items-center justify-center text-center z-10 mt-4 ">

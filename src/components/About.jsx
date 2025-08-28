@@ -67,7 +67,7 @@ function About() {
               ease: "easeOut",
             }}
           >
-            Hey there! I&apos;m Haytham Saba, a passionate software developer
+            Hey there! I&apos;m Haytham Saba, a Fresh Graduate, passionate software developer
             specializing in front-end, I create interactive and responsive web
             applications using React, Next.js, Tailwind CSS, and Framer Motion.
             I&apos;ve built several full-stack applications, including an
@@ -89,7 +89,7 @@ function About() {
               }}
               text="Download my CV"
               href="/resume.pdf"
-              download
+              download="Haytham_Saba_Resume.pdf"
               className="mx-auto"
             />
           </div>

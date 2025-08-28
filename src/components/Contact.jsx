@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { FaLinkedin, FaInstagram, FaTelegram } from "react-icons/fa";
 
-import GreenButton from "./GreenButton";
 import ContactInfo from "./ContactInfo";
 import ContactForm from "./ContactForm";
 

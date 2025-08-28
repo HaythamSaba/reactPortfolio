@@ -107,7 +107,7 @@ export default function Projects() {
 
       {/* Projects Grid */}
       <ProjectGrid
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 template relative z-40"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 template relative z-10"
         // Only apply Framer Motion props if not on a mobile screen
         {...(!isMobile && {
           variants: cardParentVariants,

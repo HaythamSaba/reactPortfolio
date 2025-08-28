@@ -1,28 +1,19 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Lenis as ReactLenis } from "@studio-freight/react-lenis";
 
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
-import { useEffect } from "react";
-import Lenis from "@studio-freight/lenis";
-function App() {
-  useEffect(() => {
-    const lenis = new Lenis();
 
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-  }, []);
+function App() {
   return (
-    <>
+    <ReactLenis root>
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </ReactLenis>
   );
 }
 
