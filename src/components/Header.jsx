@@ -59,20 +59,50 @@ function Header() {
   });
 
   useEffect(() => {
-  const handleResize = () => {
-    // Set the mobile menu to closed if the screen size is larger than 'lg' breakpoint
-    if (window.innerWidth >= 1024) {
-      setNav(false);
+    const handleResize = () => {
+      // Set the mobile menu to closed if the screen size is larger than 'lg' breakpoint
+      if (window.innerWidth >= 1024) {
+        setNav(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!lenis) return;
+
+    if (nav) {
+      lenis.stop(); // freeze scrolling
+      document.documentElement.classList.add(
+        "overflow-hidden",
+        "overscroll-none"
+      );
+      document.body.classList.add("overflow-hidden", "overscroll-none");
+    } else {
+      lenis.start(); // resume scrolling
+      document.documentElement.classList.remove(
+        "overflow-hidden",
+        "overscroll-none"
+      );
+      document.body.classList.remove("overflow-hidden", "overscroll-none");
     }
-  };
 
-  window.addEventListener("resize", handleResize);
-
-  // Cleanup the event listener when the component unmounts
-  return () => {
-    window.removeEventListener("resize", handleResize);
-  };
-}, []);
+    return () => {
+      // safety: always re-enable if component unmounts
+      lenis.start();
+      document.documentElement.classList.remove(
+        "overflow-hidden",
+        "overscroll-none"
+      );
+      document.body.classList.remove("overflow-hidden", "overscroll-none");
+    };
+  }, [nav, lenis]);
 
   return (
     <>
@@ -89,9 +119,9 @@ function Header() {
               backdropFilter: "blur(16px)",
               WebkitBackdropFilter: "blur(6px)",
             }}
-            className="fixed top-0 left-0 w-full z-20 border-b border-white/20 shadow-lg"
+            className="fixed top-0 left-0 w-full z-30 border-b border-white/20 shadow-lg"
           >
-            <div className="template flex justify-between items-center py-4">
+            <div className="template flex justify-between items-center py-4 z-30">
               {/* Home Icon */}
               <button
                 onClick={() => handleScroll("#home")}
@@ -121,7 +151,7 @@ function Header() {
               {/* Mobile Menu Button */}
               <div
                 onClick={() => setNav(!nav)}
-                className="lg:hidden border border-background rounded-full p-3 cursor-pointer z-20"
+                className="lg:hidden border border-background rounded-full p-3 cursor-pointer z-30"
               >
                 {nav ? (
                   <XMarkIcon className="h-8 w-8 text-background" />
@@ -147,7 +177,7 @@ function Header() {
             {/* Home Icon */}
             <button
               onClick={() => handleScroll("#home")}
-              className="text-primary-400 p-4 hover:bg-background rounded-full bg-primary-500 hover:text-darkBackground transition-colors duration-300 z-50"
+              className="text-primary-400 p-4 hover:bg-background rounded-full bg-primary-500 hover:text-darkBackground transition-colors duration-300 z-30"
             >
               <HomeIcon className="w-8 h-8 text-darkBackground" />
             </button>
@@ -173,7 +203,7 @@ function Header() {
             {/* Mobile Menu Button */}
             <div
               onClick={() => setNav(!nav)}
-              className="lg:hidden border border-background rounded-full p-3 cursor-pointer z-50 "
+              className="lg:hidden border border-background rounded-full p-3 cursor-pointer z-30 "
             >
               {nav ? (
                 <XMarkIcon className="h-8 w-8 text-background" />
@@ -201,8 +231,17 @@ function Header() {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="fixed top-0 right-0 h-full w-full bg-darkBackground/95 flex flex-col items-center justify-center gap-6 z-30"
+            className="fixed inset-0 h-[100dvh] w-screen overflow-hidden touch-none bg-darkBackground/95 
+             flex flex-col items-center justify-center gap-6 z-40 "
           >
+            <div className="absolute top-6 right-[90px]">
+              <button
+                onClick={() => setNav(!nav)}
+                className="text-primary-400 p-3 hover:bg-background rounded-full bg-primary-500 hover:text-darkBackground transition-colors duration-300"
+              >
+                <XMarkIcon className="h-8 w-8 text-darkBackground" />
+              </button>
+            </div>
             {NavItems.map((item) => (
               <motion.li
                 variants={itemVariants}
