@@ -87,7 +87,7 @@ export default function Footer() {
               href="https://www.linkedin.com/in/haytham-saba-401148278/"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-primary-400"
+              className="hover:text-blue-500"
             >
               <FaLinkedin size={22} />
             </a>
