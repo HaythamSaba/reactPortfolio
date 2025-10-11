@@ -37,7 +37,7 @@ function Certificates() {
               ></div>
 
               <div key={index} className="p-4 shadow-md">
-                <h3 className="text-lg font-semibold ">{certificate.name}</h3>
+                <h3 className="text-lg font-semibold text-slate-900">{certificate.name}</h3>
                 <p className="text-sm text-slate-400">
                   {certificate.description}
                 </p>
