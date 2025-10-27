@@ -53,6 +53,16 @@ const projects = [
     git: "quiz-app",
     type: "Frontend",
   },
+  {
+    title: "Currently Weather and Time",
+    description:
+      "A web application that provides current weather and time information for any city worldwide.",
+    devStack: ["HTML", "CSS", "JavaScript", "Weather API"],
+    image: "/project-6.jpg", 
+    link: "https://currently-peach.vercel.app/",
+    git: "currently",
+    type: "Frontend",
+  },
 ];
 
 // Parent animation (stagger)
@@ -79,8 +89,8 @@ export default function Projects() {
   const isMobile = useMobile();
 
   // Conditionally choose the component type: motion.div or a regular div
-  const ProjectCard = isMobile ? 'div' : motion.div;
-  const ProjectGrid = isMobile ? 'div' : motion.div;
+  const ProjectCard = isMobile ? "div" : motion.div;
+  const ProjectGrid = isMobile ? "div" : motion.div;
 
   return (
     <section id="projects">
