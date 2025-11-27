@@ -15,7 +15,10 @@ function About() {
   }, [isInView, mainControls]);
 
   return (
-    <div className="bg-darkBackground text-primary-300 min-h-screen flex flex-col justify-center items-center" id="about">
+    <div
+      className="bg-darkBackground text-primary-300 min-h-screen flex flex-col justify-center items-center"
+      id="about"
+    >
       <motion.section
         className="flex flex-col gap-10 mb-10 overflow-hidden"
         ref={containerRef}
@@ -68,12 +71,13 @@ function About() {
               ease: "easeOut",
             }}
           >
-            Hey there! I&apos;m Haytham Saba, a Fresh Graduate, passionate software developer
-            specializing in front-end, I create interactive and responsive web
-            applications using React, Next.js, Tailwind CSS, and Framer Motion.
-            I&apos;ve built several full-stack applications, including an
-            e-commerce platform with Supabase backend and custom authentication.
-            Outside of coding, I enjoy watching football matches and go running
+            Hey there! I&apos;m Haytham Saba, a Fresh Graduate, passionate
+            software developer specializing in front-end, I create interactive
+            and responsive web applications using React, Next.js, Tailwind CSS,
+            and Framer Motion. I&apos;ve built several full-stack applications,
+            including an e-commerce platform with Supabase backend and custom
+            authentication. Outside of coding, I enjoy watching football matches
+            and go running
           </motion.p>
           <div className="w-full flex justify-center">
             <MotionGreenButton
@@ -89,7 +93,7 @@ function About() {
                 delay: 1,
               }}
               text="Download my CV"
-              href="/resume.pdf"
+              href="/public/resume.pdf"
               download="Haytham_Saba_Resume.pdf"
               className="mx-auto"
             />
