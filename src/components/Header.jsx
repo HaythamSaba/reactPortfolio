@@ -126,8 +126,12 @@ function Header() {
               <button
                 onClick={() => handleScroll("#home")}
                 className="text-primary-400 p-4 hover:bg-background rounded-full bg-primary-500 hover:text-darkBackground transition-colors duration-300"
+                aria-label="Go to home section"
               >
-                <HomeIcon className="w-8 h-8 text-darkBackground" />
+                <HomeIcon
+                  aria-label="Home icon"
+                  className="w-8 h-8 text-darkBackground"
+                />
               </button>
 
               {/* Desktop Menu */}
@@ -141,6 +145,7 @@ function Header() {
                         backgroundColor: "#161b22",
                         transition: { duration: 0.4, ease: "easeInOut" },
                       }}
+                      aria-label={`Go to ${item.name} section`}
                     >
                       {item.name}
                     </motion.button>
@@ -151,6 +156,7 @@ function Header() {
               {/* Mobile Menu Button */}
               <div
                 onClick={() => setNav(!nav)}
+                aria-label="Open menu"
                 className="lg:hidden border border-background rounded-full p-3 cursor-pointer z-30"
               >
                 {nav ? (
@@ -164,6 +170,7 @@ function Header() {
               <button
                 onClick={() => handleScroll("#contact")}
                 className="hidden lg:inline-flex text-secondary-400 p-4 hover:bg-background rounded-full bg-secondary-500 hover:text-darkBackground transition-colors duration-300"
+                aria-label="Go to contact section"
               >
                 <EnvelopeIcon className="h-8 w-8 text-darkBackground" />
               </button>
@@ -178,6 +185,7 @@ function Header() {
             <button
               onClick={() => handleScroll("#home")}
               className="text-primary-400 p-4 hover:bg-background rounded-full bg-primary-500 hover:text-darkBackground transition-colors duration-300 z-30"
+              aria-label="Go to home section"
             >
               <HomeIcon className="w-8 h-8 text-darkBackground" />
             </button>
@@ -193,6 +201,7 @@ function Header() {
                       backgroundColor: "#161b22",
                       transition: { duration: 0.4, ease: "easeInOut" },
                     }}
+                    aria-label={`Go to ${item.name} section`}
                   >
                     {item.name}
                   </motion.button>
@@ -201,21 +210,23 @@ function Header() {
             </ul>
 
             {/* Mobile Menu Button */}
-            <div
+            <button
               onClick={() => setNav(!nav)}
-              className="lg:hidden border border-background rounded-full p-3 cursor-pointer z-30 "
+              className="lg:hidden border border-background rounded-full p-3 cursor-pointer z-30"
+              aria-label="Close menu"
             >
               {nav ? (
                 <XMarkIcon className="h-8 w-8 text-background" />
               ) : (
                 <Bars3Icon className="h-8 w-8 text-background" />
               )}
-            </div>
+            </button>
 
             {/* Contact Icon (Desktop Only) */}
             <button
               onClick={() => handleScroll("#contact")}
               className="hidden lg:inline-flex text-secondary-400 p-4 hover:bg-background rounded-full bg-secondary-500 hover:text-darkBackground transition-colors duration-300"
+              aria-label="Go to contact section"
             >
               <EnvelopeIcon className="h-8 w-8 text-darkBackground" />
             </button>
@@ -238,6 +249,7 @@ function Header() {
               <button
                 onClick={() => setNav(!nav)}
                 className="text-primary-400 p-3 hover:bg-background rounded-full bg-primary-500 hover:text-darkBackground transition-colors duration-300"
+                aria-label="Close menu"
               >
                 <XMarkIcon className="h-8 w-8 text-darkBackground" />
               </button>

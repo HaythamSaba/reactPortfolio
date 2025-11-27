@@ -67,7 +67,7 @@ function Certificates() {
                 </p>
               </div>
               <button
-                className="bg-primary-500 hover:bg-primary-600 text-background py-2 px-4 rounded-full transition-colors"
+                className="bg-primary-500 hover:bg-primary-600 text-textColor py-2 px-4 rounded-full transition-colors"
                 onClick={() => setOpenIndex(index)}
               >
                 View Certificate

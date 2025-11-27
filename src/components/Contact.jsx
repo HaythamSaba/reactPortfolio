@@ -39,6 +39,7 @@ function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-blue-600"
+                aria-label="Visit my LinkedIn profile"
               >
                 <FaLinkedin className="w-7 h-7" />
               </a>
@@ -49,16 +50,18 @@ function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-pink-500"
+                aria-label="Visit my Instagram profile"
               >
                 <FaInstagram className="w-7 h-7" />
               </a>
 
               {/* Telegram */}
               <a
-                href="https://t.me/someone_20111"
+                href="https://t.me/someone_10110"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-sky-500"
+                aria-label="Visit my Telegram profile"
               >
                 <FaTelegram className="w-7 h-7" />
               </a>

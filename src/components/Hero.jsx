@@ -18,7 +18,7 @@ function Hero() {
           >
             {" "}
             {/* <div className="absolute inset-0 bg-gradient-to-b from-primary-500 to-transparent rounded-full blur-3xl"></div> */}{" "}
-            <img src="newImg.png" className="w-[150px] relative z-10" />{" "}
+            <img src="newImg.png" className="w-[150px] relative z-10" alt="MY IMAGE" />
           </motion.div>{" "}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -51,7 +51,7 @@ function Hero() {
               whileHover={{
                 scale: 1.05,
                 backgroundColor: "#f0e7db",
-                color: "#0d1117",
+                color: "#5b460b",
                 transition: { duration: 0.2 },
               }}
               whileTap={{
@@ -59,7 +59,7 @@ function Hero() {
                 backgroundColor: "#0d1117",
                 transition: { duration: 0.2 },
               }}
-              className="px-6 py-3 bg-primary-500 text-background rounded-full shadow-lg outline-none"
+              className="px-6 py-3 bg-primary-500 text-textColor rounded-full shadow-lg outline-none"
             >
               {" "}
               Contact Me{" "}

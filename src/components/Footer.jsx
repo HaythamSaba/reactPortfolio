@@ -80,6 +80,7 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer"
               className="hover:text-primary-400"
+              aria-label="Visit my GitHub profile"
             >
               <FaGithub size={22} />
             </a>
@@ -88,6 +89,7 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer"
               className="hover:text-blue-500"
+              aria-label="Visit my LinkedIn profile"
             >
               <FaLinkedin size={22} />
             </a>
@@ -96,6 +98,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-pink-500"
+              aria-label="Visit my Instagram profile"
             >
               <FaInstagram className="w-7 h-7" />
             </a>
