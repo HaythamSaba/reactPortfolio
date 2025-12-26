@@ -32,8 +32,8 @@ export default function Footer() {
           <h2 className="text-2xl font-bold text-slate-100 mb-4">
             My Portfolio
           </h2>
-          <p className="text-sm leading-relaxed">
-            A portfolio website built with React and Tailwind CSS. Hope you like
+          <p className="text-sm leading-relaxed max-w-[342px]">
+            A portfolio website built with React and Tailwind CSS. I hope you like
             it. I'm always open to work with you. Please feel free to provide
             your feedback and suggestions.
           </p>

@@ -22,7 +22,7 @@ function Contact() {
           Get in <span className="text-primary-400">Touch</span>
         </motion.h2>
         <motion.p className="w-1/2">
-          Let's make a difference.
+          Let's make a difference together.
           <br />
           Here is my contact information. If you have any questions or would
           like to work together, please don't hesitate to contact me.

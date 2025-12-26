@@ -71,13 +71,13 @@ function About() {
               ease: "easeOut",
             }}
           >
-            Hey there! I&apos;m Haytham Saba, a Fresh Graduate, passionate
+            Hey there! I&apos;m Haytham Saba, a fresh graduate, passionate
             software developer specializing in front-end, I create interactive
             and responsive web applications using React, Next.js, Tailwind CSS,
             and Framer Motion. I&apos;ve built several full-stack applications,
-            including an e-commerce platform with Supabase backend and custom
+            including an e-commerce platform with Supabase back-end and custom
             authentication. Outside of coding, I enjoy watching football matches
-            and go running
+            and running.
           </motion.p>
           <div className="w-full flex justify-center">
             <MotionGreenButton

@@ -38,7 +38,7 @@ function Hero() {
             </h1>{" "}
             <p className="text-xl mt-4 text-[#e5e7eb]">
               {" "}
-              A passionate Front end developer with a love for creating
+              A passionate front-end developer with a love for creating
               beautiful and functional web applications.{" "}
             </p>{" "}
           </motion.div>{" "}

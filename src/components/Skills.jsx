@@ -136,7 +136,7 @@ export default function Skills() {
           Here is my tech stack, which I have been actively working with and
           continuously learning throughout my journey in software development.
           These tools and technologies form the foundation of my projects and
-          represent the areas where I have gained the most hands-on experience
+          represent the areas where I have gained the most hands-on experiences
         </motion.p>
       </motion.section>
 

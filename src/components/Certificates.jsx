@@ -13,13 +13,13 @@ function Certificates() {
       name: "English React Certificate",
       imageUrl: "/Certificate-Eng-React.jpg",
       description:
-        "Certificate in React from Udemy. Completed successfully in 2024.",
+        "Certificate in React from Udemy, Completed successfully in 2024.",
     },
     {
       name: "Arabic React Certificate",
       imageUrl: "/Certificate-Arb-React.jpg",
       description:
-        "Arabic-language certificate in React from Udemy. Completed successfully in 2024.",
+        "Arabic-language certificate in React from Udemy, Completed successfully in 2024.",
     },
   ];
 
