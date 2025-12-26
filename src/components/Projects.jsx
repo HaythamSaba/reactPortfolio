@@ -24,6 +24,16 @@ const projects = [
     type: "Frontend",
   },
   {
+    title: "Secret Santa Generator",
+    description:
+      "A festive web application for organizing Secret Santa gift exchanges with random pairing algorithm.",
+    devStack: ["React", "Context API", "TailwindCSS"],
+    image: "/project-7.jpg",
+    link: "https://secret-santa-hs.vercel.app/", // Update with your actual deployed link
+    git: "secret-santa",
+    type: "Frontend",
+  },
+  {
     title: "My first Portfolio",
     description:
       "This is my first portfolio project, created while I was in college to learn web development.",
@@ -31,16 +41,6 @@ const projects = [
     image: "/project-3.jpg",
     link: "https://portifilio-livid.vercel.app/",
     git: "Portfolio",
-    type: "Frontend",
-  },
-  {
-    title: "My World",
-    description:
-      "In this project, I built a blog website that tells the world about me.",
-    devStack: ["HTML", "CSS", "JavaScript"],
-    image: "/project-4.jpg",
-    link: "https://my-world-vwza.vercel.app/",
-    git: "My-World",
     type: "Frontend",
   },
   {
@@ -58,9 +58,19 @@ const projects = [
     description:
       "A web application that provides current weather and time information for any city worldwide.",
     devStack: ["HTML", "CSS", "JavaScript", "Weather API"],
-    image: "/project-6.jpg", 
+    image: "/project-6.jpg",
     link: "https://currently-peach.vercel.app/",
     git: "currently",
+    type: "Frontend",
+  },
+  {
+    title: "My World",
+    description:
+      "In this project, I built a blog website that tells the world about me.",
+    devStack: ["HTML", "CSS", "JavaScript"],
+    image: "/project-4.jpg",
+    link: "https://my-world-vwza.vercel.app/",
+    git: "My-World",
     type: "Frontend",
   },
 ];
@@ -140,9 +150,9 @@ export default function Projects() {
                 className="h-[220px] w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
               />
             </div>
-            <div className="flex flex-col px-6 py-4 gap-2 bg-background rounded-b-lg">
+            <div className="flex flex-col px-6 py-4 gap-2 bg-background rounded-b-lg min-h-[240px] justify-between">
               <h3>{project.title}</h3>
-              <p className="text-sm text-muted-foreground mb-2">
+              <p className="text-md tracking-wide mb-2">
                 {project.description}
               </p>
               <div className="flex gap-2 flex-wrap">
