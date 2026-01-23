@@ -14,14 +14,14 @@ const projects = [
     type: "Fullstack",
   },
   {
-    title: "E-Shop Website",
+    title: "Habit Flow",
     description:
-      "E-commerce website that allows users to browse and purchase clothes for men and women.",
-    devStack: ["HTML", "CSS", "JavaScript"],
+      "A full-stack habit tracking web application that helps users to track their habits, daily completion monitoring, and gamification.",
+    devStack: ["React", "Next.js", "TailwindCSS", "Supabase"],
     image: "/project-1.jpg",
-    link: "https://e-shop-website-opal.vercel.app/",
-    git: "E-Shop-Website",
-    type: "Frontend",
+    link: "https://habitflow-hs.vercel.app/",
+    git: "habitflow",
+    type: "Fullstack",
   },
   {
     title: "Secret Santa Generator",
