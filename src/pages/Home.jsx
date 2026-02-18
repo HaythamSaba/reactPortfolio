@@ -6,12 +6,13 @@ import Projects from "../components/Projects";
 import Skills from "../components/Skills";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
+import ScrollUpButton from "../components/ScrollUpButton";
 
 function Home() {
   return (
     <div className="min-h-screen bg-darkBackground text-background">
       <StarsBackground />
-      
+      <ScrollUpButton />
       {/* Hero Section */}
       <section id="home">
         <Hero />
@@ -22,8 +23,8 @@ function Home() {
         <About />
       </section>
 
-      {/* Projects Section */}
-      <section id="projects">
+      {/* Certificates Section */}
+      <section id="certificates">
         <Certificates />
       </section>
 
