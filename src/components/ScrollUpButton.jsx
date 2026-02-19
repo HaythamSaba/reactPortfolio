@@ -1,4 +1,4 @@
-import { ArrowUp } from "lucide-react";
+import { MdArrowUpward } from "react-icons/md";
 import { useEffect, useState } from "react";
 
 function ScrollUpButton() {
@@ -21,10 +21,10 @@ function ScrollUpButton() {
 
   return (
     <div
-      className="fixed bottom-4 right-4 z-50 bg-primary-300 p-2 rounded-full text-black cursor-pointer"
+      className="fixed bottom-4 right-4 z-50 bg-primary-300 p-2 rounded-full text-black cursor-pointer transition-all duration-300 hover:bg-primary-500 hover:text-white"
       onClick={handleScrollToTop}
     >
-      <ArrowUp />
+      <MdArrowUpward />
     </div>
   );
 }
