@@ -21,7 +21,6 @@ const NavItems = [
   { name: "Contact Me", href: "#contact" },
 ];
 
-// Framer Motion variants
 const menuVariants = {
   hidden: { x: "100%" },
   visible: {
@@ -46,59 +45,54 @@ function Header() {
 
   const handleScroll = (href) => {
     if (lenis) {
-      lenis.scrollTo(href, { offset: 0, duration: 1.2 });
+      lenis.start();
+      lenis.scrollTo(href, { offset: -120, duration: 1.2 });
     }
-    setNav(false); // Always close the mobile menu after a click
+    setNav(false);
   };
 
   const { scrollY } = useScroll();
   const [scrolled, setScrolled] = useState(false);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    setScrolled(latest > 200); // scroll threshold
+    setScrolled(latest > 200);
   });
 
   useEffect(() => {
     const handleResize = () => {
-      // Set the mobile menu to closed if the screen size is larger than 'lg' breakpoint
       if (window.innerWidth >= 1024) {
         setNav(false);
       }
     };
 
     window.addEventListener("resize", handleResize);
-
-    // Cleanup the event listener when the component unmounts
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
     if (!lenis) return;
 
     if (nav) {
-      lenis.stop(); // freeze scrolling
+      lenis.stop();
       document.documentElement.classList.add(
         "overflow-hidden",
-        "overscroll-none"
+        "overscroll-none",
       );
       document.body.classList.add("overflow-hidden", "overscroll-none");
     } else {
-      lenis.start(); // resume scrolling
+      lenis.start();
       document.documentElement.classList.remove(
         "overflow-hidden",
-        "overscroll-none"
+        "overscroll-none",
       );
       document.body.classList.remove("overflow-hidden", "overscroll-none");
     }
 
     return () => {
-      // safety: always re-enable if component unmounts
       lenis.start();
       document.documentElement.classList.remove(
         "overflow-hidden",
-        "overscroll-none"
+        "overscroll-none",
       );
       document.body.classList.remove("overflow-hidden", "overscroll-none");
     };
@@ -106,7 +100,7 @@ function Header() {
 
   return (
     <>
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
         {scrolled ? (
           <motion.nav
             key="scrolled-nav"
@@ -128,14 +122,10 @@ function Header() {
                 className="text-primary-400 p-4 hover:bg-background rounded-full bg-primary-500 hover:text-darkBackground transition-colors duration-300"
                 aria-label="Go to home section"
               >
-                <HomeIcon
-                  aria-label="Home icon"
-                  className="w-8 h-8 text-darkBackground"
-                />
+                <HomeIcon className="w-8 h-8 text-darkBackground" />
               </button>
 
-              {/* Desktop Menu */}
-              <ul className="hidden lg:flex gap-6 text-lg font-semibold border border-background rounded-full">
+              <ul className="hidden lg:flex gap-6 text-lg font-semibold border border-background rounded-full px-[2px] py-2">
                 {NavItems.map((item) => (
                   <li key={item.name}>
                     <motion.button
@@ -153,10 +143,9 @@ function Header() {
                 ))}
               </ul>
 
-              {/* Mobile Menu Button */}
-              <div
+              <button
                 onClick={() => setNav(!nav)}
-                aria-label="Open menu"
+                aria-label={nav ? "Close menu" : "Open menu"}
                 className="lg:hidden border border-background rounded-full p-3 cursor-pointer z-30"
               >
                 {nav ? (
@@ -164,7 +153,7 @@ function Header() {
                 ) : (
                   <Bars3Icon className="h-8 w-8 text-background" />
                 )}
-              </div>
+              </button>
 
               {/* Contact Icon (Desktop Only) */}
               <button
@@ -179,7 +168,7 @@ function Header() {
         ) : (
           <div
             key="initial-nav"
-            className="flex w-full justify-between items-center py-4"
+            className=" flex justify-between items-center py-4"
           >
             {/* Home Icon */}
             <button
@@ -209,11 +198,11 @@ function Header() {
               ))}
             </ul>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button — ✅ dynamic aria-label */}
             <button
               onClick={() => setNav(!nav)}
               className="lg:hidden border border-background rounded-full p-3 cursor-pointer z-30"
-              aria-label="Close menu"
+              aria-label={nav ? "Close menu" : "Open menu"}
             >
               {nav ? (
                 <XMarkIcon className="h-8 w-8 text-background" />
@@ -234,7 +223,7 @@ function Header() {
         )}
       </AnimatePresence>
 
-      {/* Mobile Menu (conditionally rendered with AnimatePresence) */}
+      {/* Mobile Fullscreen Menu */}
       <AnimatePresence>
         {nav && (
           <motion.ul
@@ -242,18 +231,19 @@ function Header() {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="fixed inset-0 h-[100dvh] w-screen overflow-hidden touch-none bg-darkBackground/95 
-             flex flex-col items-center justify-center gap-6 z-40 "
+            className="fixed inset-0 h-[100dvh] w-screen overflow-hidden touch-none bg-darkBackground/95 flex flex-col items-center justify-center gap-6 z-40"
           >
-            <div className="absolute top-6 right-[90px]">
+            {/* ✅ right-6 instead of hardcoded right-[90px] */}
+            <div className="absolute top-6 right-6">
               <button
-                onClick={() => setNav(!nav)}
+                onClick={() => setNav(false)}
                 className="text-primary-400 p-3 hover:bg-background rounded-full bg-primary-500 hover:text-darkBackground transition-colors duration-300"
                 aria-label="Close menu"
               >
                 <XMarkIcon className="h-8 w-8 text-darkBackground" />
               </button>
             </div>
+
             {NavItems.map((item) => (
               <motion.li
                 variants={itemVariants}

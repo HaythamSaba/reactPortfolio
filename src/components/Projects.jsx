@@ -1,52 +1,43 @@
 import { LinkIcon } from "@heroicons/react/24/outline";
+import { FaGithub } from "react-icons/fa"; // ✅ replaced inline SVG
 import { motion } from "framer-motion";
-import useMobile from "../hooks/useMobile";
-// Hook to detect mobile screens efficiently
 
+// ✅ HabitFlow added, moved outside component
 const projects = [
   {
+    title: "HabitFlow",
+    description:
+      "A comprehensive habit tracking application with streaks, analytics, and user authentication.",
+    devStack: ["React", "TypeScript", "TailwindCSS", "Supabase"],
+    image: "/project-1.jpg",
+    link: "https://github.com/HaythamSaba/habitflow",
+    git: "habitflow",
+    type: "Fullstack",
+  },
+  {
     title: "Lights Up",
-    description: "E-commerce website that allows users to buy Luxury Lights.",
+    description: "E-commerce website that allows users to buy luxury lights.",
     devStack: ["React", "Next.js", "TailwindCSS", "Supabase"],
     image: "/project-2.jpg",
     link: "https://lights-up-haythamsabas-projects.vercel.app/",
     git: "lights-up",
     type: "Fullstack",
   },
-  {
-    title: "E-Shop Website",
-    description:
-      "E-commerce website that allows users to browse and purchase clothes for men and women.",
-    devStack: ["HTML", "CSS", "JavaScript"],
-    image: "/project-1.jpg",
-    link: "https://e-shop-website-opal.vercel.app/",
-    git: "E-Shop-Website",
-    type: "Frontend",
-  },
+
   {
     title: "Secret Santa Generator",
     description:
-      "A festive web application for organizing Secret Santa gift exchanges with random pairing algorithm.",
+      "A festive web application for organizing Secret Santa gift exchanges with a random pairing algorithm.",
     devStack: ["React", "Context API", "TailwindCSS"],
     image: "/project-7.jpg",
-    link: "https://secret-santa-hs.vercel.app/", // Update with your actual deployed link
+    link: "https://secret-santa-hs.vercel.app/",
     git: "secret-santa",
-    type: "Frontend",
-  },
-  {
-    title: "My first Portfolio",
-    description:
-      "This is my first portfolio project, created while I was in college to learn web development.",
-    devStack: ["HTML", "CSS", "JavaScript"],
-    image: "/project-3.jpg",
-    link: "https://portifilio-livid.vercel.app/",
-    git: "Portfolio",
     type: "Frontend",
   },
   {
     title: "Quiz App",
     description:
-      "I built a quiz app that allows users to test their knowledge in different programming languages.",
+      "A quiz app that allows users to test their knowledge in different programming languages.",
     devStack: ["React", "CSS", "Context API"],
     image: "/project-5.jpg",
     link: "https://quiz-app-git-main-haythamsabas-projects.vercel.app/",
@@ -64,85 +55,77 @@ const projects = [
     type: "Frontend",
   },
   {
-    title: "My World",
+    title: "My first Portfolio",
     description:
-      "In this project, I built a blog website that tells the world about me.",
+      "My first portfolio project, created while in college to learn web development.",
     devStack: ["HTML", "CSS", "JavaScript"],
-    image: "/project-4.jpg",
-    link: "https://my-world-vwza.vercel.app/",
-    git: "My-World",
+    image: "/project-3.jpg",
+    link: "https://portifilio-livid.vercel.app/",
+    git: "Portfolio",
     type: "Frontend",
   },
 ];
 
-// Parent animation (stagger)
 const cardParentVariants = {
   initial: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
       when: "beforeChildren",
-      staggerChildren: 0.4,
-      delayChildren: 0.2,
+      staggerChildren: 0.15, // ✅ was 0.4 — too slow for 7 cards
+      delayChildren: 0.1,
     },
   },
 };
 
-// Each card animation
 const cardVariants = {
   initial: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-  exit: { opacity: 0, y: 20, transition: { duration: 0.5 } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
 };
 
 export default function Projects() {
-  const isMobile = useMobile();
-
-  // Conditionally choose the component type: motion.div or a regular div
-  const ProjectCard = isMobile ? "div" : motion.div;
-  const ProjectGrid = isMobile ? "div" : motion.div;
-
   return (
-    <section id="projects">
+    // ✅ Added template, bg, py for consistent section styling
+    <section
+      id="projects"
+      className="template bg-darkBackground py-16 text-background"
+    >
       {/* Section Title */}
-      <motion.section
-        className="flex flex-col gap-10 mb-10 overflow-hidden text-center justify-center items-center mt-14"
-        initial="hidden"
-        whileInView="visible"
+      <motion.div
+        className="flex flex-col gap-4 mb-12 text-center items-center"
+        initial={{ opacity: 0, y: -50 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        variants={{
-          hidden: { opacity: 0, y: -50 },
-          visible: { opacity: 1, y: 0 },
-        }}
       >
-        <motion.h2 className="text-7xl font-extrabold tracking-wide text-slate-100 text-center">
+        <h2 className="text-3xl md:text-7xl font-extrabold tracking-wide text-slate-100">
           My <span className="text-primary-400">Projects</span>
-        </motion.h2>
-        <motion.p>
-          Here are some of the projects that I have worked on. Each project is a
-          unique opportunity to learn and grow.
-        </motion.p>
-      </motion.section>
+        </h2>
+        <p className="max-w-xl text-slate-300">
+          Here are some of the projects I have worked on. Each one is a unique
+          opportunity to learn and grow.
+        </p>
+      </motion.div>
 
-      {/* Projects Grid */}
-      <ProjectGrid
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 template relative z-10"
-        // Only apply Framer Motion props if not on a mobile screen
-        {...(!isMobile && {
-          variants: cardParentVariants,
-          initial: "initial",
-          whileInView: "visible",
-          viewport: { once: false, amount: 0.3 },
-        })}
+      {/* Projects Grid — ✅ animations on all devices, once: true */}
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 relative z-10"
+        variants={cardParentVariants}
+        initial="initial"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }} // ✅ was once: false
       >
         {projects.map((project) => (
-          <ProjectCard
+          <motion.div
             key={project.title}
-            className="group bg-darkBackground rounded-lg overflow-hidden shadow-sm text-darkBackground"
-            // Only apply Framer Motion props if not on a mobile screen
-            {...(!isMobile && { variants: cardVariants })}
+            variants={cardVariants}
+            className="group bg-darkBackground rounded-lg overflow-hidden shadow-sm"
           >
+            {/* Image */}
             <div className="overflow-hidden">
               <img
                 src={project.image}
@@ -150,54 +133,55 @@ export default function Projects() {
                 className="h-[220px] w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
               />
             </div>
-            <div className="flex flex-col px-6 py-4 gap-2 bg-background rounded-b-lg min-h-[240px] justify-between">
-              <h3>{project.title}</h3>
-              <p className="text-md tracking-wide mb-2">
+
+            {/* Card Body */}
+            <div className="flex flex-col px-6 py-4 gap-2 bg-background rounded-b-lg min-h-[280px] justify-between">
+              <h3 className="text-darkBackground">{project.title}</h3>
+              <p className="text-md tracking-wide text-darkBackground mb-2">
                 {project.description}
               </p>
+
               <div className="flex gap-2 flex-wrap">
                 {project.devStack.map((stack) => (
                   <span
                     key={stack}
-                    className="px-2 py-1 text-sm font-semibold rounded-full text-darkBackground bg-secondary-400 even:bg-secondary-400 odd:bg-primary-400"
+                    className="px-2 py-1 text-sm font-semibold rounded-full text-darkBackground odd:bg-primary-400 even:bg-secondary-400"
                   >
                     {stack}
                   </span>
                 ))}
               </div>
+
+              {/* Links */}
               <div className="flex justify-between items-center mt-4">
                 <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`View live site for ${project.title}`}
+                  className="hover:text-primary-400 transition-colors"
                 >
-                  <LinkIcon className="w-5 h-5" />
+                  <LinkIcon className="w-5 h-5 text-darkBackground" />
                 </a>
-                <span className="bg-darkBackground text-background px-2 py-1 rounded-full font-semibold">
+
+                <span className="bg-darkBackground text-background px-2 py-1 rounded-full font-semibold text-sm">
                   {project.type}
                 </span>
+
                 <a
                   href={`https://github.com/HaythamSaba/${project.git}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`View source code for ${project.title} on GitHub`}
+                  className="hover:text-primary-400 transition-colors"
                 >
-                  <svg
-                    className="w-6 h-6 fill-current text-gray-800"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M12 0C5.37 0 0 5.37 0 12a12 12 0 008.21 11.43c.6.11.82-.26.82-.58v-2.17c-3.34.73-4.04-1.61-4.04-1.61-.55-1.38-1.34-1.74-1.34-1.74-1.09-.74.08-.73.08-.73 1.2.08 1.83 1.23 1.83 1.23 1.07 1.82 2.8 1.29 3.48.99.11-.77.42-1.29.76-1.58-2.67-.3-5.48-1.34-5.48-5.96 0-1.32.47-2.4 1.24-3.25-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.48 11.48 0 0112 6.84c1.02.01 2.05.14 3.01.42 2.28-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.85 1.24 1.93 1.24 3.25 0 4.63-2.82 5.65-5.5 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.83.58A12 12 0 0024 12c0-6.63-5.37-12-12-12z"
-                    />
-                  </svg>
+                  <FaGithub className="w-6 h-6 text-darkBackground text-2xl" />
                 </a>
               </div>
             </div>
-          </ProjectCard>
+          </motion.div>
         ))}
-      </ProjectGrid>
+      </motion.div>
     </section>
   );
 }

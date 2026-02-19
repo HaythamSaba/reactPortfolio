@@ -1,5 +1,6 @@
 import { useMotionValue, useTransform, motion, animate } from "framer-motion";
 import { useEffect, useRef } from "react";
+import { useInView } from "framer-motion";
 
 export default function SkillCircle({ name, value, icon }) {
   const radius = 50;
@@ -8,26 +9,31 @@ export default function SkillCircle({ name, value, icon }) {
 
   const progressText = useTransform(
     progressValue,
-    (latest) => `${Math.round(latest)}%`
+    (latest) => `${Math.round(latest)}%`,
   );
 
   const strokeDashoffset = useTransform(
     progressValue,
-    (latest) => circumference - (latest / 100) * circumference
+    (latest) => circumference - (latest / 100) * circumference,
   );
 
-  // The `useEffect` will be triggered when the component is mounted,
-  // which happens sequentially thanks to the parent's stagger.
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   useEffect(() => {
-    animate(progressValue, value, {
-      duration: 1.5,
-      ease: [0.42, 0, 0.58, 1],
-    });
-  }, [value, progressValue]);
+    if (isInView) {
+      animate(progressValue, value, {
+        duration: 1.5,
+        ease: [0.42, 0, 0.58, 1],
+      });
+    }
+  }, [isInView, value, progressValue]);
 
   return (
-    // This is now a regular div
-    <div className="flex flex-col items-center relative border border-[#82e0aa]/30 w-full p-4 rounded-lg shadow-box bg-background/10">
+    <div
+      ref={ref}
+      className="flex flex-col items-center relative border border-[#82e0aa]/30 w-full p-4 rounded-lg shadow-box bg-background/10"
+    >
       <div className="relative w-[120px] h-[120px] flex items-center justify-center">
         <svg width="120" height="120" className="rotate-[-90deg]">
           <circle

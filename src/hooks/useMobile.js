@@ -1,8 +1,13 @@
 import { useEffect, useState, useRef } from "react";
 
 function useMobile(breakpoint = 768) {
-  const [isMobile, setIsMobile] = useState(false);
-  const isMobileRef = useRef(false);
+  // ✅ Lazy initializer — reads real screen size on first render, no flash
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== "undefined" ? window.innerWidth < breakpoint : false,
+  );
+  const isMobileRef = useRef(
+    typeof window !== "undefined" ? window.innerWidth < breakpoint : false,
+  );
 
   useEffect(() => {
     const checkScreen = () => {
@@ -13,7 +18,6 @@ function useMobile(breakpoint = 768) {
       }
     };
 
-    checkScreen();
     window.addEventListener("resize", checkScreen);
     return () => window.removeEventListener("resize", checkScreen);
   }, [breakpoint]);

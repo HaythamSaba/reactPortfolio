@@ -6,15 +6,14 @@ import NotFound from "./pages/NotFound";
 
 function App() {
   return (
-    <ReactLenis root>
-      <BrowserRouter>
+    <BrowserRouter>
+      <ReactLenis root>
         <Routes>
           <Route index element={<Home />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
-    </ReactLenis>
+      </ReactLenis>
+    </BrowserRouter>
   );
 }
-
 export default App;

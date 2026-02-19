@@ -3,11 +3,14 @@ import GreenButton from "./GreenButton";
 
 function ContactForm() {
   const [state, handleSubmit] = useForm("xvgbobnr");
+
   if (state.succeeded) {
     return (
-      <div className="md:w-1/2 w-full gap-4 flex flex-col bg-primary-200/10 p-4 rounded-md">
-        <h3 className="text-center">Thanks for your message!</h3>
-        <p className="text-center">I'll Replay as soon as possible</p>
+      <div className="md:w-1/2 w-full gap-4 flex flex-col items-center justify-center bg-primary-200/10 p-8 rounded-md">
+        <h3 className="text-center text-primary-400">Message Sent!</h3>
+        <p className="text-center text-slate-300">
+          Thanks for reaching out — I'll reply as soon as possible.
+        </p>
       </div>
     );
   }
@@ -15,46 +18,65 @@ function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="md:w-1/2 w-full gap-4 flex flex-col bg-primary-200/10 p-4 rounded-md"
+      className="md:w-1/2 w-full gap-4 flex flex-col bg-primary-200/10 p-6 rounded-md"
     >
-      <input type="text" name="_website" style={{ display: "none" }} />
-      <h3 className="text-center">Let's get in touch</h3>
+      <input type="text" name="_gotcha" style={{ display: "none" }} />
+
+      <h3 className="text-center mb-2">Let's get in touch</h3>
+
       <div className="flex flex-col gap-4">
-        <label htmlFor="name">Name</label>
+        {/* Name */}
+        <label htmlFor="name" className="text-slate-300">
+          Name
+        </label>
         <input
           type="text"
           name="name"
           id="name"
           placeholder="Your name"
-          className="bg-transparent border border-primary-300 p-2 rounded-md"
+          required 
+          className="bg-transparent border border-primary-300 p-2 rounded-md text-slate-100 placeholder:text-slate-500 outline-none focus:border-primary-400 transition-colors"
         />
         <ValidationError prefix="Name" field="name" errors={state.errors} />
-        <label htmlFor="email">Email</label>
+
+        <label htmlFor="email" className="text-slate-300">
+          Email
+        </label>
         <input
           type="email"
-          name="_replyto"
+          name="email"
           id="email"
           placeholder="Your email"
-          className="bg-transparent border border-primary-300 p-2 rounded-md"
+          required
+          className="bg-transparent border border-primary-300 p-2 rounded-md text-slate-100 placeholder:text-slate-500 outline-none focus:border-primary-400 transition-colors"
         />
         <ValidationError prefix="Email" field="email" errors={state.errors} />
-        <label htmlFor="message">Message</label>
+
+        {/* Message */}
+        <label htmlFor="message" className="text-slate-300">
+          Message
+        </label>
         <textarea
           name="message"
           id="message"
           placeholder="Your message"
-          className="bg-transparent border border-primary-300 p-4 rounded-md"
+          required
+          rows={5}
+          className="bg-transparent border border-primary-300 p-4 rounded-md text-slate-100 placeholder:text-slate-500 outline-none focus:border-primary-400 transition-colors resize-none"
         />
         <ValidationError
           prefix="Message"
           field="message"
           errors={state.errors}
         />
+
         <GreenButton
           type="submit"
           disabled={state.submitting}
-          text="Send Message"
-          className="px-6 py-3 bg-primary-500 text-background rounded-full shadow-lg outline-none"
+          text={state.submitting ? "Sending..." : "Send Message"}
+          className={`${
+            state.submitting ? "opacity-50 cursor-not-allowed" : ""
+          }`}
         />
       </div>
     </form>
