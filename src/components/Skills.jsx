@@ -45,9 +45,10 @@ const cardVariants = {
 };
 
 function SkillCard({ name, icon: Icon, color, index }) {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <motion.div
-      // ✅ Each card owns its own animation — not dependent on parent state
       initial="hidden"
       animate="visible"
       exit="exit"
@@ -60,6 +61,8 @@ function SkillCard({ name, icon: Icon, color, index }) {
         boxShadow:
           "rgba(255, 255, 255, 0.2) 0px 20px 25px -5px, rgba(255, 255, 255, 0.1) 0px 10px 10px -5px",
       }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       whileHover={{
         scale: 1.08,
         backgroundColor: `${color}12`,
@@ -73,34 +76,33 @@ function SkillCard({ name, icon: Icon, color, index }) {
         style={{ backgroundColor: `${color}18` }}
       />
 
-      {/* Icon */}
-      <motion.span
+      {/* Icon — ✅ color driven by card hover, not icon hover */}
+      <span
         className="relative z-10 text-4xl transition-all duration-300"
-        whileHover={{ color }}
+        style={{
+          color: isHovered ? color : "rgba(148,163,184,0.5)",
+          filter: isHovered
+            ? `drop-shadow(0 0 8px ${color})`
+            : "drop-shadow(0 0 0px transparent)",
+          transition: "color 0.3s ease, filter 0.3s ease",
+        }}
       >
-        <Icon
-          style={{
-            filter: "drop-shadow(0 0 0px transparent)",
-            transition: "filter 0.3s ease, color 0.3s ease",
-          }}
-        />
-      </motion.span>
+        <Icon />
+      </span>
 
-      {/* Name */}
-      <motion.span
-        className="relative z-10 text-xs font-semibold tracking-wide text-center leading-tight"
-        style={{ color: "rgba(148,163,184,0.4)" }}
-        whileHover={{ color: "#e2e8f0" }}
+      <span
+        className="relative z-10 text-xs font-semibold tracking-wide text-center leading-tight transition-colors duration-300"
+        style={{ color: isHovered ? "#e2e8f0" : "rgba(148,163,184,0.4)" }}
       >
         {name}
-      </motion.span>
+      </span>
 
       {/* Bottom accent line */}
       <motion.div
         className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] rounded-full"
         style={{ backgroundColor: color }}
         initial={{ width: 0 }}
-        whileHover={{ width: "50%" }}
+        animate={{ width: isHovered ? "50%" : "0%", }} // ✅ also card-driven
         transition={{ duration: 0.25 }}
       />
     </motion.div>
@@ -157,7 +159,7 @@ export default function Skills() {
           text={isShow ? "Show Less Skills" : "Show More Skills"}
           onClick={() => {
             setIsShow(!isShow);
-            if (isShow){
+            if (isShow) {
               handleScroll("#tech");
             }
           }}
@@ -166,13 +168,13 @@ export default function Skills() {
 
       {/* Tagline */}
       <motion.p
-        className="mt-14 text-slate-700 text-xs tracking-widest uppercase"
+        className="mt-14 text-slate-300 text-sm tracking-widest uppercase"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 1, duration: 1 }}
       >
-        always learning · always building
+        | always learning :: always building |
       </motion.p>
     </section>
   );
