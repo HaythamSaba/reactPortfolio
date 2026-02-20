@@ -23,11 +23,6 @@ function Home() {
         <About />
       </section>
 
-      {/* Certificates Section */}
-      <section id="certificates">
-        <Certificates />
-      </section>
-
       {/* Projects Section */}
       <section id="projects">
         <Projects />
@@ -36,6 +31,11 @@ function Home() {
       {/* Skills / Tech Section */}
       <section id="tech">
         <Skills />
+      </section>
+      
+      {/* Certificates Section */}
+      <section id="certificates">
+        <Certificates />
       </section>
 
       {/* Contact Section */}

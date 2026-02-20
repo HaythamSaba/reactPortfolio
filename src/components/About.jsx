@@ -54,9 +54,9 @@ function About() {
           {/* Profile Image */}
           <motion.img
             variants={itemVariants}
-            src="profileImage.png"
+            src="newprofileimage.png"
             alt="Haytham Saba"
-            className="w-[250px] md:w-[400px] rounded-full bg-[radial-gradient(closest-side,#161b22_80%,#f7dc6f)]"
+            className="rounded-full bg-[radial-gradient(closest-side,#161b22_80%,#f7dc6f)]"
           />
 
           {/* Text + Button */}
