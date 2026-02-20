@@ -113,7 +113,7 @@ export default function Projects() {
 
       {/* Projects Grid — ✅ animations on all devices, once: true */}
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 relative z-10"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 relative z-0"
         variants={cardParentVariants}
         initial="initial"
         whileInView="visible"
@@ -123,7 +123,7 @@ export default function Projects() {
           <motion.div
             key={project.title}
             variants={cardVariants}
-            className="group bg-darkBackground rounded-lg overflow-hidden shadow-sm"
+            className="group bg-darkBackground rounded-lg overflow-hidden relative z-0 shadow-sm"
           >
             {/* Image */}
             <div className="overflow-hidden">
