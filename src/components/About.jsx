@@ -50,13 +50,13 @@ function About() {
         </motion.h2>
 
         {/* Content Row */}
-        <div className="flex items-center justify-center gap-8 flex-wrap">
+        <div className="flex items-center justify-center gap-12 xl:gap-24 flex-wrap">
           {/* Profile Image */}
           <motion.img
             variants={itemVariants}
             src="newprofileimage.png"
             alt="Haytham Saba"
-            className="rounded-full bg-[radial-gradient(closest-side,#161b22_80%,#f7dc6f)]"
+            className="w-[150px] h-[300px] md:w-[250px] md:h-[500px] rounded-full bg-[radial-gradient(closest-side,#161b22_80%,#f7dc6f)]"
           />
 
           {/* Text + Button */}
