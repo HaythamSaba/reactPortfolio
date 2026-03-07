@@ -77,8 +77,8 @@ function About() {
             <MotionGreenButton
               variants={itemVariants}
               text="Download my CV"
-              href="/Haytham_Saba_Resume.pdf"
-              download="Haytham_Saba_Resume.pdf"
+              href="/Haytham_Saba_CV.pdf"
+              download="Haytham_Saba_CV.pdf"
             />
           </div>
         </div>
