@@ -10,7 +10,7 @@ const projects = [
       "A comprehensive habit tracking application with streaks, analytics, and user authentication.",
     devStack: ["React", "TypeScript", "TailwindCSS", "Supabase"],
     image: "/project-1.jpg",
-    link: "https://github.com/HaythamSaba/habitflow",
+    link: "https://habitflow-hs.vercel.app/",
     git: "habitflow",
     type: "Fullstack",
   },
