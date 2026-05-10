@@ -5,6 +5,24 @@ import { motion } from "framer-motion";
 // ✅ HabitFlow added, moved outside component
 const projects = [
   {
+    title: "Kova Studio",
+    description:
+      "Scroll-driven portfolio site built with Next.js 16, GSAP ScrollTrigger, Framer Motion, and Lenis smooth scroll",
+    devStack: [
+      "Next.js",
+      "TypeScript",
+      "TailwindCSS",
+      "Framer Motion",
+      "GSAP",
+      "Lenis",
+    ],
+    image: "/project-8.jpg",
+    link: "https://kova-studio-hs.vercel.app/",
+    git: "kova-studio",
+    type: "Frontend",
+    progress: true,
+  },
+  {
     title: "HabitFlow",
     description:
       "A comprehensive habit tracking application with streaks, analytics, and user authentication.",
@@ -13,6 +31,7 @@ const projects = [
     link: "https://habitflow-hs.vercel.app/",
     git: "habitflow",
     type: "Fullstack",
+    progress: false,
   },
   {
     title: "Lights Up",
@@ -22,6 +41,7 @@ const projects = [
     link: "https://lights-up-haythamsabas-projects.vercel.app/",
     git: "lights-up",
     type: "Fullstack",
+    progress: false,
   },
 
   {
@@ -33,6 +53,7 @@ const projects = [
     link: "https://secret-santa-hs.vercel.app/",
     git: "secret-santa",
     type: "Frontend",
+    progress: false,
   },
   {
     title: "Quiz App",
@@ -43,6 +64,7 @@ const projects = [
     link: "https://quiz-app-git-main-haythamsabas-projects.vercel.app/",
     git: "quiz-app",
     type: "Frontend",
+    progress: false,
   },
   {
     title: "Currently Weather and Time",
@@ -53,6 +75,7 @@ const projects = [
     link: "https://currently-peach.vercel.app/",
     git: "currently",
     type: "Frontend",
+    progress: false,
   },
   {
     title: "My first Portfolio",
@@ -63,6 +86,7 @@ const projects = [
     link: "https://portifilio-livid.vercel.app/",
     git: "Portfolio",
     type: "Frontend",
+    progress: false,
   },
 ];
 
@@ -136,7 +160,16 @@ export default function Projects() {
 
             {/* Card Body */}
             <div className="flex flex-col px-6 py-4 gap-2 bg-background rounded-b-lg min-h-[280px] justify-between">
-              <h3 className="text-darkBackground">{project.title}</h3>
+              <div className="flex justify-between items-center">
+                <h3 className="text-darkBackground">{project.title}</h3>
+                {project.progress && (
+                  <div className="flex justify-between items-center">
+                    <span className="bg-primary-400 text-textColor px-2 py-1 rounded-full font-semibold text-sm">
+                      In Progress
+                    </span>
+                  </div>
+                )}
+              </div>
               <p className="text-md tracking-wide text-darkBackground mb-2">
                 {project.description}
               </p>
