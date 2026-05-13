@@ -286,7 +286,6 @@ function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
-                delay: 3.4,
                 duration: 0.6,
                 type: "spring",
                 stiffness: 200,
@@ -307,7 +306,6 @@ function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
-                delay: 3.55,
                 duration: 0.6,
                 type: "spring",
                 stiffness: 200,
