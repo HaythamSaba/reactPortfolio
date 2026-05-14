@@ -1,5 +1,5 @@
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useEffect, useState, useRef } from "react";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import { useEffect, useState } from "react";
 import Header from "./Header";
 import { useLenis } from "@studio-freight/react-lenis";
 
@@ -27,7 +27,7 @@ function SplitText({ text, className, staggerDelay = 0.04, startDelay = 0 }) {
 }
 
 // ─── Typewriter with cursor ───────────────────────────────────────────────────
-function  Typewriter({ text, startDelay = 1.8 }) {
+function Typewriter({ text, startDelay = 1.8 }) {
   const [displayed, setDisplayed] = useState("");
   const [done, setDone] = useState(false);
   const [showCursor, setShowCursor] = useState(true);
@@ -40,7 +40,6 @@ function  Typewriter({ text, startDelay = 1.8 }) {
         i++;
         if (i >= text.length) {
           clearInterval(interval);
-          // blink a couple times then hide cursor
           setTimeout(() => setDone(true), 800);
         }
       }, 55);
@@ -49,7 +48,6 @@ function  Typewriter({ text, startDelay = 1.8 }) {
     return () => clearTimeout(timeout);
   }, [text, startDelay]);
 
-  // Blinking cursor
   useEffect(() => {
     if (done) {
       setShowCursor(false);
@@ -107,7 +105,6 @@ function GlowOrb() {
 function ProfileRing({ children }) {
   return (
     <div className="relative flex items-center justify-center w-[170px] h-[170px]">
-      {/* Slow outer ring */}
       <motion.div
         className="absolute inset-0 rounded-full"
         style={{
@@ -117,7 +114,6 @@ function ProfileRing({ children }) {
         animate={{ rotate: 360 }}
         transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
       >
-        {/* Bright dot travelling around the ring */}
         <div
           className="absolute w-2 h-2 rounded-full -top-1 left-1/2 -translate-x-1/2"
           style={{
@@ -127,18 +123,13 @@ function ProfileRing({ children }) {
         />
       </motion.div>
 
-      {/* Fast inner ring — opposite direction */}
       <motion.div
         className="absolute rounded-full"
-        style={{
-          inset: 10,
-          border: "1px dashed rgba(247,220,111,0.2)",
-        }}
+        style={{ inset: 10, border: "1px dashed rgba(247,220,111,0.2)" }}
         animate={{ rotate: -360 }}
         transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
       />
 
-      {/* Image */}
       <motion.img
         src="mainLogo-removebg.png"
         alt="Haytham"
@@ -180,8 +171,8 @@ function GridLines() {
       className="absolute inset-0 pointer-events-none"
       style={{
         backgroundImage: `
-          linear-gradient(rgba(130,224,170,0.03) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(130,224,170,0.03) 1px, transparent 1px)
+          linear-gradient(rgba(130, 224, 171, 0.5) 1px, transparent 1px),
+          linear-gradient(90deg, rgb(130, 224, 171, 0.5) 1px, transparent 1px)
         `,
         backgroundSize: "60px 60px",
         maskImage:
@@ -190,6 +181,162 @@ function GridLines() {
     />
   );
 }
+
+// ─── Single floating tech icon ────────────────────────────────────────────────
+// Each icon starts from center and flies to its final position,
+// then gently floats up-and-down forever.
+function  FloatingIcon({
+  src,
+  alt,
+  finalTop,
+  finalLeft,
+  delay,
+  floatDuration = 3,
+  floatDelay = 0,
+  rotate = 0,
+}) {
+  return (
+    <motion.div
+      className="absolute z-0 pointer-events-none"
+      // Start at center of screen, invisible & scaled to 0
+      initial={{
+        top: "50%",
+        left: "50%",
+        x: "-50%",
+        y: "-50%",
+        opacity: 0,
+        scale: 0,
+      }}
+      // Fly out to final position, keep the -50% centering offset on the element itself
+      animate={{
+        top: finalTop,
+        left: finalLeft,
+        x: "-50%",
+        y: "-50%",
+        opacity: 1,
+        scale: 1,
+      }}
+      transition={{
+        duration: 2,
+        delay,
+        ease: [0.12, 1, 0.1, 1],
+      }}
+    >
+      {/* Glass pill behind the icon */}
+
+      {/* Floating animation lives here, independent of the spread animation */}
+      <motion.img
+        src={src}
+        alt={alt}
+        className="w-14 h-14 object-contain"
+        style={{
+          rotate,
+          filter: "drop-shadow(0 2px 8px rgba(130,224,170,0.25))",
+        }}
+        animate={{ y: [0, -7, 0] }}
+        transition={{
+          duration: floatDuration,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: floatDelay,
+        }}
+      />
+    </motion.div>
+  );
+}
+
+// ─── All 8 tech icons config ──────────────────────────────────────────────────
+// Replace src values with your actual image file names.
+// finalTop / finalLeft use CSS percentage strings so they're responsive.
+//
+//  LEFT COLUMN  (4 icons, staggered down the left side)
+//  RIGHT COLUMN (4 icons, mirrored on the right)
+//
+const TECH_ICONS = [
+  // ── Left side ──────────────────────────────────────────
+  {
+    src: "react.png",
+    alt: "React",
+    finalTop: "15%",
+    finalLeft: "12%",
+    delay: 0.15,
+    floatDuration: 3.2,
+    floatDelay: 0,
+    rotate: -6,
+  },
+
+  {
+    src: "css.png",
+    alt: "CSS",
+    finalTop: "56%",
+    finalLeft: "11%",
+    delay: 0.2,
+    floatDuration: 3.5,
+    floatDelay: 0.8,
+    rotate: -3,
+  },
+  {
+    src: "git.png",
+    alt: "Git",
+    finalTop: "35%",
+    finalLeft: "9%",
+    delay: 0.3,
+    floatDuration: 3.0,
+    floatDelay: 1.2,
+    rotate: 5,
+  },
+  {
+    src: "javascript.png",
+    alt: "JavaScript",
+    finalTop: "43%",
+    finalLeft: "23%",
+    delay: 0.25,
+    floatDuration: 2.8,
+    floatDelay: 0.4,
+    rotate: 4,
+  },
+  // ── Right side ─────────────────────────────────────────
+  {
+    src: "typescript.png", // 🔁 swap with your actual file
+    alt: "TypeScript",
+    finalTop: "15%",
+    finalLeft: "88%",
+    delay: 0.15,
+    floatDuration: 2.9,
+    floatDelay: 0.2,
+    rotate: 6,
+  },
+  {
+    src: "tailwindCSS.png", // 🔁 swap with your actual file
+    alt: "Tailwind CSS",
+    finalTop: "35%",
+    finalLeft: "91%",
+    delay: 0.25,
+    floatDuration: 3.3,
+    floatDelay: 0.6,
+    rotate: -4,
+  },
+  {
+    src: "next.png", // 🔁 swap with your actual file
+    alt: "Next.js",
+    finalTop: "56%",
+    finalLeft: "89%",
+    delay: 0.2,
+    floatDuration: 2.7,
+    floatDelay: 1.0,
+    rotate: 3,
+  },
+  {
+    src: "html.png", // 🔁 swap with your actual file
+    alt: "HTML",
+    finalTop: "43%",
+    finalLeft: "77%",
+    delay: 0.3,
+    floatDuration: 3.1,
+    floatDelay: 1.4,
+    rotate: -5,
+  },
+];
 
 // ─── Main Hero ────────────────────────────────────────────────────────────────
 function Hero() {
@@ -205,6 +352,12 @@ function Hero() {
       {/* Background elements */}
       <GridLines />
       <GlowOrb />
+
+      {/* ── 8 floating tech icons ── */}
+      {TECH_ICONS.map((icon) => (
+        <FloatingIcon key={icon.alt} {...icon} />
+      ))}
+
       <div className="absolute bg-darkBackground w-[2400px] h-[1000px] rounded-[50%] left-1/2 -translate-x-1/2 bg-[radial-gradient(closest-side,#161b22_80%,#82e0aa)] top-[450px] border-[1px] border-[#82e0aa]/30" />
 
       <div className="container relative mx-auto z-10">
@@ -285,11 +438,7 @@ function Hero() {
               className="px-6 py-3 bg-primary-500 text-darkBackground font-semibold rounded-full shadow-lg outline-none"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.6,
-                type: "spring",
-                stiffness: 200,
-              }}
+              transition={{ duration: 0.6, type: "spring", stiffness: 200 }}
               whileHover={{
                 scale: 1.06,
                 backgroundColor: "#f0e7db",
@@ -305,11 +454,7 @@ function Hero() {
               className="px-6 py-3 bg-transparent border border-secondary-400 text-background font-semibold rounded-full shadow-lg outline-none"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.6,
-                type: "spring",
-                stiffness: 200,
-              }}
+              transition={{ duration: 0.6, type: "spring", stiffness: 200 }}
               whileHover={{
                 scale: 1.06,
                 backgroundColor: "#f7dc6f",
