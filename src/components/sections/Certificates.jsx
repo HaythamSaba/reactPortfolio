@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { createPortal } from "react-dom";
-import { certificates } from "../data/StaticData";
+import { certificates } from "../../data/StaticData";
 
 const containerVariants = {
   hidden: {},

@@ -1,5 +1,5 @@
 import { useForm, ValidationError } from "@formspree/react";
-import GreenButton from "./GreenButton";
+import GreenButton from "../../ui/GreenButton";
 
 function ContactForm() {
   const [state, handleSubmit] = useForm("xvgbobnr");
@@ -34,7 +34,7 @@ function ContactForm() {
           name="name"
           id="name"
           placeholder="Your name"
-          required 
+          required
           className="bg-transparent border border-primary-300 p-2 rounded-md text-slate-100 placeholder:text-slate-500 outline-none focus:border-primary-400 transition-colors"
         />
         <ValidationError prefix="Name" field="name" errors={state.errors} />

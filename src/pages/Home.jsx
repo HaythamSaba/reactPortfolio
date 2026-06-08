@@ -1,12 +1,12 @@
-import StarsBackground from "../components/StarsBackground";
-import Hero from "../components/Hero";
-import About from "../components/About";
-import Certificates from "../components/Certificates";
-import Projects from "../components/Projects";
-import Skills from "../components/Skills";
-import Contact from "../components/Contact";
-import Footer from "../components/Footer";
-import ScrollUpButton from "../components/ScrollUpButton";
+import StarsBackground from "../components/layout/StarsBackground";
+import Hero from "../components/sections/Hero";
+import About from "../components/sections/About";
+import Certificates from "../components/sections/Certificates";
+import Projects from "../components/sections/Projects";
+import Skills from "../components/sections/Skills";
+import Contact from "../components/sections/Contact/Contact";
+import Footer from "../components/sections/Footer";
+import ScrollUpButton from "../components/layout/ScrollUpButton";
 
 function Home() {
   return (

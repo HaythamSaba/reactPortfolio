@@ -1,6 +1,6 @@
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
-import GreenButton from "./GreenButton";
+import GreenButton from "../ui/GreenButton";
 
 const MotionGreenButton = motion.create(GreenButton);
 
@@ -69,9 +69,9 @@ function About() {
               Frontend developer specialising in React and TypeScript, with
               hands-on experience building full-stack applications including an
               e-commerce platform with Supabase authentication. I work with
-              React, Next.js, Tailwind CSS, TypeScript, and Framer Motion to create
-              interactive and responsive web experiences. Outside of coding, I
-              enjoy watching football and running.
+              React, Next.js, Tailwind CSS, TypeScript, and Framer Motion to
+              create interactive and responsive web experiences. Outside of
+              coding, I enjoy watching football and running.
             </motion.p>
 
             <MotionGreenButton

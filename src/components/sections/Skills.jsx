@@ -10,7 +10,7 @@ import { TbBrandFramerMotion } from "react-icons/tb";
 import { SiCanva, SiTypescript } from "react-icons/si";
 import { DiJsBadge } from "react-icons/di";
 import { useState } from "react";
-import GreenButton from "./GreenButton";
+import GreenButton from "../ui/GreenButton";
 import { useLenis } from "@studio-freight/react-lenis";
 
 const skills = [

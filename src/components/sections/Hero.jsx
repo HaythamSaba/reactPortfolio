@@ -1,9 +1,9 @@
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useState } from "react";
-import Header from "./Header";
+import Header from "../layout/Header";
 import { useLenis } from "@studio-freight/react-lenis";
-import FloatingIcon from "./ui/FloatingIcon";
-import { TECH_ICONS } from "../data/StaticData";
+import FloatingIcon from "../ui/FloatingIcon";
+import { TECH_ICONS } from "../../data/StaticData";
 
 // ─── Letter-by-letter split helper ───────────────────────────────────────────
 function SplitText({ text, className, staggerDelay = 0.04, startDelay = 0 }) {
