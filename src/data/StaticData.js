@@ -84,7 +84,7 @@ export const TECH_ICONS = [
   },
 ];
 
-const projects = [
+export const projects = [
   {
     title: "Kova Studio",
     description:
