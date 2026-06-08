@@ -83,3 +83,90 @@ export const TECH_ICONS = [
     rotate: -5,
   },
 ];
+
+const projects = [
+  {
+    title: "Kova Studio",
+    description:
+      "Scroll-driven portfolio site built with Next.js 16, GSAP ScrollTrigger, Framer Motion, and Lenis smooth scroll",
+    devStack: [
+      "Next.js",
+      "TypeScript",
+      "TailwindCSS",
+      "Framer Motion",
+      "GSAP",
+      "Lenis",
+    ],
+    image: "/project-1.webp",
+    link: "https://kova-studio-hs.vercel.app/",
+    git: "kova-studio",
+    type: "Frontend",
+    progress: true,
+  },
+  {
+    title: "HabitFlow",
+    description:
+      "A comprehensive habit tracking application with streaks, analytics, and user authentication.",
+    devStack: ["React", "TypeScript", "TailwindCSS", "Supabase"],
+    image: "/project-2.webp",
+    link: "https://habitflow-hs.vercel.app/",
+    git: "habitflow",
+    type: "Fullstack",
+    progress: false,
+  },
+  {
+    title: "Secret Santa Generator",
+    description:
+      "A festive web application for organizing Secret Santa gift exchanges with a random pairing algorithm.",
+    devStack: ["React", "Context API", "TailwindCSS"],
+    image: "/project-3.webp",
+    link: "https://secret-santa-hs.vercel.app/",
+    git: "secret-santa",
+    type: "Frontend",
+    progress: false,
+  },
+  {
+    title: "Lights Up",
+    description: "E-commerce website that allows users to buy luxury lights.",
+    devStack: ["React", "Next.js", "TailwindCSS", "Supabase"],
+    image: "/project-4.webp",
+    link: "https://lights-up-haythamsabas-projects.vercel.app/",
+    git: "lights-up",
+    type: "Fullstack",
+    progress: false,
+  },
+
+  {
+    title: "Quiz App",
+    description:
+      "A quiz app that allows users to test their knowledge in different programming languages.",
+    devStack: ["React", "CSS", "Context API"],
+    image: "/project-5.webp",
+    link: "https://quiz-app-git-main-haythamsabas-projects.vercel.app/",
+    git: "quiz-app",
+    type: "Frontend",
+    progress: false,
+  },
+  {
+    title: "Currently Weather and Time",
+    description:
+      "A web application that provides current weather and time information for any city worldwide.",
+    devStack: ["HTML", "CSS", "JavaScript", "Weather API"],
+    image: "/project-6.webp",
+    link: "https://currently-peach.vercel.app/",
+    git: "currently",
+    type: "Frontend",
+    progress: false,
+  },
+  {
+    title: "My first Portfolio",
+    description:
+      "My first portfolio project, created while in college to learn web development.",
+    devStack: ["HTML", "CSS", "JavaScript"],
+    image: "/project-7.webp",
+    link: "https://portifilio-livid.vercel.app/",
+    git: "Portfolio",
+    type: "Frontend",
+    progress: false,
+  },
+];

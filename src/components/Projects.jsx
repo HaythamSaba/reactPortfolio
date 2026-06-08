@@ -1,94 +1,6 @@
 import { LinkIcon } from "@heroicons/react/24/outline";
-import { FaGithub } from "react-icons/fa"; // ✅ replaced inline SVG
+import { FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
-
-// ✅ HabitFlow added, moved outside component
-const projects = [
-  {
-    title: "Kova Studio",
-    description:
-      "Scroll-driven portfolio site built with Next.js 16, GSAP ScrollTrigger, Framer Motion, and Lenis smooth scroll",
-    devStack: [
-      "Next.js",
-      "TypeScript",
-      "TailwindCSS",
-      "Framer Motion",
-      "GSAP",
-      "Lenis",
-    ],
-    image: "/project-8.jpg",
-    link: "https://kova-studio-hs.vercel.app/",
-    git: "kova-studio",
-    type: "Frontend",
-    progress: true,
-  },
-  {
-    title: "HabitFlow",
-    description:
-      "A comprehensive habit tracking application with streaks, analytics, and user authentication.",
-    devStack: ["React", "TypeScript", "TailwindCSS", "Supabase"],
-    image: "/project-1.jpg",
-    link: "https://habitflow-hs.vercel.app/",
-    git: "habitflow",
-    type: "Fullstack",
-    progress: false,
-  },
-  {
-    title: "Lights Up",
-    description: "E-commerce website that allows users to buy luxury lights.",
-    devStack: ["React", "Next.js", "TailwindCSS", "Supabase"],
-    image: "/project-2.jpg",
-    link: "https://lights-up-haythamsabas-projects.vercel.app/",
-    git: "lights-up",
-    type: "Fullstack",
-    progress: false,
-  },
-
-  {
-    title: "Secret Santa Generator",
-    description:
-      "A festive web application for organizing Secret Santa gift exchanges with a random pairing algorithm.",
-    devStack: ["React", "Context API", "TailwindCSS"],
-    image: "/project-7.jpg",
-    link: "https://secret-santa-hs.vercel.app/",
-    git: "secret-santa",
-    type: "Frontend",
-    progress: false,
-  },
-  {
-    title: "Quiz App",
-    description:
-      "A quiz app that allows users to test their knowledge in different programming languages.",
-    devStack: ["React", "CSS", "Context API"],
-    image: "/project-5.jpg",
-    link: "https://quiz-app-git-main-haythamsabas-projects.vercel.app/",
-    git: "quiz-app",
-    type: "Frontend",
-    progress: false,
-  },
-  {
-    title: "Currently Weather and Time",
-    description:
-      "A web application that provides current weather and time information for any city worldwide.",
-    devStack: ["HTML", "CSS", "JavaScript", "Weather API"],
-    image: "/project-6.jpg",
-    link: "https://currently-peach.vercel.app/",
-    git: "currently",
-    type: "Frontend",
-    progress: false,
-  },
-  {
-    title: "My first Portfolio",
-    description:
-      "My first portfolio project, created while in college to learn web development.",
-    devStack: ["HTML", "CSS", "JavaScript"],
-    image: "/project-3.jpg",
-    link: "https://portifilio-livid.vercel.app/",
-    git: "Portfolio",
-    type: "Frontend",
-    progress: false,
-  },
-];
 
 const cardParentVariants = {
   initial: { opacity: 0 },
@@ -96,7 +8,7 @@ const cardParentVariants = {
     opacity: 1,
     transition: {
       when: "beforeChildren",
-      staggerChildren: 0.15, // ✅ was 0.4 — too slow for 7 cards
+      staggerChildren: 0.15,
       delayChildren: 0.1,
     },
   },
@@ -113,7 +25,6 @@ const cardVariants = {
 
 export default function Projects() {
   return (
-    // ✅ Added template, bg, py for consistent section styling
     <section
       id="projects"
       className="template bg-darkBackground py-16 text-background"
