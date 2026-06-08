@@ -54,7 +54,7 @@ function About() {
           {/* Profile Image */}
           <motion.img
             variants={itemVariants}
-            src="newprofileimage.png"
+            src="newprofileimage.webp"
             alt="Haytham Saba"
             className="w-[150px] h-[300px] md:w-[250px] md:h-[500px] rounded-full bg-[radial-gradient(closest-side,#161b22_80%,#f7dc6f)]"
           />
