@@ -74,35 +74,6 @@ function Typewriter({ text, startDelay = 1.8 }) {
   );
 }
 
-// ─── Mouse-tracking glow orb ──────────────────────────────────────────────────
-function GlowOrb() {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const springX = useSpring(mouseX, { stiffness: 60, damping: 20 });
-  const springY = useSpring(mouseY, { stiffness: 60, damping: 20 });
-
-  useEffect(() => {
-    const move = (e) => {
-      mouseX.set(e.clientX - 200);
-      mouseY.set(e.clientY - 200);
-    };
-    window.addEventListener("mousemove", move);
-    return () => window.removeEventListener("mousemove", move);
-  }, [mouseX, mouseY]);
-
-  return (
-    <motion.div
-      className="fixed pointer-events-none z-0 w-[400px] h-[400px] rounded-full"
-      style={{
-        x: springX,
-        y: springY,
-        background:
-          "radial-gradient(circle, rgba(130,224,170,0.07) 0%, transparent 70%)",
-      }}
-    />
-  );
-}
-
 // ─── Rotating ring around profile image ──────────────────────────────────────
 function ProfileRing({ children }) {
   return (
@@ -197,7 +168,6 @@ function Hero() {
     <div className="relative overflow-hidden min-h-screen text-textColor bg-[linear-gradient(to_bottom,_#161b22,_#82e0aa_85%)] flex items-center justify-center template">
       {/* Background elements */}
       <GridLines />
-      <GlowOrb />
 
       {/* ── 8 floating tech icons ── */}
       {TECH_ICONS.map((icon) => (
