@@ -104,7 +104,7 @@ function ProfileRing({ children }) {
       />
 
       <motion.img
-        src="mainLogo-removebg.png"
+        src="mainLogo.webp"
         alt="Haytham"
         className="w-[130px] relative z-10 mt-4"
         animate={{ y: [0, -8, 0] }}
