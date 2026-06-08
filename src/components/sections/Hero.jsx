@@ -1,161 +1,17 @@
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useState } from "react";
-import Header from "../layout/Header";
 import { useLenis } from "@studio-freight/react-lenis";
-import FloatingIcon from "../ui/FloatingIcon";
+
 import { TECH_ICONS } from "../../data/StaticData";
 
-// ─── Letter-by-letter split helper ───────────────────────────────────────────
-function SplitText({ text, className, staggerDelay = 0.04, startDelay = 0 }) {
-  return (
-    <span className={className} aria-label={text}>
-      {text.split("").map((char, i) => (
-        <motion.span
-          key={i}
-          className="inline-block"
-          initial={{ opacity: 0, y: 60, rotateX: -90, filter: "blur(8px)" }}
-          animate={{ opacity: 1, y: 0, rotateX: 0, filter: "blur(0px)" }}
-          transition={{
-            duration: 0.6,
-            delay: startDelay + i * staggerDelay,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-        >
-          {char === " " ? "\u00A0" : char}
-        </motion.span>
-      ))}
-    </span>
-  );
-}
+import Header from "../layout/Header";
+import FloatingIcon from "../ui/FloatingIcon";
+import SplitText from "../ui/SplitText";
+import TypeWriter from "../ui/TypeWriter"
+import ProfileRing from "../ui/ProfileRing";
+import GridLines from "../ui/GridLines";
+import ShimmerLine from "../ui/ShimmerLine";
 
-// ─── Typewriter with cursor ───────────────────────────────────────────────────
-function Typewriter({ text, startDelay = 1.8 }) {
-  const [displayed, setDisplayed] = useState("");
-  const [done, setDone] = useState(false);
-  const [showCursor, setShowCursor] = useState(true);
-
-  useEffect(() => {
-    let i = 0;
-    const timeout = setTimeout(() => {
-      const interval = setInterval(() => {
-        setDisplayed(text.slice(0, i + 1));
-        i++;
-        if (i >= text.length) {
-          clearInterval(interval);
-          setTimeout(() => setDone(true), 800);
-        }
-      }, 55);
-      return () => clearInterval(interval);
-    }, startDelay * 1000);
-    return () => clearTimeout(timeout);
-  }, [text, startDelay]);
-
-  useEffect(() => {
-    if (done) {
-      setShowCursor(false);
-      return;
-    }
-    const blink = setInterval(() => setShowCursor((v) => !v), 530);
-    return () => clearInterval(blink);
-  }, [done]);
-
-  return (
-    <span>
-      {displayed}
-      <span
-        className="inline-block w-[3px] h-[0.85em] ml-1 align-middle rounded-sm"
-        style={{
-          backgroundColor: "#f7dc6f",
-          opacity: showCursor ? 1 : 0,
-          transition: "opacity 0.1s",
-        }}
-      />
-    </span>
-  );
-}
-
-// ─── Rotating ring around profile image ──────────────────────────────────────
-function ProfileRing({ children }) {
-  return (
-    <div className="relative flex items-center justify-center w-[170px] h-[170px]">
-      <motion.div
-        className="absolute inset-0 rounded-full"
-        style={{
-          border: "1.5px solid rgba(130,224,170,0.25)",
-          boxShadow: "0 0 20px rgba(130,224,170,0.08)",
-        }}
-        animate={{ rotate: 360 }}
-        transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-      >
-        <div
-          className="absolute w-2 h-2 rounded-full -top-1 left-1/2 -translate-x-1/2"
-          style={{
-            backgroundColor: "#82e0aa",
-            boxShadow: "0 0 8px #82e0aa, 0 0 20px #82e0aa",
-          }}
-        />
-      </motion.div>
-
-      <motion.div
-        className="absolute rounded-full"
-        style={{ inset: 10, border: "1px dashed rgba(247,220,111,0.2)" }}
-        animate={{ rotate: -360 }}
-        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-      />
-
-      <motion.img
-        src="mainLogo.webp"
-        alt="Haytham"
-        className="w-[130px] relative z-10 mt-4"
-        animate={{ y: [0, -8, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-      />
-    </div>
-  );
-}
-
-// ─── Shimmer sweep on title ───────────────────────────────────────────────────
-function ShimmerLine() {
-  return (
-    <motion.div
-      className="absolute inset-0 pointer-events-none rounded-xl overflow-hidden"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: [0, 1, 0] }}
-      transition={{ delay: 2.4, duration: 0.6, ease: "easeInOut" }}
-    >
-      <motion.div
-        className="absolute top-0 h-full w-[60px]"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent, rgba(247,220,111,0.25), transparent)",
-        }}
-        initial={{ x: "-100%" }}
-        animate={{ x: "800%" }}
-        transition={{ delay: 2.4, duration: 0.8, ease: "easeInOut" }}
-      />
-    </motion.div>
-  );
-}
-
-// ─── Animated background grid lines ──────────────────────────────────────────
-function GridLines() {
-  return (
-    <div
-      className="absolute inset-0 pointer-events-none"
-      style={{
-        backgroundImage: `
-          linear-gradient(rgba(130, 224, 171, 0.5) 1px, transparent 1px),
-          linear-gradient(90deg, rgb(130, 224, 171, 0.5) 1px, transparent 1px)
-        `,
-        backgroundSize: "60px 60px",
-        maskImage:
-          "radial-gradient(ellipse at center, black 20%, transparent 80%)",
-      }}
-    />
-  );
-}
-
-// ─── Main Hero ────────────────────────────────────────────────────────────────
 function Hero() {
   const lenis = useLenis();
 
@@ -190,7 +46,6 @@ function Hero() {
             <ProfileRing />
           </motion.div>
 
-          {/* "Hello, I am" line */}
           <div className="overflow-hidden mb-2">
             <motion.p
               className="text-slate-200 text-sm md:text-base tracking-[0.3em] uppercase font-medium"
@@ -206,13 +61,13 @@ function Hero() {
           <div className="perspective-[800px] mb-3">
             <SplitText
               text="Haytham Saba"
-              className="text-5xl md:text-7xl font-bold tracking-tight text-primary-200 block"
+              className="text-5xl md:text-7xl font-bold tracking-tight text-primary-100 block"
               staggerDelay={0.06}
               startDelay={0.5}
             />
           </div>
 
-          {/* "Frontend Developer" — typewriter + shimmer */}
+          {/* "Frontend Developer" — TypeWriter + shimmer */}
           <div className="relative inline-block mb-6">
             <ShimmerLine />
             <span
@@ -223,7 +78,7 @@ function Hero() {
                 fontWeight: 100,
               }}
             >
-              <Typewriter text="Frontend Developer" startDelay={1.6} />
+              <TypeWriter text="Frontend Developer" startDelay={1.6} />
             </span>
           </div>
 
@@ -238,7 +93,7 @@ function Hero() {
 
           {/* Description */}
           <motion.p
-            className="text-base md:text-lg text-slate-400 max-w-md leading-relaxed mb-8"
+            className="text-base md:text-lg text-slate-300 max-w-md leading-relaxed mb-8"
             initial={{ opacity: 0, filter: "blur(8px)", y: 10 }}
             animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
             transition={{ delay: 3.0, duration: 0.9, ease: "easeOut" }}
@@ -290,11 +145,11 @@ function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 4, duration: 1 }}
           >
-            <span className="text-slate-600 text-xs tracking-widest uppercase">
+            <span className="text-slate-300 text-xs tracking-widest uppercase">
               scroll
             </span>
             <motion.div
-              className="w-[1px] h-8 bg-gradient-to-b from-slate-600 to-transparent"
+              className="w-[1px] h-8 bg-gradient-to-b from-slate-300 to-transparent"
               animate={{ scaleY: [0, 1, 0], originY: 0 }}
               transition={{
                 duration: 1.5,
