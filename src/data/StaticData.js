@@ -170,3 +170,24 @@ export const projects = [
     progress: false,
   },
 ];
+
+export const certificates = [
+  {
+    name: "University Certificate",
+    imageUrl: "/university-Certificate.webp",
+    description:
+      "My university certificate in Software Engineering from Al-Azhar University.",
+  },
+  {
+    name: "English React Certificate",
+    imageUrl: "/Certificate-Eng-React.webp",
+    description:
+      "Certificate in React from Udemy, completed successfully in 2024.",
+  },
+  {
+    name: "Arabic React Certificate",
+    imageUrl: "/Certificate-Arb-React.webp",
+    description:
+      "Arabic-language certificate in React from Udemy, completed successfully in 2024.",
+  },
+];

@@ -1,27 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { createPortal } from "react-dom";
-
-const certificates = [
-  {
-    name: "University Certificate",
-    imageUrl: "/university-Certificate.jpg",
-    description:
-      "My university certificate in Software Engineering from Al-Azhar University.",
-  },
-  {
-    name: "English React Certificate",
-    imageUrl: "/Certificate-Eng-React.jpg",
-    description:
-      "Certificate in React from Udemy, completed successfully in 2024.",
-  },
-  {
-    name: "Arabic React Certificate",
-    imageUrl: "/Certificate-Arb-React.jpg",
-    description:
-      "Arabic-language certificate in React from Udemy, completed successfully in 2024.",
-  },
-];
+import { certificates } from "../data/StaticData";
 
 const containerVariants = {
   hidden: {},
@@ -143,7 +123,7 @@ function Certificates() {
                 </p>
               </div>
               <button
-                className="bg-primary-500 hover:bg-primary-600 text-textColor py-2 px-4 rounded-full transition-colors"
+                className="bg-primary-500 hover:bg-primary-600 font-semibold text-textColor py-2 px-4 rounded-full transition-colors"
                 onClick={() => setOpenIndex(index)}
                 aria-label={`View ${certificate.name}`}
               >
