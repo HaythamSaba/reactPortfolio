@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-function  FloatingIcon({
+function FloatingIcon({
   src,
   alt,
   finalTop,
@@ -43,7 +43,11 @@ function  FloatingIcon({
       <motion.img
         src={src}
         alt={alt}
-        className="w-14 h-14 object-contain"
+        loading="lazy"
+        decoding="async"
+        width={70}
+        height={70}
+        className=" object-contain"
         style={{
           rotate,
           filter: "drop-shadow(0 2px 8px rgba(130,224,170,0.25))",
@@ -59,4 +63,4 @@ function  FloatingIcon({
     </motion.div>
   );
 }
-export default FloatingIcon
+export default FloatingIcon;
