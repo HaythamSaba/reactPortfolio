@@ -1,3 +1,6 @@
+import { CSSIcon, FigmaIcon, FramerMotionIcon, HTMLIcon, JavaScriptIcon, NextJsIcon, ReactIcon, SupabaseIcon, TailwindIcon, TbBrandVercelIcon, TypeScriptIcon, VSCodeIcon } from "../components/icons/TechIcons";
+import { SiCanva } from "react-icons/si";
+
 export const TECH_ICONS = [
   // ── Left side ──────────────────────────────────────────
   {
@@ -190,4 +193,20 @@ export const certificates = [
     description:
       "Arabic-language certificate in React from Udemy, completed successfully in 2024.",
   },
+];
+
+export const skills = [
+  { name: "HTML", icon: HTMLIcon, color: "#e34f26" },
+  { name: "CSS", icon: CSSIcon, color: "#1572b6" },
+  { name: "JavaScript", icon: JavaScriptIcon, color: "#f7df1e" },
+  { name: "TypeScript", icon: TypeScriptIcon, color: "#3178c6" },
+  { name: "React", icon: ReactIcon, color: "#61dafb" },
+  { name: "Next.js", icon: NextJsIcon, color: "#ffffff" },
+  { name: "Tailwind CSS", icon: TailwindIcon, color: "#38bdf8" },
+  { name: "Framer Motion", icon: FramerMotionIcon, color: "#ff0055" },
+  { name: "Vercel", icon: TbBrandVercelIcon, color: "#000000ff" },
+  { name: "Supabase", icon: SupabaseIcon, color: "#3ecf8e" },
+  { name: "Figma", icon: FigmaIcon, color: "#a259ff" },
+  { name: "VS Code", icon: VSCodeIcon, color: "#007acc" },
+  { name: "Canva", icon: SiCanva, color: "#00c4cc" },
 ];
