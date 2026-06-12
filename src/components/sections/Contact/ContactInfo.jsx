@@ -1,18 +1,14 @@
-import {
-  EnvelopeIcon,
-  PhoneIcon,
-  MapPinIcon,
-} from "@heroicons/react/24/outline";
+import { FaEnvelopeIcon, PhoneIcon, MdLocationIcon } from "../../icons/TechIcons";
 
 const contactItems = [
   {
-    icon: <EnvelopeIcon className="w-8 h-8" />,
+    icon: <FaEnvelopeIcon className="w-8 h-8" />,
     label: "Email",
     value: "haythamsaba@gmail.com",
     href: "mailto:haythamsaba@gmail.com",
   },
   {
-    icon: <MapPinIcon className="w-8 h-8" />,
+    icon: <MdLocationIcon className="w-8 h-8" />,
     label: "Location",
     value: "Ljubljana, Slovenia",
     href: null,

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FaLinkedin, FaTelegram, FaGithub, FaInstagram } from "react-icons/fa"; // ✅ GitHub instead of Instagram
+import {  InstagramIcon, FaLinkedinIcon, FaGithubIcon } from "../../icons/TechIcons";
 import ContactInfo from "./ContactInfo";
 import ContactForm from "./ContactForm";
 
@@ -39,13 +39,12 @@ function Contact() {
                 href="https://www.linkedin.com/in/haytham-saba-401148278/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-blue-500 transition-colors duration-300" // ✅ added transition
+                className="hover:text-blue-500 transition-colors duration-300"
                 aria-label="Visit my LinkedIn profile"
               >
-                <FaLinkedin className="w-7 h-7" />
+                <FaLinkedinIcon className="w-7 h-7" />
               </a>
 
-              {/* GitHub — ✅ replaced Instagram */}
               <a
                 href="https://github.com/HaythamSaba"
                 target="_blank"
@@ -53,27 +52,17 @@ function Contact() {
                 className="hover:text-primary-400 transition-colors duration-300"
                 aria-label="Visit my GitHub profile"
               >
-                <FaGithub className="w-7 h-7" />
+                <FaGithubIcon className="w-7 h-7" />
               </a>
 
-              {/* Telegram */}
-              <a
-                href="https://t.me/someone_10110"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-sky-500 transition-colors duration-300"
-                aria-label="Visit my Telegram profile"
-              >
-                <FaTelegram className="w-7 h-7" />
-              </a>
               <a
                 href="https://www.instagram.com/haytham_saba/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-pink-500"
+                className="hover:text-pink-500 transition-colors duration-300"
                 aria-label="Visit my Instagram profile"
               >
-                <FaInstagram className="w-7 h-7" />
+                <InstagramIcon className="w-7 h-7" />
               </a>
             </div>
           </div>

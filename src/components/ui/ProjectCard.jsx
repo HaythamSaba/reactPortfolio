@@ -1,6 +1,5 @@
-import { LinkIcon } from "@heroicons/react/24/outline";
-import { FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { FaGithubIcon, GoLinkIcon } from "../icons/TechIcons";
 
 const cardVariants = {
   initial: { opacity: 0, y: 40 },
@@ -63,7 +62,7 @@ function ProjectCard({ project }) {
             aria-label={`View live site for ${project.title}`}
             className="hover:text-primary-400 transition-colors"
           >
-            <LinkIcon className="w-5 h-5 text-darkBackground" />
+            <GoLinkIcon className="w-5 h-5 text-darkBackground" />
           </a>
 
           <span className="bg-darkBackground text-background px-2 py-1 rounded-full font-semibold text-sm">
@@ -77,7 +76,10 @@ function ProjectCard({ project }) {
             aria-label={`View source code for ${project.title} on GitHub`}
             className="hover:text-primary-400 transition-colors"
           >
-            <FaGithub className="w-6 h-6 text-darkBackground text-2xl" />
+            <FaGithubIcon
+              size={24}
+              className="text-black"
+            />
           </a>
         </div>
       </div>

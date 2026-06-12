@@ -1,12 +1,12 @@
-import { MdArrowUpward } from "react-icons/md";
 import { useEffect, useState } from "react";
+import { MdArrowUpIcon } from "../icons/TechIcons";
 
 function ScrollUpButton() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
-      setVisible(window.scrollY > 200);
+      setVisible(window.scrollY > 400);
     };
 
     window.addEventListener("scroll", onScroll);
@@ -24,7 +24,7 @@ function ScrollUpButton() {
       className="fixed bottom-4 right-4 z-50 bg-primary-300 p-2 rounded-full text-black cursor-pointer transition-all duration-300 hover:bg-primary-500 hover:text-white"
       onClick={handleScrollToTop}
     >
-      <MdArrowUpward />
+      <MdArrowUpIcon />
     </div>
   );
 }

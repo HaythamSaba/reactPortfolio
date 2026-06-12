@@ -1,9 +1,4 @@
-import {
-  Bars3Icon,
-  EnvelopeIcon,
-  HomeIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
+import { EnvelopeIcon, HomeIcon  } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 import {
   motion,
@@ -12,6 +7,7 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import { useLenis } from "@studio-freight/react-lenis";
+import { MdCloseIcon, MdMenuIcon } from "../icons/TechIcons";
 
 const NavItems = [
   { name: "Home", href: "#home" },
@@ -150,9 +146,9 @@ function Header() {
                 className="lg:hidden border border-background rounded-full p-3 cursor-pointer z-30"
               >
                 {nav ? (
-                  <XMarkIcon className="h-8 w-8 text-background" />
+                  <MdCloseIcon className="h-8 w-8 text-background" />
                 ) : (
-                  <Bars3Icon className="h-8 w-8 text-background" />
+                  <MdMenuIcon className="h-8 w-8 text-background" />
                 )}
               </button>
 
@@ -206,9 +202,9 @@ function Header() {
               aria-label={nav ? "Close menu" : "Open menu"}
             >
               {nav ? (
-                <XMarkIcon className="h-8 w-8 text-background" />
+                <MdCloseIcon className="h-8 w-8 text-background" />
               ) : (
-                <Bars3Icon className="h-8 w-8 text-background" />
+                <MdMenuIcon className="h-8 w-8 text-background" />
               )}
             </button>
 
@@ -241,7 +237,7 @@ function Header() {
                 className="text-primary-400 p-3 hover:bg-background rounded-full bg-primary-500 hover:text-darkBackground transition-colors duration-300"
                 aria-label="Close menu"
               >
-                <XMarkIcon className="h-8 w-8 text-darkBackground" />
+                <MdCloseIcon className="h-8 w-8 text-darkBackground" />
               </button>
             </div>
 

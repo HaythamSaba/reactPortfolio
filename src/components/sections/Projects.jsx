@@ -1,5 +1,3 @@
-import { LinkIcon } from "@heroicons/react/24/outline";
-import { FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { projects } from "../../data/StaticData";
 import ProjectCard from "../ui/ProjectCard";

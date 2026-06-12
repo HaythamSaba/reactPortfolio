@@ -1,30 +1,23 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { FaHtml5, FaCss3, FaReact, FaFigma } from "react-icons/fa";
-import { BiLogoVisualStudio } from "react-icons/bi";
-import {
-  RiNextjsFill,
-  RiTailwindCssFill,
-  RiSupabaseFill,
-} from "react-icons/ri";
-import { TbBrandFramerMotion } from "react-icons/tb";
-import { SiCanva, SiTypescript } from "react-icons/si";
-import { DiJsBadge } from "react-icons/di";
 import { useState } from "react";
 import GreenButton from "../ui/GreenButton";
 import { useLenis } from "@studio-freight/react-lenis";
+import { SiCanva } from "react-icons/si";
+import { CSSIcon, FigmaIcon, FramerMotionIcon, HTMLIcon, JavaScriptIcon, NextJsIcon, ReactIcon, SupabaseIcon, TailwindIcon, TbBrandVercelIcon, TypeScriptIcon, VSCodeIcon } from "../icons/TechIcons";
 
 const skills = [
-  { name: "HTML", icon: FaHtml5, color: "#e34f26" },
-  { name: "CSS", icon: FaCss3, color: "#1572b6" },
-  { name: "JavaScript", icon: DiJsBadge, color: "#f7df1e" },
-  { name: "TypeScript", icon: SiTypescript, color: "#3178c6" },
-  { name: "React", icon: FaReact, color: "#61dafb" },
-  { name: "Next.js", icon: RiNextjsFill, color: "#ffffff" },
-  { name: "Tailwind CSS", icon: RiTailwindCssFill, color: "#38bdf8" },
-  { name: "Framer Motion", icon: TbBrandFramerMotion, color: "#ff0055" },
-  { name: "Supabase", icon: RiSupabaseFill, color: "#3ecf8e" },
-  { name: "Figma", icon: FaFigma, color: "#a259ff" },
-  { name: "VS Code", icon: BiLogoVisualStudio, color: "#007acc" },
+  { name: "HTML", icon: HTMLIcon, color: "#e34f26" },
+  { name: "CSS", icon: CSSIcon, color: "#1572b6" },
+  { name: "JavaScript", icon: JavaScriptIcon, color: "#f7df1e" },
+  { name: "TypeScript", icon: TypeScriptIcon, color: "#3178c6" },
+  { name: "React", icon: ReactIcon, color: "#61dafb" },
+  { name: "Next.js", icon: NextJsIcon, color: "#ffffff" },
+  { name: "Tailwind CSS", icon: TailwindIcon, color: "#38bdf8" },
+  { name: "Framer Motion", icon: FramerMotionIcon, color: "#ff0055" },
+  { name: "Vercel", icon: TbBrandVercelIcon, color: "#000000ff" },
+  { name: "Supabase", icon: SupabaseIcon, color: "#3ecf8e" },
+  { name: "Figma", icon: FigmaIcon, color: "#a259ff" },
+  { name: "VS Code", icon: VSCodeIcon, color: "#007acc" },
   { name: "Canva", icon: SiCanva, color: "#00c4cc" },
 ];
 

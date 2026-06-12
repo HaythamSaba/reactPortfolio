@@ -1,6 +1,11 @@
-import { FaGithub, FaLinkedin, FaEnvelope, FaTelegram, FaInstagram } from "react-icons/fa"; // ✅ Telegram instead of Instagram
 import { motion } from "framer-motion";
 import { useLenis } from "@studio-freight/react-lenis";
+import {
+  FaEnvelopeIcon,
+  InstagramIcon,
+  FaLinkedinIcon,
+  FaGithubIcon,
+} from "../icons/TechIcons";
 
 const NavItems = [
   { name: "Home", href: "#home" },
@@ -89,7 +94,7 @@ export default function Footer() {
             className="flex items-center gap-2 mb-4 hover:text-primary-400 transition-colors duration-300"
             aria-label="Send me an email"
           >
-            <FaEnvelope />
+            <FaEnvelopeIcon />
             haythamsaba@gmail.com
           </a>
           <div className="flex gap-4">
@@ -100,7 +105,7 @@ export default function Footer() {
               className="hover:text-primary-400 transition-colors duration-300" // ✅ added transition
               aria-label="Visit my GitHub profile"
             >
-              <FaGithub size={22} />
+              <FaGithubIcon size={22} />
             </a>
             <a
               href="https://www.linkedin.com/in/haytham-saba-401148278/"
@@ -109,17 +114,7 @@ export default function Footer() {
               className="hover:text-blue-500 transition-colors duration-300"
               aria-label="Visit my LinkedIn profile"
             >
-              <FaLinkedin size={22} />
-            </a>
-            {/* ✅ Telegram instead of Instagram */}
-            <a
-              href="https://t.me/someone_10110"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-sky-500 transition-colors duration-300"
-              aria-label="Visit my Telegram profile"
-            >
-              <FaTelegram size={22} />
+              <FaLinkedinIcon size={22} />
             </a>
             <a
               href="https://www.instagram.com/haytham_saba/"
@@ -128,13 +123,13 @@ export default function Footer() {
               className="hover:text-pink-500"
               aria-label="Visit my Instagram profile"
             >
-              <FaInstagram   className="w-7 h-7" />
+              <InstagramIcon />
             </a>
           </div>
         </motion.div>
       </motion.div>
-
-      {/* Bottom bar — ✅ fixed transition syntax */}
+      
+      {/* Copyright */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -142,8 +137,7 @@ export default function Footer() {
         viewport={{ once: true }}
         className="border-t border-slate-800 py-6 text-center text-sm text-slate-500"
       >
-        {/* ✅ Your name instead of "My Portfolio" */}©{" "}
-        {new Date().getFullYear()} Haytham Saba. All rights reserved.
+        © {new Date().getFullYear()} Haytham Saba. All rights reserved.
       </motion.div>
     </footer>
   );
