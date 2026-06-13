@@ -82,15 +82,6 @@ function Hero() {
             </span>
           </div>
 
-          {/* Divider line that draws itself */}
-          <motion.div
-            className="h-[1px] mb-6"
-            style={{ backgroundColor: "rgba(130,224,170,0.3)" }}
-            initial={{ width: 0 }}
-            animate={{ width: "120px" }}
-            transition={{ delay: 3.2, duration: 0.8, ease: "easeOut" }}
-          />
-
           {/* Description */}
           <motion.p
             className="text-base md:text-lg text-slate-300 max-w-md leading-relaxed mb-8"
