@@ -1,7 +1,12 @@
 import { motion } from "framer-motion";
-import {  InstagramIcon, FaLinkedinIcon, FaGithubIcon } from "../../icons/TechIcons";
+import {
+  InstagramIcon,
+  FaLinkedinIcon,
+  FaGithubIcon,
+} from "../../icons/TechIcons";
 import ContactInfo from "./ContactInfo";
 import ContactForm from "./ContactForm";
+import SectionHeader from "../../ui/SectionHeader";
 
 function Contact() {
   return (
@@ -14,16 +19,13 @@ function Contact() {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        {/* ✅ Responsive heading */}
-        <h2 className="text-3xl md:text-7xl font-extrabold tracking-wide text-slate-100 text-center">
-          Get in <span className="text-primary-400">Touch</span>
-        </h2>
-        {/* ✅ w-full on mobile, w-1/2 on desktop */}
-        <p className="w-full md:w-1/2 text-slate-300 text-center">
-          Let's make a difference together. Here is my contact information. If
+        <SectionHeader
+          title="Get in"
+          firstEmphasisTitle="Touch"
+          description="Let's make a difference together. Here is my contact information. If
           you have any questions or would like to work together, please don't
-          hesitate to contact me.
-        </p>
+          hesitate to contact me."
+        />
       </motion.div>
 
       <div className="flex justify-center gap-6 md:flex-row flex-col">
