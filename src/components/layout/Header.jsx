@@ -122,7 +122,7 @@ function Header() {
                 <HomeIcon className="w-8 h-8 text-darkBackground" />
               </button>
 
-              <ul className="hidden lg:flex items-center gap-6 text-lg font-semibold border border-background rounded-full px-[2px] py-2">
+              <ul className="hidden lg:flex items-center gap-6 text-lg font-semibold border border-background rounded-full px-[2px] py-[2px]">
                 {NavItems.map((item) => (
                   <li key={item.name}>
                     <motion.button
@@ -177,7 +177,7 @@ function Header() {
             </button>
 
             {/* Desktop Menu */}
-            <ul className="hidden lg:flex items-center gap-6 text-lg font-semibold border border-background rounded-full px-[2px] py-2">
+            <ul className="hidden lg:flex items-center gap-6 text-lg font-semibold border border-background rounded-full px-[2px] py-[2px]">
               {NavItems.map((item) => (
                 <li key={item.name}>
                   <motion.button
