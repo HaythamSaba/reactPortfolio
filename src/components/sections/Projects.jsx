@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { projects } from "../../data/StaticData";
 import ProjectCard from "../ui/ProjectCard";
+import SectionHeader from "../ui/SectionHeader";
 const cardParentVariants = {
   initial: { opacity: 0 },
   visible: {
@@ -26,7 +27,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="template bg-darkBackground py-16 text-background"
+      className="template  py-16 text-background"
     >
       {/* Section Title */}
       <motion.div
@@ -36,13 +37,11 @@ export default function Projects() {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <h2 className="text-3xl md:text-7xl font-extrabold tracking-wide text-slate-100">
-          My <span className="text-primary-400">Projects</span>
-        </h2>
-        <p className="max-w-xl text-slate-300">
-          Here are some of the projects I have worked on. Each one is a unique
-          opportunity to learn and grow.
-        </p>
+        <SectionHeader
+          title="My"
+          firstEmphasisTitle="Projects"
+          description="Here are some of the projects I have worked on. Each one is a unique opportunity to learn and grow."
+        />
       </motion.div>
 
       {/* Projects Grid — ✅ animations on all devices, once: true */}

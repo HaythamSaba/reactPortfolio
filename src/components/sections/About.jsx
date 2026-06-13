@@ -1,6 +1,7 @@
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
 import GreenButton from "../ui/GreenButton";
+import SectionHeader from "../ui/SectionHeader";
 
 const MotionGreenButton = motion.create(GreenButton);
 
@@ -32,7 +33,6 @@ function About() {
 
   return (
     <div className="template bg-darkBackground text-primary-300 min-h-screen flex flex-col items-center justify-center py-20">
-      {" "}
       {/* ✅ added template + py for spacing */}
       <motion.section
         ref={containerRef} // ✅ ref only here
@@ -42,12 +42,10 @@ function About() {
         initial="hidden"
       >
         {/* Heading */}
-        <motion.h2
-          className="text-3xl md:text-7xl font-extrabold tracking-wide text-slate-100 text-center"
-          variants={itemVariants}
-        >
-          About <span className="text-primary-400">Me</span>
-        </motion.h2>
+        <SectionHeader
+          title="About"
+          firstEmphasisTitle="Me"
+        />
 
         {/* Content Row */}
         <div className="flex items-center justify-center gap-12 xl:gap-24 flex-wrap">

@@ -4,6 +4,7 @@ import GreenButton from "../ui/GreenButton";
 import { useLenis } from "@studio-freight/react-lenis";
 import { skills } from "../../data/StaticData";
 import SkillCard from "../ui/SkillCard";
+import SectionHeader from "../ui/SectionHeader";
 
 export default function Skills() {
   const [isShow, setIsShow] = useState(false);
@@ -29,13 +30,12 @@ export default function Skills() {
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <h2 className="text-3xl md:text-7xl font-extrabold tracking-wide text-slate-100">
-          My <span className="text-primary-400">Tech </span>
-          <span className="text-secondary-400">Stack</span>
-        </h2>
-        <p className="mt-4 text-slate-300 text-sm md:text-base max-w-md mx-auto">
-          Technologies I use to bring ideas to life.
-        </p>
+        <SectionHeader
+          title="My"
+          firstEmphasisTitle="Tech "
+          secondEmphasisTitle="Stack"
+          description="Technologies I use to bring ideas to life."
+        />
       </motion.div>
 
       {/* Grid — ✅ mode="sync" instead of mode="popLayout" */}
