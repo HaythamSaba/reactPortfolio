@@ -64,7 +64,7 @@ function SkillCard({ name, icon: Icon, color, index }) {
 
       <span
         className="relative z-10 text-xs font-semibold tracking-wide text-center leading-tight transition-colors duration-300"
-        style={{ color: isHovered ? "#e2e8f0" : "rgba(148,163,184,0.4)" }}
+        style={{ color: isHovered ? color : "#e2e8f0" }}
       >
         {name}
       </span>
