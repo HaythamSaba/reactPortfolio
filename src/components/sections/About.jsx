@@ -2,6 +2,7 @@ import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
 import GreenButton from "../ui/GreenButton";
 import SectionHeader from "../ui/SectionHeader";
+import SectionLayout from "../layout/SectionLayout";
 
 const MotionGreenButton = motion.create(GreenButton);
 
@@ -21,7 +22,7 @@ const itemVariants = {
 };
 
 function About() {
-  const containerRef = useRef(null); // ✅ single ref, assigned once
+  const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
   const mainControls = useAnimation();
 
@@ -32,15 +33,8 @@ function About() {
   }, [isInView, mainControls]);
 
   return (
-    <div className="template bg-darkBackground text-primary-300 min-h-screen flex flex-col items-center justify-center py-20">
-      {/* ✅ added template + py for spacing */}
-      <motion.section
-        ref={containerRef} // ✅ ref only here
-        className="flex flex-col items-center gap-10 w-full overflow-hidden"
-        variants={containerVariants}
-        animate={mainControls}
-        initial="hidden"
-      >
+    <SectionLayout>
+
         {/* Heading */}
         <SectionHeader
           title="About"
@@ -80,8 +74,7 @@ function About() {
             />
           </div>
         </div>
-      </motion.section>
-    </div>
+    </SectionLayout>
   );
 }
 

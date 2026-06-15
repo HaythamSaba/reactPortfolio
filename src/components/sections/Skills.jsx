@@ -5,6 +5,7 @@ import { useLenis } from "@studio-freight/react-lenis";
 import { skills } from "../../data/StaticData";
 import SkillCard from "../ui/SkillCard";
 import SectionHeader from "../ui/SectionHeader";
+import SectionLayout from "../layout/SectionLayout";
 
 export default function Skills() {
   const [isShow, setIsShow] = useState(false);
@@ -18,25 +19,13 @@ export default function Skills() {
   };
 
   return (
-    <section
-      id="tech"
-      className="template bg-darkBackground min-h-screen flex flex-col items-center justify-center py-20"
-    >
-      {/* Heading */}
-      <motion.div
-        className="text-center mb-14"
-        initial={{ opacity: 0, y: -30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        <SectionHeader
-          title="My"
-          firstEmphasisTitle="Tech "
-          secondEmphasisTitle="Stack"
-          description="Technologies I use to bring ideas to life."
-        />
-      </motion.div>
+    <SectionLayout>
+      <SectionHeader
+        title="My"
+        firstEmphasisTitle="Tech "
+        secondEmphasisTitle="Stack"
+        description="Technologies I use to bring ideas to life."
+      />
 
       {/* Grid — ✅ mode="sync" instead of mode="popLayout" */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 w-full">
@@ -70,6 +59,6 @@ export default function Skills() {
       >
         | always learning :: always building |
       </motion.p>
-    </section>
+    </SectionLayout>
   );
 }

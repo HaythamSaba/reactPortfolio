@@ -3,22 +3,23 @@ import { motion, useAnimation, useInView } from "framer-motion";
 import { certificates } from "../../data/StaticData";
 import CertificateModal from "../ui/CertificateModal";
 import CertificateCard from "../ui/CertificateCard";
+import SectionHeader from "../ui/SectionHeader";
+import SectionLayout from "../layout/SectionLayout";
 
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.2 } },
+const cardParentVariants = {
+  initial: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      when: "beforeChildren",
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
+  },
 };
 
 function Certificates() {
   const [openIndex, setOpenIndex] = useState(null);
-
-  const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
-  const mainControls = useAnimation();
-
-  useEffect(() => {
-    if (isInView) mainControls.start("visible");
-  }, [isInView, mainControls]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -38,29 +39,19 @@ function Certificates() {
   }, [openIndex]);
 
   return (
-    <section className="template bg-darkBackground min-h-screen flex flex-col justify-center items-center py-16">
-      <motion.h2
-        ref={containerRef}
-        className="text-3xl md:text-7xl font-extrabold tracking-wide text-slate-100 text-center mb-10"
-        initial="hidden"
-        animate={mainControls}
-        variants={{
-          hidden: { opacity: 0, y: -40 },
-          visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.8, ease: "easeOut" },
-          },
-        }}
-      >
-        Certificates
-      </motion.h2>
+    <SectionLayout>
+      <SectionHeader
+        title="My"
+        firstEmphasisTitle="Certificates"
+        description="Here are some of the certificates I have earned. Each one represents a unique opportunity to learn and grow."
+      />
 
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full"
-        variants={containerVariants}
-        initial="hidden"
-        animate={mainControls}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 relative z-0"
+        variants={cardParentVariants}
+        initial="initial"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }} // ✅ was once: false
       >
         {certificates.map((certificate, index) => (
           <CertificateCard
@@ -79,7 +70,7 @@ function Certificates() {
           onClose={() => setOpenIndex(null)}
         />
       )}
-    </section>
+    </SectionLayout>
   );
 }
 

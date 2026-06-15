@@ -7,28 +7,20 @@ import {
 import ContactInfo from "./ContactInfo";
 import ContactForm from "./ContactForm";
 import SectionHeader from "../../ui/SectionHeader";
+import SectionLayout from "../../layout/SectionLayout";
 
 function Contact() {
   return (
-    // ✅ Added bg-darkBackground, template, py-16
-    <div id="contact" className="template bg-darkBackground min-h-screen py-16">
-      <motion.div
-        className="flex flex-col gap-6 mb-12 text-center items-center"
-        initial={{ opacity: 0, y: -50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        <SectionHeader
-          title="Get in"
-          firstEmphasisTitle="Touch"
-          description="Let's make a difference together. Here is my contact information. If
+    <SectionLayout>
+      <SectionHeader
+        title="Get in"
+        secondEmphasisTitle="Touch"
+        description="Let's make a difference together. Here is my contact information. If
           you have any questions or would like to work together, please don't
           hesitate to contact me."
-        />
-      </motion.div>
+      />
 
-      <div className="flex justify-center gap-6 md:flex-row flex-col">
+      <div className="flex w-full gap-6 md:gap-12 flex-col md:flex-row">
         <div className="md:w-1/2 w-full gap-6 flex flex-col">
           <ContactInfo />
 
@@ -72,7 +64,7 @@ function Contact() {
 
         <ContactForm />
       </div>
-    </div>
+    </SectionLayout>
   );
 }
 
