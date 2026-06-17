@@ -1,19 +1,10 @@
 import { motion } from "framer-motion";
 import { projects } from "../../data/StaticData";
+import { cardParentVariants } from "../../data/Animation";
+
 import ProjectCard from "../ui/ProjectCard";
 import SectionHeader from "../ui/SectionHeader";
 import SectionLayout from "../layout/SectionLayout";
-const cardParentVariants = {
-  initial: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      when: "beforeChildren",
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
-    },
-  },
-};
 
 export default function Projects() {
   return (

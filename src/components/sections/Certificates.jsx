@@ -1,22 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { certificates } from "../../data/StaticData";
+import { cardParentVariants } from "../../data/Animation";
+
 import CertificateModal from "../ui/CertificateModal";
 import CertificateCard from "../ui/CertificateCard";
 import SectionHeader from "../ui/SectionHeader";
 import SectionLayout from "../layout/SectionLayout";
-
-const cardParentVariants = {
-  initial: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      when: "beforeChildren",
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
-    },
-  },
-};
 
 function Certificates() {
   const [openIndex, setOpenIndex] = useState(null);
