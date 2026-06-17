@@ -1,16 +1,11 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useLenis } from "@studio-freight/react-lenis";
-
+import { itemVariants } from "../data/Animation";
 // ✅ Variants outside component
 const containerVariants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.15, delayChildren: 0.2 } },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
 };
 
 const glitchVariants = {

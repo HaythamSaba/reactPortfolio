@@ -8,6 +8,7 @@ import {
 } from "framer-motion";
 import { useLenis } from "@studio-freight/react-lenis";
 import { MdCloseIcon, MdMenuIcon } from "../icons/TechIcons";
+import { itemVariants } from "../../data/Animation";
 
 const NavItems = [
   { name: "Home", href: "#home" },
@@ -25,15 +26,6 @@ const menuVariants = {
     transition: { duration: 0.3, when: "beforeChildren", staggerChildren: 0.1 },
   },
   exit: { x: "100%", transition: { duration: 0.3 } },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 1 },
-  },
 };
 
 function Header() {
