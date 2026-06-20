@@ -15,7 +15,7 @@ function ProjectCard({ project }) {
     <motion.div
       key={project.title}
       variants={cardVariants}
-      className="group bg-darkBackground rounded-lg overflow-hidden relative z-0 shadow-sm"
+      className="group bg-darkBackground rounded-3xl overflow-hidden relative z-0 shadow-sm"
     >
       {/* Image */}
       <div className="overflow-hidden">
@@ -27,7 +27,7 @@ function ProjectCard({ project }) {
       </div>
 
       {/* Card Body */}
-      <div className="flex flex-col px-6 py-4 gap-2 bg-background rounded-b-lg min-h-[280px] justify-between">
+      <div className="flex flex-col p-4 gap-2 bg-background rounded-b-lg min-h-[280px] justify-between">
         <div className="flex justify-between items-center">
           <h3 className="text-darkBackground">{project.title}</h3>
           {project.progress && (
