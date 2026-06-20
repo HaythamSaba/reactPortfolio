@@ -7,7 +7,7 @@ function CertificateCard({ certificate, index, openIndex, setOpenIndex }) {
     <motion.div
       key={certificate.name}
       variants={itemVariants}
-      className="bg-background rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow"
+      className="bg-background rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-shadow"
     >
       {/* Image preview */}
       <div className="relative w-full h-64 flex items-center justify-center bg-slate-100">
@@ -18,8 +18,8 @@ function CertificateCard({ certificate, index, openIndex, setOpenIndex }) {
         />
       </div>
 
-      <div className="p-4 flex flex-col justify-between">
-        <div>
+      <div className="p-2 flex flex-col justify-between">
+        <div className="p-2 mb-4">
           <h3 className="text-lg font-semibold text-slate-900 mb-2">
             {certificate.name}
           </h3>
