@@ -61,7 +61,7 @@ function Hero() {
           <div className="perspective-[800px] mb-3">
             <SplitText
               text="Haytham Saba"
-              className="text-5xl md:text-7xl font-bold tracking-tight text-primary-100 block"
+              className="text-5xl md:text-7xl font-bold tracking-tight text-textColor block"
               staggerDelay={0.06}
               startDelay={0.5}
             />
@@ -71,11 +71,9 @@ function Hero() {
           <div className="relative inline-block mb-6">
             <ShimmerLine />
             <span
-              className="text-3xl md:text-6xl text-secondary-400 block"
+              className="text-3xl md:text-6xl font-light text-secondary-400 block"
               style={{
                 fontFamily: "'Playfair Display', serif",
-                fontStyle: "italic",
-                fontWeight: 100,
               }}
             >
               <TypeWriter text="Frontend Developer" startDelay={1.6} />
