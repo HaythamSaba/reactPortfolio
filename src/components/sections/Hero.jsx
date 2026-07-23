@@ -82,7 +82,7 @@ function Hero() {
 
           {/* Description */}
           <motion.p
-            className="text-base md:text-lg text-slate-300 max-w-md leading-relaxed mb-8"
+            className="text-base md:text-xl text-white max-w-xl mb-8"
             initial={{ opacity: 0, filter: "blur(8px)", y: 10 }}
             animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
             transition={{ delay: 3.0, duration: 0.9, ease: "easeOut" }}
