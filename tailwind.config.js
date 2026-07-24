@@ -27,7 +27,7 @@ module.exports = {
           900: "#5b460b",
         },
         background: "#f0e7db",
-        darkBackground: "#161b22",
+        darkBackground: "#0c0c0c",
         textColor: "#0d1117",
       },
       fontFamily: {
