@@ -58,7 +58,7 @@ function About() {
             transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
           />
 
-          <div className="w-[180px] h-[180px] md:w-[300px] md:h-[300px] rounded-full overflow-hidden relative z-10 bg-[radial-gradient(closest-side,#161b22_80%,#f7dc6f)]">
+          <div className="w-[180px] h-[180px] md:w-[300px] md:h-[300px] rounded-full overflow-hidden relative bg-[radial-gradient(closest-side,#0c0c0c,#f7dc6f)]">
             <img
               src="/profile-pic.webp"
               alt="Haytham Saba"
