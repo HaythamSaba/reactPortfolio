@@ -18,7 +18,7 @@ function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="md:w-1/2 w-full gap-4 flex flex-col bg-primary-200/10 p-6 rounded-md"
+      className="md:w-1/2 w-full gap-4 flex flex-col bg-primary-200/10 p-4 backdrop-blur-sm rounded-[28px]"
     >
       <input type="text" name="_gotcha" style={{ display: "none" }} />
 
