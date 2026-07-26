@@ -7,7 +7,7 @@ import { TECH_ICONS } from "../../data/StaticData";
 import Header from "../layout/Header";
 import FloatingIcon from "../ui/FloatingIcon";
 import SplitText from "../ui/SplitText";
-import TypeWriter from "../ui/TypeWriter"
+import TypeWriter from "../ui/TypeWriter";
 import ProfileRing from "../ui/ProfileRing";
 import GridLines from "../ui/GridLines";
 import ShimmerLine from "../ui/ShimmerLine";
@@ -21,7 +21,7 @@ function Hero() {
   };
 
   return (
-    <div className="relative overflow-hidden min-h-screen text-textColor bg-[linear-gradient(to_bottom,_#161b22,_#82e0aa_85%)] flex items-center justify-center template">
+    <div className="relative overflow-hidden min-h-screen text-textColor bg-[linear-gradient(to_bottom,_#161b22,_#82e0aa_85%)] flex items-stretch justify-center template">
       {/* Background elements */}
       <GridLines />
 
@@ -32,10 +32,10 @@ function Hero() {
 
       <div className="absolute bg-darkBackground w-[2400px] h-[1000px] rounded-[50%] left-1/2 -translate-x-1/2 bg-[radial-gradient(closest-side,#0c0c0c_80%,#82e0aa)] top-[450px] border-[1px] border-[#82e0aa]/30" />
 
-      <div className="container relative mx-auto z-10">
+      <div className="container relative mx-auto z-10 flex flex-col items-stretch gap-20 md:gap-0 min-h-screen px-4">
         <Header />
 
-        <div className="flex flex-col items-center justify-center text-center">
+        <div className="flex flex-col items-center justify-between text-center">
           {/* Profile image with rings */}
           <motion.div
             className="mb-4 mt-4"
