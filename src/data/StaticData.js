@@ -89,6 +89,22 @@ export const TECH_ICONS = [
 
 export const projects = [
   {
+    title: "Vermera E-commerce",
+    description:
+      "A Luxury e-commerce platform built with React, JavaScript, TailwindCSS, Framer Motion, for seamless shopping experiences.",
+    devStack: [
+      "React",
+      "JavaScript",
+      "TailwindCSS",
+      "Framer Motion",
+    ],
+    image: "/project-1.webp",
+    link: "https://vermera.vercel.app/",
+    git: "vermera",
+    type: "Frontend",
+    progress: true,
+  },
+  {
     title: "Kova Studio",
     description:
       "Scroll-driven portfolio site built with Next.js 16, GSAP ScrollTrigger, Framer Motion, and Lenis smooth scroll",
@@ -100,18 +116,18 @@ export const projects = [
       "GSAP",
       "Lenis",
     ],
-    image: "/project-1.webp",
+    image: "/project-2.webp",
     link: "https://kova-studio-hs.vercel.app/",
     git: "kova-studio",
     type: "Frontend",
-    progress: true,
+    progress: false,
   },
   {
     title: "HabitFlow",
     description:
       "A comprehensive habit tracking application with streaks, analytics, and user authentication.",
     devStack: ["React", "TypeScript", "TailwindCSS", "Supabase"],
-    image: "/project-2.webp",
+    image: "/project-3.webp",
     link: "https://habitflow-hs.vercel.app/",
     git: "habitflow",
     type: "Fullstack",
@@ -122,7 +138,7 @@ export const projects = [
     description:
       "A festive web application for organizing Secret Santa gift exchanges with a random pairing algorithm.",
     devStack: ["React", "Context API", "TailwindCSS"],
-    image: "/project-3.webp",
+    image: "/project-4.webp",
     link: "https://secret-santa-hs.vercel.app/",
     git: "secret-santa",
     type: "Frontend",
@@ -132,7 +148,7 @@ export const projects = [
     title: "Lights Up",
     description: "E-commerce website that allows users to buy luxury lights.",
     devStack: ["React", "Next.js", "TailwindCSS", "Supabase"],
-    image: "/project-4.webp",
+    image: "/project-5.webp",
     link: "https://lights-up-haythamsabas-projects.vercel.app/",
     git: "lights-up",
     type: "Fullstack",
@@ -144,7 +160,7 @@ export const projects = [
     description:
       "A quiz app that allows users to test their knowledge in different programming languages.",
     devStack: ["React", "CSS", "Context API"],
-    image: "/project-5.webp",
+    image: "/project-6.webp",
     link: "https://quiz-app-git-main-haythamsabas-projects.vercel.app/",
     git: "quiz-app",
     type: "Frontend",
@@ -155,7 +171,7 @@ export const projects = [
     description:
       "A web application that provides current weather and time information for any city worldwide.",
     devStack: ["HTML", "CSS", "JavaScript", "Weather API"],
-    image: "/project-6.webp",
+    image: "/project-7.webp",
     link: "https://currently-peach.vercel.app/",
     git: "currently",
     type: "Frontend",
@@ -166,7 +182,7 @@ export const projects = [
     description:
       "My first portfolio project, created while in college to learn web development.",
     devStack: ["HTML", "CSS", "JavaScript"],
-    image: "/project-7.webp",
+    image: "/project-8.webp",
     link: "https://portifilio-livid.vercel.app/",
     git: "Portfolio",
     type: "Frontend",
