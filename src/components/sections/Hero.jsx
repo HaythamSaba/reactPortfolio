@@ -61,7 +61,7 @@ function Hero() {
           <div className="perspective-[800px] mb-3">
             <SplitText
               text="Haytham Saba"
-              className="text-5xl md:text-7xl font-bold tracking-tight text-textColor block"
+              className="text-5xl md:text-7xl font-bold tracking-tight text-background block"
               staggerDelay={0.06}
               startDelay={0.5}
             />
