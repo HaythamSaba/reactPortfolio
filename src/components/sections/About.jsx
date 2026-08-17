@@ -48,8 +48,7 @@ function About() {
             }}
             animate={{ rotate: 360 }}
             transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-          >
-          </motion.div>
+          ></motion.div>
 
           <motion.div
             className="absolute rounded-full"
@@ -70,17 +69,19 @@ function About() {
         </motion.div>
 
         {/* Bio, quick facts, CTAs */}
-        <div className="flex flex-col items-center gap-6 max-w-xl">
+        <div className="flex flex-col items-center gap-6 max-w-2xl">
           <motion.p
             className="text-center text-slate-300 text-sm md:text-lg tracking-wider"
             variants={itemVariants}
           >
-            Frontend developer specialising in React and TypeScript, with
-            hands-on experience building full-stack applications including an
-            e-commerce platform with Supabase authentication. I work with React,
-            Next.js, Tailwind CSS, TypeScript, and Framer Motion to create
-            interactive and responsive web experiences. Outside of coding, I
-            enjoy watching football and running.
+            I believe a website should feel like the company behind it — honest,
+            clear, and built to be trusted. I'm a frontend developer working in
+            React, Next.js 15, TypeScript, and Tailwind CSS, and I care most
+            about turning a company's values into an experience users can
+            actually rely on: fast, scalable, and easy to reach what they came
+            for. At Siciliamia I work inside a real PR review workflow — feature
+            branches, code reviews, production deploys — writing code other
+            people can read and build on.
           </motion.p>
 
           <motion.div
@@ -90,7 +91,7 @@ function About() {
             {quickFacts.map(({ icon: Icon, label }) => (
               <span
                 key={label}
-                className="flex items-center gap-2 bg-white/5 border border-primary-400/30 text-slate-200 px-4 py-2 rounded-full text-xs md:text-sm backdrop-blur-sm"
+                className="flex items-center gap-2 bg-white/5 border border-primary-400/30 text-slate-200 px-4 py-2 rounded-full text-sm backdrop-blur-sm shadow-lg shadow-primary-500/30"
               >
                 <Icon className="w-4 h-4 text-primary-400" />
                 {label}
