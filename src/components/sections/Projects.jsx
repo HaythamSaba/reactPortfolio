@@ -5,6 +5,7 @@ import { cardParentVariants } from "../../data/Animation";
 import ProjectCard from "../ui/ProjectCard";
 import SectionHeader from "../ui/SectionHeader";
 import SectionLayout from "../layout/SectionLayout";
+import HireMeCard from "../ui/HireMeCard";
 
 export default function Projects() {
   return (
@@ -27,6 +28,7 @@ export default function Projects() {
         {projects.map((project) => (
           <ProjectCard key={project.title} project={project} />
         ))}
+        <HireMeCard />
       </motion.div>
     </SectionLayout>
   );
