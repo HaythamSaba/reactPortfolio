@@ -43,10 +43,10 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-darkBackground border-t border-slate-800 text-slate-300 template">
+    <footer className="bg-primary-500 rounded-3xl backdrop-blur border border-slate-800 text-slate-100 mt-12 mx-12 p-4 lg:p-0">
       {/* ✅ Stagger parent wrapping all three columns */}
       <motion.div
-        className="px-0 md:px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-12"
+        className="px-0 md:px-6 py-0 md:py-6 grid grid-cols-1 md:grid-cols-3 gap-12"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -58,7 +58,7 @@ export default function Footer() {
           <h2 className="text-2xl font-bold text-slate-100 mb-4">
             Haytham Saba
           </h2>
-          <p className="text-sm leading-relaxed max-w-[342px]">
+          <p className="text-md leading-relaxed max-w-[342px]">
             Frontend developer based in Ljubljana, Slovenia. Building
             interactive and responsive web experiences with React, TypeScript,
             and Tailwind CSS. Always open to new opportunities.
@@ -67,7 +67,7 @@ export default function Footer() {
 
         {/* Quick Links */}
         <motion.div variants={fadeUp}>
-          <h3 className="text-lg font-semibold text-slate-100 mb-4">
+          <h3 className="text-2xl font-bold text-slate-100 mb-4">
             Quick Links
           </h3>
           <ul className="space-y-2">
@@ -88,7 +88,7 @@ export default function Footer() {
 
         {/* Connect */}
         <motion.div variants={fadeUp}>
-          <h3 className="text-lg font-semibold text-slate-100 mb-4">Connect</h3>
+          <h3 className="text-2xl font-bold text-slate-100 mb-4">Connect</h3>
           <a
             href="mailto:haythamsaba@gmail.com"
             className="flex items-center gap-2 mb-4 hover:text-primary-400 transition-colors duration-300"
@@ -135,7 +135,7 @@ export default function Footer() {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }} // ✅ transition is a sibling prop
         viewport={{ once: true }}
-        className="border-t border-slate-800 py-6 text-center text-sm text-slate-500"
+        className="py-6 text-center text-sm text-slate-100"
       >
         © {new Date().getFullYear()} Haytham Saba. All rights reserved.
       </motion.div>

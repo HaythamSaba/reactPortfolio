@@ -10,7 +10,7 @@ import ScrollUpButton from "../components/layout/ScrollUpButton";
 
 function Home() {
   return (
-    <div className="min-h-screen bg-darkBackground text-background">
+    <div className="min-h-screen bg-darkBackground text-background pb-12">
       <StarsBackground />
       <ScrollUpButton />
       {/* Hero Section */}
