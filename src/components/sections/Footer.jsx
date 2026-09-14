@@ -43,7 +43,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-primary-500 rounded-3xl backdrop-blur border border-slate-800 text-slate-100 mt-12 mx-12 p-4 lg:p-0">
+    <footer className="bg-primary-500 rounded-3xl backdrop-blur border border-slate-800 text-textColor mt-12 mx-12 p-4 lg:p-0">
       {/* ✅ Stagger parent wrapping all three columns */}
       <motion.div
         className="px-0 md:px-6 py-0 md:py-6 grid grid-cols-1 md:grid-cols-3 gap-12"
@@ -55,10 +55,10 @@ export default function Footer() {
         {/* Brand */}
         <motion.div variants={fadeUp}>
           {/* ✅ Your name as brand instead of "My Portfolio" */}
-          <h2 className="text-2xl font-bold text-slate-100 mb-4">
+          <h2 className="text-2xl font-bold mb-4">
             Haytham Saba
           </h2>
-          <p className="text-md leading-relaxed max-w-[342px]">
+          <p className="text-lg font-normal leading-relaxed">
             Frontend developer based in Ljubljana, Slovenia. Building
             interactive and responsive web experiences with React, TypeScript,
             and Tailwind CSS. Always open to new opportunities.
@@ -67,7 +67,7 @@ export default function Footer() {
 
         {/* Quick Links */}
         <motion.div variants={fadeUp}>
-          <h3 className="text-2xl font-bold text-slate-100 mb-4">
+          <h3 className="text-2xl font-bold mb-4">
             Quick Links
           </h3>
           <ul className="space-y-2">
@@ -77,7 +77,7 @@ export default function Footer() {
                 {/* ✅ Lenis smooth scroll instead of hard <a href> jump */}
                 <button
                   onClick={() => handleScroll(item.href)}
-                  className="hover:text-primary-400 transition-colors duration-300 text-left"
+                  className="hover:text-primary-800 transition-colors duration-300 text-left"
                 >
                   {item.name}
                 </button>
@@ -88,10 +88,10 @@ export default function Footer() {
 
         {/* Connect */}
         <motion.div variants={fadeUp}>
-          <h3 className="text-2xl font-bold text-slate-100 mb-4">Connect</h3>
+          <h3 className="text-2xl font-bold mb-4">Connect</h3>
           <a
             href="mailto:haythamsaba@gmail.com"
-            className="flex items-center gap-2 mb-4 hover:text-primary-400 transition-colors duration-300"
+            className="flex items-center gap-2 mb-4 hover:text-primary-800 transition-colors duration-300"
             aria-label="Send me an email"
           >
             <FaEnvelopeIcon />
@@ -102,7 +102,7 @@ export default function Footer() {
               href="https://github.com/HaythamSaba"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-primary-400 transition-colors duration-300" // ✅ added transition
+              className="hover:text-primary-800 transition-colors duration-300" // ✅ added transition
               aria-label="Visit my GitHub profile"
             >
               <FaGithubIcon size={22} />
@@ -133,9 +133,9 @@ export default function Footer() {
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.2 }} // ✅ transition is a sibling prop
+        transition={{ duration: 0.8, delay: 0.2 }}
         viewport={{ once: true }}
-        className="py-6 text-center text-sm text-slate-100"
+        className="py-6 text-center text-sm"
       >
         © {new Date().getFullYear()} Haytham Saba. All rights reserved.
       </motion.div>
