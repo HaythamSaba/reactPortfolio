@@ -220,7 +220,7 @@ export const skills = [
   { name: "Next.js", icon: NextJsIcon, color: "#ffffff" },
   { name: "Tailwind CSS", icon: TailwindIcon, color: "#38bdf8" },
   { name: "Framer Motion", icon: FramerMotionIcon, color: "#ff0055" },
-  { name: "Vercel", icon: TbBrandVercelIcon, color: "#000000ff" },
+  { name: "Vercel", icon: TbBrandVercelIcon, color: "#ffffff" },
   { name: "Supabase", icon: SupabaseIcon, color: "#3ecf8e" },
   { name: "Figma", icon: FigmaIcon, color: "#a259ff" },
   { name: "VS Code", icon: VSCodeIcon, color: "#007acc" },
