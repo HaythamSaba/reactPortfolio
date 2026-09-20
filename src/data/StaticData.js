@@ -1,4 +1,4 @@
-import { CSSIcon, FigmaIcon, FramerMotionIcon, HTMLIcon, JavaScriptIcon, NextJsIcon, ReactIcon, SupabaseIcon, TailwindIcon, TbBrandVercelIcon, TypeScriptIcon, VSCodeIcon, GitIcon } from "../components/icons/TechIcons";
+import { CSSIcon, FigmaIcon, FramerMotionIcon, HTMLIcon, JavaScriptIcon, NextJsIcon, ReactIcon, SupabaseIcon, TailwindIcon, TbBrandVercelIcon, TypeScriptIcon, VSCodeIcon, GitIcon, GraphQLIcon } from "../components/icons/TechIcons";
 import { SiCanva } from "react-icons/si";
 
 export const TECH_ICONS = [
@@ -220,6 +220,7 @@ export const skills = [
   { name: "Next.js", icon: NextJsIcon, color: "#ffffff" },
   { name: "Tailwind CSS", icon: TailwindIcon, color: "#38bdf8" },
   { name: "Framer Motion", icon: FramerMotionIcon, color: "#ff0055" },
+  { name: "GraphQL", icon: GraphQLIcon, color: "#e535ab" },
   { name: "Vercel", icon: TbBrandVercelIcon, color: "#ffffff" },
   { name: "Supabase", icon: SupabaseIcon, color: "#3ecf8e" },
   { name: "Figma", icon: FigmaIcon, color: "#a259ff" },
