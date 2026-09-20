@@ -228,10 +228,6 @@ function Stylesheet() {
         .scroll-word-reveal__meta {
           justify-content: center;
         }
-
-        .scroll-word-reveal__track {
-          width: 64px;
-        }
       }
     `}</style>
   );
