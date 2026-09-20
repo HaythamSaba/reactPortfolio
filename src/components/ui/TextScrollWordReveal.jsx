@@ -211,7 +211,7 @@ function Stylesheet() {
 
       @media (max-width: 900px) {
         .scroll-word-reveal__stage {
-          padding: 32px 0;
+          padding: 24px 0;
         }
 
         .scroll-word-reveal__layout {
