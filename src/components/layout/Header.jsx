@@ -234,13 +234,14 @@ function Header() {
             </div>
 
             {NavItems.map((item) => (
-              <motion.li
-                variants={itemVariants}
-                key={item.name}
-                onClick={() => handleScroll(item.href)}
-                className="text-primary-500 text-xl cursor-pointer"
-              >
-                {item.name}
+              <motion.li variants={itemVariants} key={item.name}>
+                <button
+                  onClick={() => handleScroll(item.href)}
+                  className="text-primary-500 text-xl cursor-pointer"
+                  aria-label={`Go to ${item.name} section`}
+                >
+                  {item.name}
+                </button>
               </motion.li>
             ))}
           </motion.ul>
