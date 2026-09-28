@@ -98,7 +98,7 @@ function TextScrollWordReveal({ statement, image }) {
                 </span>
               </div>
 
-              <h1
+              <p
                 id="scroll-word-reveal-heading"
                 className="scroll-word-reveal__heading"
                 aria-label={statement}
@@ -117,7 +117,7 @@ function TextScrollWordReveal({ statement, image }) {
                     {index < words.length - 1 ? " " : null}
                   </Fragment>
                 ))}
-              </h1>
+              </p>
             </div>
           </div>
         </div>

@@ -57,28 +57,31 @@ function Hero() {
             </motion.p>
           </div>
 
-          {/* Name — letter by letter */}
-          <div className="perspective-[800px] mb-3">
-            <SplitText
-              text="Haytham Saba"
-              className="text-5xl md:text-7xl font-bold tracking-tight text-background block"
-              staggerDelay={0.06}
-              startDelay={0.5}
-            />
-          </div>
+          {/* Name + role — the page's real heading, kept visually unchanged via display:contents */}
+          <h1 className="contents">
+            {/* Name — letter by letter */}
+            <div className="perspective-[800px] mb-3">
+              <SplitText
+                text="Haytham Saba"
+                className="text-5xl md:text-7xl font-bold tracking-tight text-background block"
+                staggerDelay={0.06}
+                startDelay={0.5}
+              />
+            </div>
 
-          {/* "Frontend Developer" — TypeWriter + shimmer */}
-          <div className="relative inline-block mb-6">
-            <ShimmerLine />
-            <span
-              className="text-3xl md:text-6xl font-light text-secondary-400 block"
-              style={{
-                fontFamily: "'Playfair Display', serif",
-              }}
-            >
-              <TypeWriter text="Frontend Developer" startDelay={1.6} />
-            </span>
-          </div>
+            {/* "Frontend Developer" — TypeWriter + shimmer */}
+            <div className="relative inline-block mb-6">
+              <ShimmerLine />
+              <span
+                className="text-3xl md:text-6xl font-light text-secondary-400 block"
+                style={{
+                  fontFamily: "'Playfair Display', serif",
+                }}
+              >
+                <TypeWriter text="Frontend Developer" startDelay={1.6} />
+              </span>
+            </div>
+          </h1>
 
           {/* Description */}
           <motion.p
