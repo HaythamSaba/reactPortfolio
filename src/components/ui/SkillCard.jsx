@@ -52,11 +52,11 @@ function SkillCard({ name, icon: Icon, color, index }) {
       <span
         className="relative z-10 text-4xl transition-all duration-300"
         style={{
-          color: isHovered ? color : "rgba(148,163,184,0.5)",
+          color,
           filter: isHovered
             ? `drop-shadow(0 0 8px ${color})`
             : "drop-shadow(0 0 0px transparent)",
-          transition: "color 0.3s ease, filter 0.3s ease",
+          transition: "filter 0.3s ease",
         }}
       >
         <Icon />
