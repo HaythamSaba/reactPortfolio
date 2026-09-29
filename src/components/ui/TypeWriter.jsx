@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 
-function TypeWriter({ text, startDelay = 1.8 }) {
-  const [displayed, setDisplayed] = useState("");
-  const [done, setDone] = useState(false);
-  const [showCursor, setShowCursor] = useState(true);
+function TypeWriter({ text, startDelay = 1.8, instant = false }) {
+  const [displayed, setDisplayed] = useState(instant ? text : "");
+  const [done, setDone] = useState(instant);
+  const [showCursor, setShowCursor] = useState(!instant);
 
   useEffect(() => {
+    if (instant) return;
     let i = 0;
     const timeout = setTimeout(() => {
       const interval = setInterval(() => {
@@ -19,7 +20,7 @@ function TypeWriter({ text, startDelay = 1.8 }) {
       return () => clearInterval(interval);
     }, startDelay * 1000);
     return () => clearTimeout(timeout);
-  }, [text, startDelay]);
+  }, [text, startDelay, instant]);
 
   useEffect(() => {
     if (done) {

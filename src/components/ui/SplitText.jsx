@@ -1,13 +1,23 @@
 import { motion } from "framer-motion";
 
-function SplitText({ text, className, staggerDelay = 0.04, startDelay = 0 }) {
+function SplitText({
+  text,
+  className,
+  staggerDelay = 0.04,
+  startDelay = 0,
+  instant = false,
+}) {
   return (
     <span className={className} aria-label={text}>
       {text.split("").map((char, i) => (
         <motion.span
           key={i}
           className="inline-block"
-          initial={{ opacity: 0, y: 60, rotateX: -90, filter: "blur(8px)" }}
+          initial={
+            instant
+              ? false
+              : { opacity: 0, y: 60, rotateX: -90, filter: "blur(8px)" }
+          }
           animate={{ opacity: 1, y: 0, rotateX: 0, filter: "blur(0px)" }}
           transition={{
             duration: 0.6,

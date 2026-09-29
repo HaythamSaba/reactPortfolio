@@ -1,4 +1,9 @@
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useReducedMotion,
+} from "framer-motion";
 import { useEffect, useState } from "react";
 import { useLenis } from "@studio-freight/react-lenis";
 
@@ -14,6 +19,18 @@ import ShimmerLine from "../ui/ShimmerLine";
 
 function Hero() {
   const lenis = useLenis();
+  const prefersReducedMotion = useReducedMotion();
+
+  // Play the full intro only once per browser session, and never for
+  // visitors who've asked for reduced motion.
+  const [alreadyVisited] = useState(
+    () => sessionStorage.getItem("heroIntroPlayed") === "true",
+  );
+  const skipIntro = alreadyVisited || Boolean(prefersReducedMotion);
+
+  useEffect(() => {
+    sessionStorage.setItem("heroIntroPlayed", "true");
+  }, []);
 
   const handleScroll = (href) => {
     if (lenis) lenis.start();
@@ -39,7 +56,7 @@ function Hero() {
           {/* Profile image with rings */}
           <motion.div
             className="mb-4 mt-4"
-            initial={{ opacity: 0, scale: 0.3 }}
+            initial={skipIntro ? false : { opacity: 0, scale: 0.3 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
@@ -49,7 +66,7 @@ function Hero() {
           <div className="overflow-hidden mb-2">
             <motion.p
               className="text-slate-200 text-sm md:text-base tracking-[0.3em] uppercase font-medium"
-              initial={{ y: 40, opacity: 0 }}
+              initial={skipIntro ? false : { y: 40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
             >
@@ -66,6 +83,7 @@ function Hero() {
                 className="text-5xl md:text-7xl font-bold tracking-tight text-background block"
                 staggerDelay={0.06}
                 startDelay={0.5}
+                instant={skipIntro}
               />
             </div>
 
@@ -78,7 +96,11 @@ function Hero() {
                   fontFamily: "'Playfair Display', serif",
                 }}
               >
-                <TypeWriter text="Frontend Developer" startDelay={1.6} />
+                <TypeWriter
+                  text="Frontend Developer"
+                  startDelay={1.6}
+                  instant={skipIntro}
+                />
               </span>
             </div>
           </h1>
@@ -86,22 +108,33 @@ function Hero() {
           {/* Description */}
           <motion.p
             className="text-base md:text-xl text-white max-w-xl mb-8"
-            initial={{ opacity: 0, filter: "blur(8px)", y: 10 }}
+            initial={
+              skipIntro ? false : { opacity: 0, filter: "blur(8px)", y: 10 }
+            }
             animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-            transition={{ delay: 3.0, duration: 0.9, ease: "easeOut" }}
+            transition={{
+              delay: skipIntro ? 0 : 3.0,
+              duration: 0.9,
+              ease: "easeOut",
+            }}
           >
             Building beautiful, responsive web experiences with React and modern
             frontend technologies.
           </motion.p>
 
-          {/* Buttons */}
+          {/* Buttons — land after the description finishes, not before it */}
           <div className="flex gap-4 flex-wrap justify-center">
             <motion.button
               onClick={() => handleScroll("#contact")}
               className="px-6 py-3 bg-primary-500 text-darkBackground font-semibold rounded-full shadow-lg outline-none"
-              initial={{ opacity: 0, y: 30 }}
+              initial={skipIntro ? false : { opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, type: "spring", stiffness: 200 }}
+              transition={{
+                delay: skipIntro ? 0 : 3.6,
+                duration: 0.6,
+                type: "spring",
+                stiffness: 200,
+              }}
               whileHover={{
                 scale: 1.06,
                 backgroundColor: "#f0e7db",
@@ -115,9 +148,14 @@ function Hero() {
             <motion.button
               onClick={() => handleScroll("#projects")}
               className="px-6 py-3 bg-transparent border border-secondary-400 text-background font-semibold rounded-full shadow-lg outline-none"
-              initial={{ opacity: 0, y: 30 }}
+              initial={skipIntro ? false : { opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, type: "spring", stiffness: 200 }}
+              transition={{
+                delay: skipIntro ? 0 : 3.6,
+                duration: 0.6,
+                type: "spring",
+                stiffness: 200,
+              }}
               whileHover={{
                 scale: 1.06,
                 backgroundColor: "#f7dc6f",
@@ -133,9 +171,9 @@ function Hero() {
           {/* Scroll hint */}
           <motion.div
             className="flex flex-col items-center gap-2 mt-16"
-            initial={{ opacity: 0 }}
+            initial={skipIntro ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 4, duration: 1 }}
+            transition={{ delay: skipIntro ? 0 : 4.2, duration: 1 }}
           >
             <span className="text-slate-300 text-xs tracking-widest uppercase">
               scroll
