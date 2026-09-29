@@ -64,7 +64,6 @@ function FloatingIcon({
         ease: [0.12, 1, 0.1, 1],
       }}
     >
-      {/* Glass pill behind the icon */}
 
       {/* Floating animation lives here, independent of the spread animation */}
       <motion.img
