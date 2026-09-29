@@ -43,8 +43,8 @@ function Hero() {
       <GridLines />
 
       {/* ── 8 floating tech icons ── */}
-      {TECH_ICONS.map((icon) => (
-        <FloatingIcon key={icon.alt} {...icon} />
+      {TECH_ICONS.map(({ alt, ...icon }) => (
+        <FloatingIcon key={alt} {...icon} />
       ))}
 
       <div className="absolute bg-darkBackground w-[2400px] h-[1000px] rounded-[50%] left-1/2 -translate-x-1/2 bg-[radial-gradient(closest-side,#0c0c0c_80%,#82e0aa)] top-[450px] border-[1px] border-[#82e0aa]/30" />

@@ -24,7 +24,6 @@ function useIsMobile() {
 
 function FloatingIcon({
   src,
-  alt,
   finalTop,
   finalLeft,
   mobileTop,
@@ -70,8 +69,8 @@ function FloatingIcon({
       {/* Floating animation lives here, independent of the spread animation */}
       <motion.img
         src={src}
-        alt={alt}
-        loading="lazy"
+        alt=""
+        aria-hidden="true"
         decoding="async"
         width={70}
         height={70}
