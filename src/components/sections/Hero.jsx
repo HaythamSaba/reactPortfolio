@@ -165,7 +165,7 @@ function Hero() {
 
           {/* Scroll hint */}
           <motion.div
-            className="flex flex-col items-center gap-2 mt-16"
+            className="flex flex-col items-center gap-2 mt-6"
             initial={skipIntro ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: skipIntro ? 0 : 4.2, duration: 1 }}
