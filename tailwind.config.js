@@ -32,6 +32,7 @@ module.exports = {
       },
       fontFamily: {
         gilroy: ["Gilroy", "sans-serif"],
+        cormorant: ["Cormorant", "Georgia", "Times New Roman", "serif"],
       },
     },
   },

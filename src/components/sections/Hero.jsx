@@ -90,12 +90,7 @@ function Hero() {
             {/* "Frontend Developer" — TypeWriter + shimmer */}
             <div className="relative inline-block mb-6">
               <ShimmerLine />
-              <span
-                className="text-3xl md:text-6xl font-light text-secondary-400 block"
-                style={{
-                  fontFamily: "'Playfair Display', serif",
-                }}
-              >
+              <span className="text-4xl md:text-8xl font-cormorant font-semibold text-secondary-400 block">
                 <TypeWriter
                   text="Frontend Developer"
                   startDelay={1.6}
