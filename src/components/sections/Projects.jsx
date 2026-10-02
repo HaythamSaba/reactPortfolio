@@ -10,7 +10,6 @@ import HireMeCard from "../ui/HireMeCard";
 export default function Projects() {
   return (
     <SectionLayout>
-
       <SectionHeader
         title="My"
         secondEmphasisTitle="Projects"
