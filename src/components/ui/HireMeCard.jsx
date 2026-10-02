@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FaEnvelopeIcon } from "../icons/TechIcons"; // swap for whatever mail icon you already use, or drop this import + icon if you don't have one
+import { useLenis } from "@studio-freight/react-lenis";
 
 const cardVariants = {
   initial: { opacity: 0, y: 40 },
@@ -11,6 +11,12 @@ const cardVariants = {
 };
 
 function HireMeCard() {
+  const lenis = useLenis();
+
+  const handleScroll = (href) => {
+    if (lenis) lenis.start();
+    if (lenis) lenis.scrollTo(href, { offset: -120, duration: 1.2 });
+  };
   return (
     <motion.div
       variants={cardVariants}
@@ -40,12 +46,25 @@ function HireMeCard() {
           </p>
         </div>
 
-        <a
-          href="mailto:haythamsaba@gmail.com?subject=Let's build something&body=Hey Haytham, I have an idea..."
-          className="inline-flex items-center bg-primary-500 text-textColor px-14 py-4 rounded-full font-semibold text-lg hover:bg-primary-400 hover:text-darkBackground transition-colors mt-2"
+        <motion.button
+          onClick={() => handleScroll("#contact")}
+          className="px-6 py-3 bg-primary-500 text-darkBackground font-semibold rounded-full shadow-lg outline-none"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.6,
+            type: "spring",
+            stiffness: 200,
+          }}
+          whileHover={{
+            scale: 1.06,
+            backgroundColor: "#f0e7db",
+            transition: { duration: 0.2 },
+          }}
+          whileTap={{ scale: 0.95 }}
         >
-          Hire Me
-        </a>
+          Contact Me
+        </motion.button>
       </div>
     </motion.div>
   );
