@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 // Matches Tailwind's `md` breakpoint — below this we use the compact,
@@ -34,6 +34,7 @@ function FloatingIcon({
   rotate = 0,
 }) {
   const isMobile = useIsMobile();
+  const reducedMotion = useReducedMotion();
   const top = isMobile && mobileTop ? mobileTop : finalTop;
   const left = isMobile && mobileLeft ? mobileLeft : finalLeft;
 
@@ -78,7 +79,7 @@ function FloatingIcon({
           rotate,
           filter: "drop-shadow(0 2px 8px rgba(130,224,170,0.25))",
         }}
-        animate={{ y: [0, -7, 0] }}
+        animate={reducedMotion ? undefined : { y: [0, -7, 0] }}
         transition={{
           duration: floatDuration,
           repeat: Infinity,

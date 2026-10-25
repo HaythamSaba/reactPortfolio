@@ -34,7 +34,7 @@ No test runner, no linter config, no CI config found in the repo.
 | P6 | Location/availability not visible in the Hero (first viewport) | High | S | Open |
 | P7 | "Scroll to top" control is not keyboard accessible | High | S | Fixed |
 | P8 | GraphQL claimed in Tech Stack with no supporting project evidence | High | S | Open |
-| P9 | Continuous ambient animations ignore `prefers-reduced-motion` | Medium | S | Open |
+| P9 | Continuous ambient animations ignore `prefers-reduced-motion` | Medium | S | Fixed |
 | P10 | Single 396KB JS bundle, no code-splitting | Medium | M | Open |
 | P11 | `SectionLayout` forces `min-h-screen` on every section uniformly | Medium | S | Open |
 | P12 | Social links duplicated in Contact and Footer | Medium | S | Open |

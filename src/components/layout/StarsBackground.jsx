@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 function StarsBackground() {
+  const reducedMotion = useReducedMotion();
   const [stars, setStars] = useState([]);
   const [meteors, setMeteors] = useState([]);
 
@@ -78,8 +79,9 @@ function StarsBackground() {
           />
         ))}
 
-        {/* Meteors */}
-        {meteors.map((meteor) => (
+        {/* Meteors — skip entirely for prefers-reduced-motion rather than
+            rendering them frozen mid-streak */}
+        {!reducedMotion && meteors.map((meteor) => (
           <motion.div
             key={meteor.id}
             className="meteor" // Tailwind utility class for gradient + shadow
