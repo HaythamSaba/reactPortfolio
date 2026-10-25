@@ -131,7 +131,7 @@ export const projects = [
     link: "https://vermera.vercel.app/",
     git: "vermera",
     type: "Frontend",
-    progress: true,
+    progress: false,
   },
   {
     title: "Kova Studio",
