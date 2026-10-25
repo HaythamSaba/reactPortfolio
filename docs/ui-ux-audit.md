@@ -27,7 +27,7 @@ No test runner, no linter config, no CI config found in the repo.
 | ID | Title | Priority | Effort | Status |
 |---|---|---|---|---|
 | P1 | No visible keyboard focus state on primary CTAs (sitewide) | Critical | S | Open |
-| P2 | 2.2MB of unused font files shipped to production | Critical | S | Open |
+| P2 | 2.2MB of unused font files shipped to production | Critical | S | Fixed |
 | P3 | Project descriptions are feature lists, not case studies | Critical | L | Open |
 | P4 | No curation/hierarchy among 8 projects | High | M | Open |
 | P5 | Flagship project shows an "In Progress" badge | High | S | Open |
