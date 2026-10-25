@@ -35,7 +35,7 @@ function ContactForm() {
           id="name"
           placeholder="Your name"
           required
-          className="bg-transparent border border-primary-300 p-2 rounded-md text-slate-100 placeholder:text-slate-500 outline-none focus:border-primary-400 focus:ring-1 focus:ring-primary-400 transition-colors"
+          className="bg-transparent border border-primary-300 px-4 py-2 rounded-full text-slate-100 placeholder:text-slate-500 outline-none focus:border-primary-400 focus:ring-1 focus:ring-primary-400 transition-colors"
         />
         <ValidationError prefix="Name" field="name" errors={state.errors} />
 
@@ -48,7 +48,7 @@ function ContactForm() {
           id="email"
           placeholder="Your email"
           required
-          className="bg-transparent border border-primary-300 p-2 rounded-md text-slate-100 placeholder:text-slate-500 outline-none focus:border-primary-400 focus:ring-1 focus:ring-primary-400 transition-colors"
+          className="bg-transparent border border-primary-300 px-4 py-2 rounded-full text-slate-100 placeholder:text-slate-500 outline-none focus:border-primary-400 focus:ring-1 focus:ring-primary-400 transition-colors"
         />
         <ValidationError prefix="Email" field="email" errors={state.errors} />
 
@@ -62,7 +62,7 @@ function ContactForm() {
           placeholder="Your message"
           required
           rows={5}
-          className="bg-transparent border border-primary-300 p-4 rounded-md text-slate-100 placeholder:text-slate-500 outline-none focus:border-primary-400 focus:ring-1 focus:ring-primary-400 transition-colors resize-none"
+          className="bg-transparent border border-primary-300 px-4 py-2 rounded-3xl text-slate-100 placeholder:text-slate-500 outline-none focus:border-primary-400 focus:ring-1 focus:ring-primary-400 transition-colors resize-none"
         />
         <ValidationError
           prefix="Message"
