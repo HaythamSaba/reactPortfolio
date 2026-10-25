@@ -87,7 +87,7 @@ export default function NotFound() {
           {/* Go Home */}
           <motion.button
             onClick={() => navigate("/")}
-            className="px-6 py-3 bg-primary-500 text-darkBackground font-semibold rounded-full shadow-lg outline-none cursor-pointer"
+            className="px-6 py-3 bg-primary-500 text-darkBackground font-semibold rounded-full shadow-lg outline-none cursor-pointer focus-visible:ring-2 focus-visible:ring-secondary-400 focus-visible:ring-offset-2 focus-visible:ring-offset-darkBackground"
             whileHover={{
               scale: 1.05,
               backgroundColor: "#f0e7db",
@@ -101,7 +101,7 @@ export default function NotFound() {
           {/* Go Back */}
           <motion.button
             onClick={() => navigate(-1)}
-            className="px-6 py-3 bg-transparent border border-secondary-400 text-background font-semibold rounded-full shadow-lg outline-none cursor-pointer"
+            className="px-6 py-3 bg-transparent border border-secondary-400 text-background font-semibold rounded-full shadow-lg outline-none cursor-pointer focus-visible:ring-2 focus-visible:ring-secondary-400 focus-visible:ring-offset-2 focus-visible:ring-offset-darkBackground"
             whileHover={{
               scale: 1.05,
               backgroundColor: "#f7dc6f",

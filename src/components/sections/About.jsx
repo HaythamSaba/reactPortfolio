@@ -105,7 +105,7 @@ function About() {
 
           <motion.button
             onClick={() => handleScroll("#contact")}
-            className="px-6 py-3 bg-transparent border border-secondary-400 text-background font-semibold rounded-full shadow-lg outline-none cursor-pointer"
+            className="px-6 py-3 bg-transparent border border-secondary-400 text-background font-semibold rounded-full shadow-lg outline-none cursor-pointer focus-visible:ring-2 focus-visible:ring-secondary-400 focus-visible:ring-offset-2 focus-visible:ring-offset-darkBackground"
             whileHover={{
               scale: 1.06,
               backgroundColor: "#f7dc6f",
