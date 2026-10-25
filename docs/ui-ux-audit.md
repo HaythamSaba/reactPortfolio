@@ -32,7 +32,7 @@ No test runner, no linter config, no CI config found in the repo.
 | P4 | No curation/hierarchy among 8 projects | High | M | Open |
 | P5 | Flagship project shows an "In Progress" badge | High | S | Open |
 | P6 | Location/availability not visible in the Hero (first viewport) | High | S | Open |
-| P7 | "Scroll to top" control is not keyboard accessible | High | S | Open |
+| P7 | "Scroll to top" control is not keyboard accessible | High | S | Fixed |
 | P8 | GraphQL claimed in Tech Stack with no supporting project evidence | High | S | Open |
 | P9 | Continuous ambient animations ignore `prefers-reduced-motion` | Medium | S | Open |
 | P10 | Single 396KB JS bundle, no code-splitting | Medium | M | Open |
