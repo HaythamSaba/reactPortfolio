@@ -39,7 +39,7 @@ No test runner, no linter config, no CI config found in the repo.
 | P11 | `SectionLayout` forces `min-h-screen` on every section uniformly | Medium | S | Open |
 | P12 | Social links duplicated in Contact and Footer | Medium | S | Open |
 | P13 | Contact form's only focus indicator is a subtle border-color change | Medium | S | Fixed |
-| P14 | `browserslist-db` data is 15 months stale (persistent build warning) | Low | S | Open |
+| P14 | `browserslist-db` data is 15 months stale (persistent build warning) | Low | S | Fixed |
 | P15 | Duplicate `og:title`/`og:description` meta tags in `index.html` | Low | S | Fixed |
 | P16 | Unused `font-gilroy` Tailwind token | Low | S | Open |
 
