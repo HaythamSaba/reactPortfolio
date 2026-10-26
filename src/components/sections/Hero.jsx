@@ -117,7 +117,7 @@ function Hero() {
               )}
               <span className="relative inline-flex h-2 w-2 rounded-full bg-primary-400" />
             </span>
-            <span>Based in Ljubljana · Open to frontend &amp; full-stack roles</span>
+            <span>Based in Ljubljana · Open to frontend &amp; full-stack roles in Slovenia and Europe</span>
           </motion.div>
 
           {/* Description */}
