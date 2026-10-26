@@ -1,12 +1,15 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { certificates } from "../../data/StaticData";
 import { cardParentVariants } from "../../data/Animation";
 
-import CertificateModal from "../ui/CertificateModal";
 import CertificateCard from "../ui/CertificateCard";
 import SectionHeader from "../ui/SectionHeader";
 import SectionLayout from "../layout/SectionLayout";
+
+// Only needed once a certificate is actually clicked — keep it out of the
+// main bundle.
+const CertificateModal = lazy(() => import("../ui/CertificateModal"));
 
 function Certificates() {
   const [openIndex, setOpenIndex] = useState(null);
@@ -55,10 +58,12 @@ function Certificates() {
       </motion.div>
 
       {openIndex !== null && (
-        <CertificateModal
-          certificate={certificates[openIndex]}
-          onClose={() => setOpenIndex(null)}
-        />
+        <Suspense fallback={null}>
+          <CertificateModal
+            certificate={certificates[openIndex]}
+            onClose={() => setOpenIndex(null)}
+          />
+        </Suspense>
       )}
     </SectionLayout>
   );
