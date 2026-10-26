@@ -122,7 +122,7 @@ function Hero() {
 
           {/* Description */}
           <motion.p
-            className="text-base md:text-xl text-white max-w-xl mb-8"
+            className="text-base md:text-xl text-white max-w-xl mb-4"
             initial={
               skipIntro ? false : { opacity: 0, filter: "blur(8px)", y: 10 }
             }
