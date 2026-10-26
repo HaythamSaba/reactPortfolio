@@ -88,7 +88,7 @@ function Hero() {
             </div>
 
             {/* "Frontend Developer" — TypeWriter + shimmer */}
-            <div className="relative inline-block mb-6">
+            <div className="relative inline-block mb-4">
               <ShimmerLine />
               <span className="text-4xl md:text-8xl font-cormorant font-semibold text-secondary-400 block">
                 <TypeWriter
@@ -99,6 +99,26 @@ function Hero() {
               </span>
             </div>
           </h1>
+
+          {/* Location + availability */}
+          <motion.div
+            className="inline-flex items-center gap-2 rounded-full border border-primary-400/40 bg-darkBackground/60 backdrop-blur-sm px-4 py-1.5 text-xs sm:text-sm text-slate-200 mb-6"
+            initial={skipIntro ? false : { opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: skipIntro ? 0 : 2.7,
+              duration: 0.6,
+              ease: "easeOut",
+            }}
+          >
+            <span className="relative flex h-2 w-2" aria-hidden="true">
+              {!prefersReducedMotion && (
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-400 opacity-75" />
+              )}
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-primary-400" />
+            </span>
+            <span>Based in Ljubljana · Open to frontend &amp; full-stack roles</span>
+          </motion.div>
 
           {/* Description */}
           <motion.p
