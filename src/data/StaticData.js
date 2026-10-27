@@ -186,7 +186,7 @@ export const projects = [
   {
     title: "Secret Santa Generator",
     description:
-      "A festive web application for organizing Secret Santa gift exchanges with a random pairing algorithm.",
+      "A festive web application for organizing Secret Santa gift exchanges with a random pairing algorithms.",
     devStack: ["React", "Context API", "TailwindCSS"],
     image: "/project-4.webp",
     link: "https://secret-santa-hs.vercel.app/",
