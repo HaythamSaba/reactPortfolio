@@ -54,7 +54,6 @@ export default function Footer() {
       >
         {/* Brand */}
         <motion.div variants={fadeUp}>
-          {/* ✅ Your name as brand instead of "My Portfolio" */}
           <h2 className="text-2xl font-bold mb-4">
             Haytham Saba
           </h2>
