@@ -58,7 +58,7 @@ export default function Footer() {
           <h2 className="text-2xl font-bold mb-4">
             Haytham Saba
           </h2>
-          <p className="text-lg font-normal leading-relaxed">
+          <p className="text-lg font-semibold leading-relaxed">
             Frontend developer based in Ljubljana, Slovenia. Building
             interactive and responsive web experiences with React, TypeScript,
             and Tailwind CSS. Always open to new opportunities.
