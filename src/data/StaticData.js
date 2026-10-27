@@ -123,6 +123,25 @@ export const TECH_ICONS = [
 
 export const projects = [
   {
+    title: "HabitFlow",
+    description:
+      "A comprehensive habit tracking application with streaks, analytics, and user authentication.",
+    devStack: [
+      "React",
+      "TypeScript",
+      "TailwindCSS",
+      "Supabase",
+      "React Query",
+      "Framer Motion",
+    ],
+    image: "/project-3.webp",
+    link: "https://habitflow-hs.vercel.app/",
+    git: "habitflow",
+    type: "Fullstack",
+    featured: true,
+    progress: false,
+  },
+  {
     title: "Vermera E-commerce",
     description:
       "A Luxury e-commerce platform built with React, JavaScript, TailwindCSS, Framer Motion, for seamless shopping experiences.",
@@ -131,6 +150,7 @@ export const projects = [
     link: "https://vermera.vercel.app/",
     git: "vermera",
     type: "Frontend",
+    featured: true,
     progress: false,
   },
   {
@@ -149,17 +169,18 @@ export const projects = [
     link: "https://kova-studio-hs.vercel.app/",
     git: "kova-studio",
     type: "Frontend",
+    featured: true,
     progress: false,
   },
   {
-    title: "HabitFlow",
-    description:
-      "A comprehensive habit tracking application with streaks, analytics, and user authentication.",
-    devStack: ["React", "TypeScript", "TailwindCSS", "Supabase"],
-    image: "/project-3.webp",
-    link: "https://habitflow-hs.vercel.app/",
-    git: "habitflow",
+    title: "Lights Up",
+    description: "E-commerce website that allows users to buy luxury lights.",
+    devStack: ["Next.js", "React", "TailwindCSS", "Supabase"],
+    image: "/project-5.webp",
+    link: "https://lights-up-haythamsabas-projects.vercel.app/",
+    git: "lights-up",
     type: "Fullstack",
+    featured: false,
     progress: false,
   },
   {
@@ -171,50 +192,7 @@ export const projects = [
     link: "https://secret-santa-hs.vercel.app/",
     git: "secret-santa",
     type: "Frontend",
-    progress: false,
-  },
-  {
-    title: "Lights Up",
-    description: "E-commerce website that allows users to buy luxury lights.",
-    devStack: ["React", "Next.js", "TailwindCSS", "Supabase"],
-    image: "/project-5.webp",
-    link: "https://lights-up-haythamsabas-projects.vercel.app/",
-    git: "lights-up",
-    type: "Fullstack",
-    progress: false,
-  },
-
-  {
-    title: "Quiz App",
-    description:
-      "A quiz app that allows users to test their knowledge in different programming languages.",
-    devStack: ["React", "CSS", "Context API"],
-    image: "/project-6.webp",
-    link: "https://quiz-app-git-main-haythamsabas-projects.vercel.app/",
-    git: "quiz-app",
-    type: "Frontend",
-    progress: false,
-  },
-  {
-    title: "Currently Weather and Time",
-    description:
-      "A web application that provides current weather and time information for any city worldwide.",
-    devStack: ["HTML", "CSS", "JavaScript", "Weather API"],
-    image: "/project-7.webp",
-    link: "https://currently-peach.vercel.app/",
-    git: "currently",
-    type: "Frontend",
-    progress: false,
-  },
-  {
-    title: "My first Portfolio",
-    description:
-      "My first portfolio project, created while in college to learn web development.",
-    devStack: ["HTML", "CSS", "JavaScript"],
-    image: "/project-8.webp",
-    link: "https://portifilio-livid.vercel.app/",
-    git: "Portfolio",
-    type: "Frontend",
+    featured: false,
     progress: false,
   },
 ];
