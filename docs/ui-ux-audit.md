@@ -29,8 +29,8 @@ No test runner, no linter config, no CI config found in the repo.
 | P1 | No visible keyboard focus state on primary CTAs (sitewide) | Critical | S | Fixed |
 | P2 | 2.2MB of unused font files shipped to production | Critical | S | Fixed |
 | P3 | Project descriptions are feature lists, not case studies | Critical | L | Open |
-| P4 | No curation/hierarchy among 8 projects | High | M | Open |
-| P5 | Flagship project shows an "In Progress" badge | High | S | Open |
+| P4 | No curation/hierarchy among 8 projects | High | M | Fixed |
+| P5 | Flagship project shows an "In Progress" badge | High | S | Fixed |
 | P6 | Location/availability not visible in the Hero (first viewport) | High | S | Fixed |
 | P7 | "Scroll to top" control is not keyboard accessible | High | S | Fixed |
 | P8 | GraphQL claimed in Tech Stack with no supporting project evidence | High | S | Open |
@@ -104,12 +104,14 @@ I can draft the UI for this now, but the actual problem/role/outcome content nee
 **Why it matters:** Recruiters skim for 30–60 seconds. If the 5th or 6th card they scroll past is explicitly self-labeled as a learning exercise, it resets their calibration of everything else on the page downward — including the genuinely strong work sitting two cards away.
 **Solution:** Either (a) pull your 2–3 strongest projects into a visually distinct "Featured" row above the rest (larger cards, maybe the case-study treatment from P3), with the remaining projects in a smaller "More projects" grid, or (b) remove the explicitly-labeled learning projects from the main grid and link them from GitHub only. Needs your input on which projects to feature — see "Decisions needed."
 **Effort:** M
+**Resolution:** You trimmed `StaticData.js` to 5 projects (removed Quiz App, Currently Weather, and the college portfolio project entirely) and added a `featured` boolean — HabitFlow, Vermera, and Kova Studio featured; Lights Up and Secret Santa not. `Projects.jsx` now renders featured projects first in a 1+2 layout (HabitFlow full-width, leading), larger `ProjectCard` variant via a new `featured` prop, then a "More projects" grid for the rest plus `HireMeCard`, and a "More on GitHub →" link below pointing to your GitHub profile. Deleted `project-6/7/8.webp` from `public/` (verified unreferenced first). Card design kept flexible (flexbox body, no fixed-height assumptions) to hold P3's case-study content later without a rewrite. Verified live in-browser at both the featured and "more projects" layout — renders as intended.
 
 ### P5 — Flagship project shows an "In Progress" badge
 **Problem:** `StaticData.js:134` sets `progress: true` on **Vermera**, the first project in the array (so first/most prominent in the grid, and the one with the most tech badges — it reads as the intended flagship). `ProjectCard.jsx:33-39` renders an "In Progress" badge whenever this flag is true.
 **Why it matters:** For a visitor skimming quickly, the very first project they see being flagged incomplete is a credibility hit at the worst possible moment — the first impression.
 **Solution:** If Vermera is actually finished (the live demo I checked does return 200 and look complete), remove `progress: true`. If it's genuinely still being worked on, either reorder so a finished project leads, or keep the badge but don't lead with it.
 **Effort:** S
+**Resolution:** Resolved as a side effect of the P4 data update — Vermera now has `progress: false` in `StaticData.js`, and it no longer leads the grid (HabitFlow does). No badge renders for any current project.
 
 ### P6 — Location/availability not visible in the Hero (first viewport)
 **Problem:** `Hero.jsx` shows name, role, and a generic description ("Building beautiful, responsive web experiences with React and modern frontend technologies," line 116-117) — but **location** ("Ljubljana, Slovenia") and **availability** ("Open to opportunities") only appear in About's `quickFacts` (`About.jsx:12-16`), one full section/scroll below the fold.

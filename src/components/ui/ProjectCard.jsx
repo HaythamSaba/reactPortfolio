@@ -10,35 +10,47 @@ const cardVariants = {
   },
 };
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, featured = false, className = "" }) {
   return (
     <motion.div
       key={project.title}
       variants={cardVariants}
-      className="group bg-darkBackground rounded-3xl overflow-hidden relative z-0 shadow-sm"
+      className={`group rounded-3xl overflow-hidden relative z-0 shadow-2xl shadow-white/30 ${className}`}
     >
       {/* Image */}
       <div className="overflow-hidden">
         <img
           src={project.image}
           alt={project.title}
-          className="h-[220px] w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+          className={`w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110 ${
+            featured ? "h-[260px] md:h-[360px]" : "h-[220px]"
+          }`}
         />
       </div>
 
       {/* Card Body */}
-      <div className="flex flex-col p-4 gap-2 bg-background rounded-b-lg min-h-[280px] justify-between">
+      <div
+        className={`flex flex-col p-4 gap-2 bg-black rounded-b-lg justify-between ${
+          featured ? "min-h-[280px] md:p-6" : "min-h-[280px]"
+        }`}
+      >
         <div className="flex justify-between items-center">
-          <h3 className="text-darkBackground">{project.title}</h3>
+          <h3
+            className={`text-background ${featured ? "text-2xl font-bold" : ""}`}
+          >
+            {project.title}
+          </h3>
           {project.progress && (
             <div className="flex justify-between items-center">
-              <span className="bg-primary-400 text-textColor px-2 py-1 rounded-full font-semibold text-sm">
+              <span className="bg-primary-400 text-background px-2 py-1 rounded-full font-semibold text-sm">
                 In Progress
               </span>
             </div>
           )}
         </div>
-        <p className="text-md tracking-wide text-darkBackground mb-2">
+        <p
+          className={`tracking-wide text-background mb-2 ${featured ? "text-base md:text-lg" : "text-md"}`}
+        >
           {project.description}
         </p>
 
@@ -62,7 +74,7 @@ function ProjectCard({ project }) {
             aria-label={`View live site for ${project.title}`}
             className="hover:text-primary-400 transition-colors"
           >
-            <GoLinkIcon className="w-5 h-5 text-darkBackground" />
+            <GoLinkIcon className="w-5 h-5 text-background" />
           </a>
 
           <span className="bg-darkBackground text-background px-2 py-1 rounded-full font-semibold text-sm">
@@ -78,7 +90,7 @@ function ProjectCard({ project }) {
           >
             <FaGithubIcon
               size={24}
-              className="text-black"
+              className="text-background hover:text-primary-400 transition-colors"
             />
           </a>
         </div>
