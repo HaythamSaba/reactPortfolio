@@ -20,7 +20,7 @@ function HireMeCard() {
   return (
     <motion.div
       variants={cardVariants}
-      className="group bg-darkBackground/10 backdrop-blur-sm rounded-3xl overflow-hidden relative z-0 shadow-sm border border-slate-400"
+      className="group bg-darkBackground/10 backdrop-blur-sm rounded-3xl overflow-hidden relative z-0   shadow-2xl shadow-white/30"
     >
       {/* Gradient "image" area — stands in for a project screenshot */}
       <div className="h-[200px] w-full relative overflow-hidden flex items-center justify-center">
