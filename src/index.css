@@ -17,11 +17,10 @@
   font-style: normal;
 }
 
-body {
-  font-family: "Gilroy", sans-serif;
-}
-
 @layer base {
+  body {
+    @apply font-gilroy;
+  }
   h1 {
     @apply text-4xl font-bold;
   }

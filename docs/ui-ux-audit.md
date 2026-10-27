@@ -41,7 +41,7 @@ No test runner, no linter config, no CI config found in the repo.
 | P13 | Contact form's only focus indicator is a subtle border-color change | Medium | S | Fixed |
 | P14 | `browserslist-db` data is 15 months stale (persistent build warning) | Low | S | Fixed |
 | P15 | Duplicate `og:title`/`og:description` meta tags in `index.html` | Low | S | Fixed |
-| P16 | Unused `font-gilroy` Tailwind token | Low | S | Open |
+| P16 | Unused `font-gilroy` Tailwind token | Low | S | Fixed |
 
 ---
 
@@ -203,6 +203,7 @@ animate={reducedMotion ? undefined : { rotate: 360 }}
 **Problem:** `tailwind.config.js:34` defines a `gilroy` font family token, but Gilroy is actually applied via a plain CSS rule on `body` (`index.css:20-22`), not the Tailwind utility class. A quick check suggests `font-gilroy` isn't used anywhere as a class.
 **Solution:** Either remove the unused token, or switch `body`'s font declaration to use it via `@layer base` for consistency. Zero production cost either way (Tailwind tree-shakes unused utilities) — purely a tidiness item.
 **Effort:** S
+**Resolution:** Correction to the finding above: `font-gilroy` wasn't actually unused — it was already on `index.html`'s `<body class="font-gilroy ...">`, which `index.css`'s separate plain `body { font-family: "Gilroy", sans-serif }` rule duplicated (both resolved to the same value, so no visible bug, just two sources of truth that could've drifted apart later). Consolidated to one: removed `font-gilroy` from `index.html`'s body class, and `index.css` now sets it via `@layer base { body { @apply font-gilroy; } }`. Verified the compiled CSS output is byte-identical (`body{font-family:Gilroy,sans-serif}`).
 
 ---
 
