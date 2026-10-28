@@ -108,7 +108,7 @@ function Header() {
               {/* Home Icon */}
               <button
                 onClick={() => handleScroll("#home")}
-                className="text-primary-400 p-4 hover:bg-background rounded-full bg-primary-500 hover:text-darkBackground transition-colors duration-300"
+                className="text-primary-400 p-3 hover:bg-background rounded-full bg-primary-500 hover:text-darkBackground transition-colors duration-300"
                 aria-label="Go to home section"
               >
                 <HomeIcon className="w-8 h-8 text-darkBackground" />
@@ -147,7 +147,7 @@ function Header() {
               {/* Contact Icon (Desktop Only) */}
               <button
                 onClick={() => handleScroll("#contact")}
-                className="hidden lg:inline-flex text-secondary-400 p-4 hover:bg-background rounded-full bg-secondary-500 hover:text-darkBackground transition-colors duration-300"
+                className="hidden lg:inline-flex text-secondary-400 p-3 hover:bg-background rounded-full bg-secondary-500 hover:text-darkBackground transition-colors duration-300"
                 aria-label="Go to contact section"
               >
                 <EnvelopeIcon className="h-8 w-8 text-darkBackground" />
@@ -162,7 +162,7 @@ function Header() {
             {/* Home Icon */}
             <button
               onClick={() => handleScroll("#home")}
-              className="text-primary-400 p-4 hover:bg-background rounded-full bg-primary-500 hover:text-darkBackground transition-colors duration-300 z-30"
+              className="text-primary-400 p-3 hover:bg-background rounded-full bg-primary-500 hover:text-darkBackground transition-colors duration-300 z-30"
               aria-label="Go to home section"
             >
               <HomeIcon className="w-8 h-8 text-darkBackground" />
@@ -203,7 +203,7 @@ function Header() {
             {/* Contact Icon (Desktop Only) */}
             <button
               onClick={() => handleScroll("#contact")}
-              className="hidden lg:inline-flex text-secondary-400 p-4 hover:bg-background rounded-full bg-secondary-500 hover:text-darkBackground transition-colors duration-300"
+              className="hidden lg:inline-flex text-secondary-400 p-3 hover:bg-background rounded-full bg-secondary-500 hover:text-darkBackground transition-colors duration-300"
               aria-label="Go to contact section"
             >
               <EnvelopeIcon className="h-8 w-8 text-darkBackground" />
