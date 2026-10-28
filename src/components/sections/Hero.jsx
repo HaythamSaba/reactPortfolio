@@ -3,6 +3,7 @@ import {
   useMotionValue,
   useSpring,
   useReducedMotion,
+  useTransform,
 } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useLenis } from "@studio-freight/react-lenis";
@@ -21,6 +22,19 @@ function Hero() {
   const lenis = useLenis();
   const prefersReducedMotion = useReducedMotion();
 
+  function ParallaxLayer({ x, y, depth, children }) {
+    const tx = useTransform(x, (v) => v * depth);
+    const ty = useTransform(y, (v) => v * depth);
+
+    return (
+      <motion.div
+        className="pointer-events-none absolute inset-0"
+        style={{ x: tx, y: ty }}
+      >
+        {children}
+      </motion.div>
+    );
+  }
   // Play the full intro only once per browser session, and never for
   // visitors who've asked for reduced motion.
   const [alreadyVisited] = useState(
@@ -36,15 +50,47 @@ function Hero() {
     if (lenis) lenis.start();
     if (lenis) lenis.scrollTo(href, { offset: -120, duration: 1.2 });
   };
+  // Only on devices with a real mouse, and never for reduced-motion users
+  const [canHover] = useState(
+    () => window.matchMedia("(hover: hover) and (pointer: fine)").matches,
+  );
+  const parallaxEnabled = canHover && !prefersReducedMotion;
 
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const smoothX = useSpring(mouseX, { stiffness: 60, damping: 10, mass: 0.5 });
+  const smoothY = useSpring(mouseY, { stiffness: 60, damping: 10, mass: 0.5 });
+
+  const handleMouseMove = (e) => {
+    if (!parallaxEnabled) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    mouseX.set((e.clientX - rect.left) / rect.width - 1);
+    mouseY.set((e.clientY - rect.top) / rect.height - 1);
+  };
+
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
   return (
-    <div className="relative overflow-hidden min-h-screen text-textColor bg-[linear-gradient(to_bottom,_#161b22,_#82e0aa_85%)] flex items-stretch justify-center template">
+    <div
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="relative overflow-hidden min-h-screen text-textColor bg-[linear-gradient(to_bottom,_#161b22,_#82e0aa_85%)] flex items-stretch justify-center template"
+    >
       {/* Background elements */}
       <GridLines />
 
       {/* ── 8 floating tech icons ── */}
-      {TECH_ICONS.map(({ alt, ...icon }) => (
-        <FloatingIcon key={alt} {...icon} />
+      {TECH_ICONS.map(({ alt, ...icon }, i) => (
+        <ParallaxLayer
+          key={alt}
+          x={smoothX}
+          y={smoothY}
+          depth={parallaxEnabled ? 16 + (i % 3) * 12 : 0}
+        >
+          <FloatingIcon {...icon} />
+        </ParallaxLayer>
       ))}
 
       <div className="absolute bg-darkBackground w-[2400px] h-[1000px] rounded-[50%] left-1/2 -translate-x-1/2 bg-[radial-gradient(closest-side,#0c0c0c_80%,#82e0aa)] top-[450px] border-[1px] border-[#82e0aa]/30" />
@@ -117,7 +163,10 @@ function Hero() {
               )}
               <span className="relative inline-flex h-2 w-2 rounded-full bg-primary-400" />
             </span>
-            <span>Based in Ljubljana · Open to frontend &amp; full-stack roles in Slovenia and Europe</span>
+            <span>
+              Based in Ljubljana · Open to frontend &amp; full-stack roles in
+              Slovenia and Europe
+            </span>
           </motion.div>
 
           {/* Description */}
