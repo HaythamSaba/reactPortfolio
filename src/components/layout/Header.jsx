@@ -102,7 +102,7 @@ function Header() {
               backdropFilter: "blur(16px)",
               WebkitBackdropFilter: "blur(6px)",
             }}
-            className="fixed top-0 left-0 w-full z-30 border-b border-white/20 shadow-lg"
+            className="fixed top-0 left-0 w-full z-30"
           >
             <div className="template flex justify-between items-center py-4 z-30">
               {/* Home Icon */}
