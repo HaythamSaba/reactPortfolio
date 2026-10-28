@@ -19,11 +19,11 @@ function CertificateCard({ certificate, index, openIndex, setOpenIndex }) {
       </div>
 
       <div className="p-2 flex flex-col justify-between">
-        <div className="p-2 mb-4">
+        <div className="p-2 mb-2">
           <h3 className="text-lg font-semibold text-slate-900 mb-2">
             {certificate.name}
           </h3>
-          <p className="text-sm text-slate-800 mb-4">
+          <p className="text-sm text-slate-800 mb-2">
             {certificate.description}
           </p>
         </div>
