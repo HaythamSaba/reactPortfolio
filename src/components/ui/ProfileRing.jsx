@@ -6,20 +6,14 @@ function ProfileRing({ children }) {
   return (
     <div className="relative flex items-center justify-center w-[170px] h-[170px]">
       <motion.div
-        className="absolute inset-0 rounded-full"
-        style={{
-          border: "1.5px solid rgba(130,224,170,0.25)",
-          boxShadow: "0 0 20px rgba(130,224,170,0.08)",
-        }}
+        className="absolute inset-0 rounded-full shadow-glow-soft"
+        style={{ border: "1.5px solid rgba(130,224,170,0.25)" }}
         animate={reducedMotion ? undefined : { rotate: 360 }}
         transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
       >
         <div
-          className="absolute w-2 h-2 rounded-full -top-1 left-1/2 -translate-x-1/2"
-          style={{
-            backgroundColor: "#82e0aa",
-            boxShadow: "0 0 8px #82e0aa, 0 0 20px #82e0aa",
-          }}
+          className="absolute w-2 h-2 rounded-full -top-1 left-1/2 -translate-x-1/2 shadow-glow-strong"
+          style={{ backgroundColor: "#82e0aa" }}
         />
       </motion.div>
 

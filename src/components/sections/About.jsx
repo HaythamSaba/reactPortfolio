@@ -24,11 +24,8 @@ function AboutPhoto() {
       className="relative flex items-center justify-center w-[220px] h-[220px] md:w-[300px] md:h-[300px] shrink-0"
     >
       <motion.div
-        className="absolute inset-0 rounded-full"
-        style={{
-          border: "1.5px solid rgba(130,224,170,0.25)",
-          boxShadow: "0 0 50px rgba(130, 224, 171, 0.363)",
-        }}
+        className="absolute inset-0 rounded-full shadow-glow-wide"
+        style={{ border: "1.5px solid rgba(130,224,170,0.25)" }}
         animate={{ rotate: 360 }}
         transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
       ></motion.div>
