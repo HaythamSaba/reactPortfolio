@@ -25,7 +25,7 @@ function Contact() {
           <ContactInfo />
 
           {/* Social Links */}
-          <div className="flex flex-col justify-center items-center shadow-box px-8 py-4 rounded-full w-fit m-auto">
+          <div className="flex flex-col justify-center items-center shadow-glow px-8 py-4 rounded-full w-fit m-auto">
             <h5>Connect with me</h5>
             <div className="flex gap-4 mt-4">
               {/* LinkedIn */}

@@ -32,7 +32,7 @@ export default function SkillCircle({ name, value, icon }) {
   return (
     <div
       ref={ref}
-      className="flex flex-col items-center relative border border-[#82e0aa]/30 w-full p-4 rounded-lg shadow-box bg-background/10"
+      className="flex flex-col items-center relative border border-[#82e0aa]/30 w-full p-4 rounded-lg shadow-glow bg-background/10"
     >
       <div className="relative w-[120px] h-[120px] flex items-center justify-center">
         <svg width="120" height="120" className="rotate-[-90deg]">
