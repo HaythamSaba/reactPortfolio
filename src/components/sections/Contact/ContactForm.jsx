@@ -22,7 +22,7 @@ function ContactForm() {
     >
       <input type="text" name="_gotcha" style={{ display: "none" }} />
 
-      <h3 className="text-center mb-2">Let's get in touch</h3>
+      <h3 className="font-cormorant text-3xl text-center mb-2">Let's get in touch</h3>
 
       <div className="flex flex-col gap-4">
         {/* Name */}
