@@ -23,10 +23,10 @@ function SectionHeader({
       >
         {title}{" "}
         {firstEmphasisTitle && (
-          <span className="text-primary-400">{firstEmphasisTitle}</span>
+          <span className="text-primary-400 font-cormorant">{firstEmphasisTitle}</span>
         )}{" "}
         {secondEmphasisTitle && (
-          <span className="text-secondary-400">{secondEmphasisTitle}</span>
+          <span className="text-secondary-400 font-cormorant">{secondEmphasisTitle}</span>
         )}
       </motion.h2>
       {description && (
