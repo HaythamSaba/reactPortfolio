@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, lazy, Suspense } from "react";
-import { motion, useAnimation, useInView } from "framer-motion";
+import { motion, useAnimation, useInView, AnimatePresence } from "framer-motion";
 import { certificates } from "../../data/StaticData";
 import { cardParentVariants } from "../../data/Animation";
 
@@ -57,14 +57,16 @@ function Certificates() {
         ))}
       </motion.div>
 
-      {openIndex !== null && (
-        <Suspense fallback={null}>
-          <CertificateModal
-            certificate={certificates[openIndex]}
-            onClose={() => setOpenIndex(null)}
-          />
-        </Suspense>
-      )}
+      <AnimatePresence>
+        {openIndex !== null && (
+          <Suspense fallback={null} key={openIndex}>
+            <CertificateModal
+              certificate={certificates[openIndex]}
+              onClose={() => setOpenIndex(null)}
+            />
+          </Suspense>
+        )}
+      </AnimatePresence>
     </SectionLayout>
   );
 }

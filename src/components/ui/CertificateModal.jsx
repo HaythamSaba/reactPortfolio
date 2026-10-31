@@ -1,10 +1,12 @@
 import { createPortal } from "react-dom";
+import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useRef } from "react";
 
 function CertificateModal({ certificate, onClose }) {
   const panelRef = useRef(null);
   const closeButtonRef = useRef(null);
   const triggerRef = useRef(null);
+  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
     triggerRef.current = document.activeElement;
@@ -36,11 +38,15 @@ function CertificateModal({ certificate, onClose }) {
   };
 
   return createPortal(
-    <div
+    <motion.div
       className="fixed inset-0 flex items-center justify-center z-50 bg-black/70 backdrop-blur-sm"
       onClick={onClose}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
     >
-      <div
+      <motion.div
         ref={panelRef}
         role="dialog"
         aria-modal="true"
@@ -48,6 +54,10 @@ function CertificateModal({ certificate, onClose }) {
         onKeyDown={handleKeyDown}
         className="bg-background p-6 rounded-2xl relative max-w-5xl mx-4 shadow-lg"
         onClick={(e) => e.stopPropagation()}
+        initial={reducedMotion ? false : { opacity: 0, scale: 0.95, y: 12 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={reducedMotion ? undefined : { opacity: 0, scale: 0.95, y: 12 }}
+        transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
       >
         <img
           src={certificate.imageUrl}
@@ -62,8 +72,8 @@ function CertificateModal({ certificate, onClose }) {
         >
           ✕
         </button>
-      </div>
-    </div>,
+      </motion.div>
+    </motion.div>,
     document.body,
   );
 }
