@@ -30,7 +30,7 @@ function ProjectCard({ project, featured = false, className = "" }) {
 
       {/* Card Body */}
       <div
-        className={`flex flex-col p-4 gap-2 bg-black rounded-b-lg justify-between ${
+        className={`flex flex-col p-4 gap-2 bg-darkBackground rounded-b-lg justify-between ${
           featured ? "min-h-[280px] md:p-6" : "min-h-[280px]"
         }`}
       >
