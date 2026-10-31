@@ -25,10 +25,10 @@ function ContactInfo() {
   return (
     <div className="flex flex-col">
       <h3 className="text-center mb-6">Contact Information</h3>
-      <div className="flex flex-col m-auto md:m-0 gap-4">
+      <div className="flex flex-col m-auto md:m-0 gap-8">
         {contactItems.map((item) => (
           <div key={item.label} className="flex gap-4 items-center">
-            <span className="text-primary-800 p-4 hover:bg-background rounded-full bg-primary-300 hover:text-darkBackground transition-colors duration-300 shrink-0">
+            <span className="text-primary-800 p-4 hover:bg-background rounded-full bg-primary-400 hover:text-darkBackground transition-colors duration-300 shrink-0">
               {item.icon}
             </span>
             <div>
