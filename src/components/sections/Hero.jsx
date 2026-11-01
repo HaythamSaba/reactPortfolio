@@ -96,7 +96,9 @@ function Hero() {
       <div className="absolute bg-darkBackground w-[2400px] h-[1000px] rounded-[50%] left-1/2 -translate-x-1/2 bg-[radial-gradient(closest-side,#0c0c0c_80%,#82e0aa)] top-[450px] border-[1px] border-[#82e0aa]/30" />
 
       <div className="container relative mx-auto z-10 flex flex-col items-stretch gap-20 md:gap-0 min-h-screen px-4">
-        <Header />
+        <div className="h-[88px] shrink-0">
+          <Header />
+        </div>
 
         <div className="flex flex-col items-center justify-between text-center">
           {/* Profile image with rings */}
