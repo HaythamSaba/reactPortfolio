@@ -157,12 +157,6 @@ function Hero() {
               ease: "easeOut",
             }}
           >
-            <span className="relative flex h-2 w-2" aria-hidden="true">
-              {!prefersReducedMotion && (
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-400 opacity-75" />
-              )}
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-primary-400" />
-            </span>
             <span>
               Based in Ljubljana · Open to frontend &amp; full-stack roles in
               Slovenia and Europe
