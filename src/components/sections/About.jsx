@@ -6,6 +6,7 @@ import SectionLayout from "../layout/SectionLayout";
 import { MdLocationIcon, PhoneIcon, ReactIcon } from "../icons/TechIcons";
 import { cardParentVariants, itemVariants } from "../../data/Animation";
 import TextScrollWordReveal from "../ui/TextScrollWordReveal";
+import PhotoCascade from "../ui/PhotoCascade";
 
 const MotionGreenButton = motion.create(GreenButton);
 
@@ -18,35 +19,52 @@ const quickFacts = [
 const STATEMENT =
   "I believe a website should feel like the company behind it — honest, clear, and built to be trusted. I'm a frontend developer working in React, Next.js 15, TypeScript, and Tailwind CSS, and I care most about turning a company's values into an experience users can actually rely on: fast, scalable, and easy to reach what they came for. At Siciliamia I work inside a real PR review workflow — feature branches, code reviews, production deploys — writing code other people can read and build on.";
 
-function AboutPhoto() {
-  return (
-    <motion.div className="relative flex items-center justify-center w-[220px] h-[220px] md:w-[300px] md:h-[300px] shrink-0">
-      <motion.div
-        className="absolute inset-0 rounded-full shadow-glow-wide"
-        style={{ border: "1.5px solid rgba(130,224,170,0.25)" }}
-        animate={{ rotate: 360 }}
-        transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-      ></motion.div>
-
-      <motion.div
-        className="absolute rounded-full"
-        style={{ inset: 14, border: "1px dashed rgba(247,220,111,0.25)" }}
-        animate={{ rotate: -360 }}
-        transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-      />
-
-      <div className="w-[180px] h-[180px] md:w-[250px] md:h-[250px] rounded-full overflow-hidden relative bg-[radial-gradient(closest-side,#0c0c0c,#f7dc6f)]">
-        <img
-          src="/profile-pic.webp"
-          alt="Haytham Saba"
-          width={230}
-          height={230}
-          className="w-full h-full object-cover scale-150 object-[center_70%]"
-        />
-      </div>
-    </motion.div>
-  );
-}
+// Keep the first card a clear portrait so recruiters still see your face first.
+// Images: ~600×750 px (4:5), WebP/AVIF, under ~120 KB each, in /public/about/.
+const ABOUT_PHOTOS = [
+  {
+    src: "/profile-pic.webp",
+    alt: "Haytham Saba, portrait",
+    tag: "Hello",
+    place: "Ljubljana",
+    title: "Haytham",
+    caption: "Frontend developer. Building things people can rely on.",
+  },
+  {
+    src: "/haytham-in-mountains.webp",
+    alt: "Haytham on a mountain ridge above the clouds",
+    tag: "Summit",
+    place: "Kamniška Bistrica",
+    year: "2025",
+    title: "Long climbs",
+    caption: "Hard ascents, slow pace, worth every step at the top.",
+  },
+  {
+    src: "/haytham-in-nature.webp",
+    alt: "Haytham by a jasna lake surrounded by forest",
+    tag: "Quiet",
+    place: "Kranska Gora",
+    title: "Reset mode",
+    caption: "Where I go when I need to think clearly.",
+  },
+  {
+    src: "/haytham-in-oldtown.webp",
+    alt: "Haytham exploring an old town street",
+    tag: "Travel",
+    place: "Somewhere new",
+    title: "New streets",
+    caption: "Every city teaches me something about how people use space.",
+  },
+  {
+    src: "/haytham-in-christmas.webp",
+    alt: "Haytham at a Christmas market with friends",
+    tag: "Holiday",
+    place: "Ljubljana",
+    year: "2025",
+    title: "Lights & people",
+    caption: "Enjoying the season of Christmas.",
+  },
+];
 
 function About() {
   const lenis = useLenis();
@@ -63,7 +81,13 @@ function About() {
       <SectionHeader title="About" firstEmphasisTitle="Me" />
 
       {/* Bio reveals word-by-word while the photo stays pinned beside it */}
-      <TextScrollWordReveal statement={STATEMENT} image={<AboutPhoto />} />
+      <TextScrollWordReveal
+        statement={STATEMENT}
+        scrollLength={`${ABOUT_PHOTOS.length * 60 + 40}vh`}
+        image={(progress) => (
+          <PhotoCascade photos={ABOUT_PHOTOS} progress={progress} />
+        )}
+      />
 
       {/* Quick facts, CTAs */}
       <motion.div

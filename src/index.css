@@ -68,3 +68,72 @@
     box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
   }
 }
+
+/* PhotoCascade (About section) — only the parts Tailwind utilities can't
+   express cleanly: the 3D perspective context, the --card-w/--card-h/
+   --deck-top custom properties driving both the deck and the orbit-glow
+   slot, and the multi-stop shadow/gradient values. Everything else (color,
+   radius, spacing, typography) lives as Tailwind classes in the component. */
+@layer components {
+  .photo-cascade {
+    --card-w: 280px;
+    --card-h: 360px;
+    --deck-top: 150px;
+  }
+
+  .photo-cascade__deck {
+    position: relative;
+    height: calc(var(--deck-top) + var(--card-h) + 24px);
+    perspective: 1100px;
+    perspective-origin: 50% 20%;
+  }
+
+  .photo-cascade__stack {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    
+  }
+
+  .photo-cascade__card,
+  .photo-cascade__card-slot {
+    position: absolute;
+    top: var(--deck-top);
+    left: 0;
+    right: 0;
+    width: var(--card-w);
+    height: var(--card-h);
+    margin: 0 auto;
+  }
+
+  .photo-cascade__card {
+    transform-origin: 50% 50%;
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+    
+  }
+
+  .photo-cascade__shade {
+    background: linear-gradient(
+      180deg,
+      rgba(12, 12, 12, 0.35) 0%,
+      rgba(12, 12, 12, 0) 30%,
+      rgba(12, 12, 12, 0) 45%,
+      rgba(12, 12, 12, 0.92) 100%
+    );
+  }
+
+  @media (max-width: 900px) {
+    .photo-cascade {
+      --card-w: 180px;
+      --card-h: 225px;
+      --deck-top: 84px;
+    }
+
+    /* Clip the pit so falling cards never cover the bio text below */
+    .photo-cascade__deck {
+      overflow: hidden;
+      height: calc(var(--deck-top) + var(--card-h) + 36px);
+    }
+  }
+}
