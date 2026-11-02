@@ -98,7 +98,7 @@ function About() {
         viewport={{ once: true, amount: 0.3 }}
       >
         <motion.div
-          className="flex flex-wrap justify-center gap-3"
+          className="flex flex-wrap justify-center gap-3 mt-4"
           variants={itemVariants}
         >
           {quickFacts.map(({ icon: Icon, label }) => (
