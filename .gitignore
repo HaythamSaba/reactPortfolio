@@ -16,3 +16,6 @@
 
 # editor
 .vscode
+
+# local-only backups
+/assets-originals
