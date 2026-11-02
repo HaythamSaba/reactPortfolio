@@ -8,8 +8,16 @@ const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
  *   d > 0  → still waiting in the deck: lifted, pushed back, tilted flat
  *   d = 0  → the crest: upright, facing the viewer
  *   d < 0  → folded forward and dropping into the pit below
+ *
+ * `visibleAhead` caps how many cards can be visible ahead of the crest at
+ * once. It used to be a flat 4 — fine for a long deck, but with only 5
+ * photos the first-to-last distance is *also* 4, so the whole deck
+ * (including the final card) was simultaneously visible from the very
+ * start: scrolling off card 1 already showed card 5 fading in. Deriving it
+ * from the actual photo count keeps a multi-card peek while guaranteeing
+ * the window can never span the entire deck.
  */
-function cardPose(d) {
+function cardPose(d, visibleAhead) {
   if (d >= 0) {
     const tilt = clamp(d, 0, 1);
     return {
@@ -18,7 +26,7 @@ function cardPose(d) {
       z: -(tilt * 170 + d * 50), // deep enough that tilted cards never intersect
       rotateX: tilt * 58,
       scale: 1 - Math.min(d, 4) * 0.035,
-      opacity: clamp(4 - d, 0, 1), // only ~3 cards visible behind the crest
+      opacity: clamp(visibleAhead - d, 0, 1),
     };
   }
 
@@ -37,12 +45,15 @@ const CARD_FACE_CLASSES =
 
 function CascadeCard({ photo, index, count, active }) {
   const d = useTransform(active, (a) => index - a);
+  // Keep at least 1.5 "active steps" of buffer before the deck's final card
+  // can start appearing, however short the deck is.
+  const visibleAhead = Math.max(1, count - 2.5);
 
-  const y = useTransform(d, (v) => cardPose(v).y);
-  const z = useTransform(d, (v) => cardPose(v).z);
-  const rotateX = useTransform(d, (v) => cardPose(v).rotateX);
-  const scale = useTransform(d, (v) => cardPose(v).scale);
-  const opacity = useTransform(d, (v) => cardPose(v).opacity);
+  const y = useTransform(d, (v) => cardPose(v, visibleAhead).y);
+  const z = useTransform(d, (v) => cardPose(v, visibleAhead).z);
+  const rotateX = useTransform(d, (v) => cardPose(v, visibleAhead).rotateX);
+  const scale = useTransform(d, (v) => cardPose(v, visibleAhead).scale);
+  const opacity = useTransform(d, (v) => cardPose(v, visibleAhead).opacity);
   // Fallback for browsers that flatten the 3D context
   const zIndex = useTransform(d, (v) => 100 - Math.round(Math.abs(v) * 10));
 
@@ -95,7 +106,7 @@ function CardFace({ photo, index, count }) {
           {photo.title}
         </strong>
         {photo.caption ? (
-          <p className="hidden md:block mt-1.5 text-sm leading-relaxed text-background/70">
+          <p className="hidden lg:block mt-1.5 text-sm leading-relaxed text-background/70">
             {photo.caption}
           </p>
         ) : null}
@@ -134,7 +145,7 @@ function PhotoCascade({ photos, progress }) {
   }
 
   return (
-    <div className="photo-cascade w-full max-w-[340px] max-[900px]:max-w-[260px]">
+    <div className="photo-cascade w-[450px] max-w-[90vw] h-[350px]">
       <div className="mb-1 hidden items-baseline gap-2 text-xs tracking-widest text-slate-400 uppercase md:flex">
         <motion.span className="text-3xl font-bold tracking-tight text-primary-400 tabular-nums">
           {counter}

@@ -73,13 +73,13 @@ function TextScrollWordReveal({ statement, image, scrollLength = "200vh" }) {
       style={{ minHeight: scrollLength }}
       aria-labelledby="scroll-word-reveal-heading"
     >
-      <div className="sticky top-[96px] flex min-h-[calc(100vh-96px)] w-full items-center overflow-hidden py-12 max-[900px]:py-6">
+      <div className="sticky top-[96px] flex min-h-[calc(100vh-96px)] w-full items-center overflow-hidden">
         <div className="mx-auto grid w-full max-w-[1180px] grid-cols-[minmax(200px,340px)_minmax(0,1fr)] items-center gap-14 max-[900px]:grid-cols-1 max-[900px]:justify-items-center max-[900px]:gap-5 max-[900px]:text-center">
           {visual ? (
-            <div className="flex justify-center">{visual}</div>
+            <div className="flex justify-center overflow-hidden lg:overflow-visible">{visual}</div>
           ) : null}
 
-          <div className="flex max-w-[640px] flex-1 flex-col max-[900px]:max-w-[44ch]">
+          <div className="flex flex-1 flex-col max-[900px]:max-w-[44ch]">
             <div className="mb-7 flex items-center gap-4 max-[900px]:mb-4 max-[900px]:justify-center">
               <span
                 className="relative h-0.5 w-full overflow-hidden rounded-full bg-background/[0.12]"

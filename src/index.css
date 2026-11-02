@@ -78,7 +78,7 @@
   .photo-cascade {
     --card-w: 280px;
     --card-h: 360px;
-    --deck-top: 150px;
+    --deck-top: 50px;
   }
 
   .photo-cascade__deck {
