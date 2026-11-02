@@ -17,7 +17,7 @@ const quickFacts = [
 ];
 
 const STATEMENT =
-  "I believe a website should feel like the company behind it — honest, clear, and built to be trusted. I'm a frontend developer working in React, Next.js 15, TypeScript, and Tailwind CSS, and I care most about turning a company's values into an experience users can actually rely on: fast, scalable, and easy to reach what they came for. At Siciliamia I work inside a real PR review workflow — feature branches, code reviews, production deploys — writing code other people can read and build on.";
+  "I believe a website should feel like the company behind it. It should be honest, clear, and built to be trusted. I'm a frontend developer working in React, Next.js 15, TypeScript, and Tailwind CSS, and I care most about turning a company's values into an experience users can actually rely on: fast, scalable, and easy to reach what they came for. At Siciliamia I work inside a real PR review workflow, feature branches, code reviews, production deploys, and a culture of writing code other people can read and build on.";
 
 // Keep the first card a clear portrait so recruiters still see your face first.
 // Images: ~600×750 px (4:5), WebP/AVIF, under ~120 KB each, in /public/about/.
