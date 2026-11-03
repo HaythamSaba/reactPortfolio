@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef, lazy, Suspense } from "react";
-import { motion, useAnimation, useInView, AnimatePresence } from "framer-motion";
+import { useState, useEffect, lazy, Suspense } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { certificates } from "../../data/StaticData";
 import { cardParentVariants } from "../../data/Animation";
 
