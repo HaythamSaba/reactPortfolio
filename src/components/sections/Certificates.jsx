@@ -51,7 +51,6 @@ function Certificates() {
             key={index}
             index={index}
             certificate={certificate}
-            openIndex={openIndex}
             setOpenIndex={setOpenIndex}
           />
         ))}

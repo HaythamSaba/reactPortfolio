@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { itemVariants } from "../../data/Animation";
 
-function CertificateCard({ certificate, index, openIndex, setOpenIndex }) {
+function CertificateCard({ certificate, index, setOpenIndex }) {
   return (
     <motion.div
       key={certificate.name}
