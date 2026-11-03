@@ -17,6 +17,7 @@ import TypeWriter from "../ui/TypeWriter";
 import ProfileRing from "../ui/ProfileRing";
 import GridLines from "../ui/GridLines";
 import ShimmerLine from "../ui/ShimmerLine";
+import GreenButton from "../ui/GreenButton";
 
 function Hero() {
   const lenis = useLenis();
@@ -184,9 +185,9 @@ function Hero() {
 
           {/* Buttons — land after the description finishes, not before it */}
           <div className="flex gap-4 flex-wrap justify-center">
-            <motion.button
+            <GreenButton
+              text="Contact Me"
               onClick={() => handleScroll("#contact")}
-              className="px-6 py-3 bg-primary-500 text-darkBackground font-semibold rounded-full shadow-lg outline-none focus-visible:ring-2 focus-visible:ring-secondary-400 focus-visible:ring-offset-2 focus-visible:ring-offset-darkBackground"
               initial={skipIntro ? false : { opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -195,15 +196,7 @@ function Hero() {
                 type: "spring",
                 stiffness: 200,
               }}
-              whileHover={{
-                scale: 1.06,
-                backgroundColor: "#f0e7db",
-                transition: { duration: 0.2 },
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Contact Me
-            </motion.button>
+            />
 
             <motion.button
               onClick={() => handleScroll("#projects")}

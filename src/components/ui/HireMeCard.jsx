@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useLenis } from "@studio-freight/react-lenis";
+import GreenButton from "./GreenButton";
 
 const cardVariants = {
   initial: { opacity: 0, y: 40 },
@@ -46,9 +47,9 @@ function HireMeCard() {
           </p>
         </div>
 
-        <motion.button
+        <GreenButton
+          text="Contact Me"
           onClick={() => handleScroll("#contact")}
-          className="px-6 py-3 bg-primary-500 text-darkBackground font-semibold rounded-full shadow-lg outline-none focus-visible:ring-2 focus-visible:ring-secondary-400 focus-visible:ring-offset-2 focus-visible:ring-offset-darkBackground"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
@@ -56,15 +57,7 @@ function HireMeCard() {
             type: "spring",
             stiffness: 200,
           }}
-          whileHover={{
-            scale: 1.06,
-            backgroundColor: "#f0e7db",
-            transition: { duration: 0.2 },
-          }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Contact Me
-        </motion.button>
+        />
       </div>
     </motion.div>
   );
