@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useLenis } from "@studio-freight/react-lenis";
 import { itemVariants } from "../data/Animation";
 import GreenButton from "../components/ui/GreenButton";
+import OutlineButton from "../components/ui/OutlineButton";
 // ✅ Variants outside component
 const containerVariants = {
   hidden: {},
@@ -89,19 +90,7 @@ export default function NotFound() {
           <GreenButton text="Back to Home" onClick={() => navigate("/")} />
 
           {/* Go Back */}
-          <motion.button
-            onClick={() => navigate(-1)}
-            className="px-6 py-3 bg-transparent border border-secondary-400 text-background font-semibold rounded-full shadow-lg outline-none cursor-pointer focus-visible:ring-2 focus-visible:ring-secondary-400 focus-visible:ring-offset-2 focus-visible:ring-offset-darkBackground"
-            whileHover={{
-              scale: 1.05,
-              backgroundColor: "#f7dc6f",
-              color: "#0d1117",
-              transition: { duration: 0.2 },
-            }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Go Back
-          </motion.button>
+          <OutlineButton text="Go Back" onClick={() => navigate(-1)} />
         </motion.div>
 
         {/* Bottom hint */}

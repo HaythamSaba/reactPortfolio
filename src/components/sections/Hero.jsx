@@ -200,11 +200,16 @@ function Hero() {
             />
             <OutlineButton
               text="View Projects"
-              href="#projects"
-              skipIntro
-              handleScroll={handleScroll}
+              onClick={() => handleScroll("#projects")}
+              initial={skipIntro ? false : { opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: skipIntro ? 0 : 3.6,
+                duration: 0.6,
+                type: "spring",
+                stiffness: 200,
+              }}
             />
-
           </div>
 
           {/* Scroll hint */}

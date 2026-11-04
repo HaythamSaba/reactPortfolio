@@ -124,24 +124,8 @@ function About() {
           />
           <OutlineButton
             text="Get in Touch"
-            href="#contact"
-            skipIntro
-            handleScroll={handleScroll}
-          />
-          
-          <motion.button
             onClick={() => handleScroll("#contact")}
-            className="px-6 py-3 bg-transparent border border-secondary-400 text-background font-semibold rounded-full shadow-lg outline-none cursor-pointer focus-visible:ring-2 focus-visible:ring-secondary-400 focus-visible:ring-offset-2 focus-visible:ring-offset-darkBackground"
-            whileHover={{
-              scale: 1.06,
-              backgroundColor: "#f7dc6f",
-              color: "#0d1117",
-              transition: { duration: 0.2 },
-            }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Get in Touch
-          </motion.button>
+          />
         </motion.div>
       </motion.div>
     </SectionLayout>
