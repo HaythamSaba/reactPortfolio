@@ -48,7 +48,7 @@ function Certificates() {
       >
         {certificates.map((certificate, index) => (
           <CertificateCard
-             key={index}
+            key={certificate.name}
             certificate={certificate}
             onOpen={() => setOpenIndex(index)}
           />
