@@ -27,7 +27,7 @@ function StarsBackground() {
   };
 
   const generateMeteors = () => {
-    const numberOfMeteors = 4 ;
+    const numberOfMeteors = 4;
     const newMeteors = [];
 
     for (let i = 0; i < numberOfMeteors; i++) {
