@@ -48,10 +48,9 @@ function Certificates() {
       >
         {certificates.map((certificate, index) => (
           <CertificateCard
-            key={index}
-            index={index}
+             key={index}
             certificate={certificate}
-            setOpenIndex={setOpenIndex}
+            onOpen={() => setOpenIndex(index)}
           />
         ))}
       </motion.div>

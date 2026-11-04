@@ -1,11 +1,9 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import { itemVariants } from "../../data/Animation";
 
-function CertificateCard({ certificate, index, setOpenIndex }) {
+function CertificateCard({ certificate, onOpen }) {
   return (
     <motion.div
-      key={certificate.name}
       variants={itemVariants}
       className="bg-background rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-shadow"
     >
@@ -29,7 +27,7 @@ function CertificateCard({ certificate, index, setOpenIndex }) {
         </div>
         <button
           className="bg-primary-500 hover:bg-primary-600 font-semibold text-textColor py-2 px-4 rounded-full transition-colors"
-          onClick={() => setOpenIndex(index)}
+          onClick={onOpen}
           aria-label={`View ${certificate.name}`}
         >
           View Certificate

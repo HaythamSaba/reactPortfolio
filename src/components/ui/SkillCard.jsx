@@ -17,7 +17,8 @@ const cardVariants = {
   },
 };
 
-function SkillCard({ name, icon: Icon, color, index }) {
+function SkillCard({ skill }) {
+  const { name, icon: Icon, color } = skill;
   const [isHovered, setIsHovered] = useState(false);
 
   return (
