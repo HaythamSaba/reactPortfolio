@@ -7,6 +7,7 @@ import { MdLocationIcon, PhoneIcon, ReactIcon } from "../icons/TechIcons";
 import { cardParentVariants, itemVariants } from "../../data/Animation";
 import TextScrollWordReveal from "../ui/TextScrollWordReveal";
 import PhotoCascade from "../ui/PhotoCascade";
+import OutlineButton from "../ui/OutlineButton";
 
 const MotionGreenButton = motion.create(GreenButton);
 
@@ -121,7 +122,13 @@ function About() {
             href="/Haytham_Saba_CV.pdf"
             download="Haytham_Saba_CV.pdf"
           />
-
+          <OutlineButton
+            text="Get in Touch"
+            href="#contact"
+            skipIntro
+            handleScroll={handleScroll}
+          />
+          
           <motion.button
             onClick={() => handleScroll("#contact")}
             className="px-6 py-3 bg-transparent border border-secondary-400 text-background font-semibold rounded-full shadow-lg outline-none cursor-pointer focus-visible:ring-2 focus-visible:ring-secondary-400 focus-visible:ring-offset-2 focus-visible:ring-offset-darkBackground"

@@ -18,6 +18,7 @@ import ProfileRing from "../ui/ProfileRing";
 import GridLines from "../ui/GridLines";
 import ShimmerLine from "../ui/ShimmerLine";
 import GreenButton from "../ui/GreenButton";
+import OutlineButton from "../ui/OutlineButton";
 
 function Hero() {
   const lenis = useLenis();
@@ -197,28 +198,13 @@ function Hero() {
                 stiffness: 200,
               }}
             />
+            <OutlineButton
+              text="View Projects"
+              href="#projects"
+              skipIntro
+              handleScroll={handleScroll}
+            />
 
-            <motion.button
-              onClick={() => handleScroll("#projects")}
-              className="px-6 py-3 bg-transparent border border-secondary-400 text-background font-semibold rounded-full shadow-lg outline-none focus-visible:ring-2 focus-visible:ring-secondary-400 focus-visible:ring-offset-2 focus-visible:ring-offset-darkBackground"
-              initial={skipIntro ? false : { opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                delay: skipIntro ? 0 : 3.6,
-                duration: 0.6,
-                type: "spring",
-                stiffness: 200,
-              }}
-              whileHover={{
-                scale: 1.06,
-                backgroundColor: "#f7dc6f",
-                color: "#0d1117",
-                transition: { duration: 0.2 },
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              View Projects
-            </motion.button>
           </div>
 
           {/* Scroll hint */}
