@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import React from "react";
 
 const baseClasses =
-  "px-6 py-3 bg-transparent border border-secondary-400 text-background rounded-full shadow-lg outline-none cursor-pointer font-semibold focus-visible:ring-2 focus-visible:ring-secondary-400 focus-visible:ring-offset-2 focus-visible:ring-offset-darkBackground";
+  "px-6 py-3 bg-transparent border border-secondary-400 text-background rounded-full shadow-lg cursor-pointer font-semibold focus-ring";
 
 const motionProps = {
   whileHover: {

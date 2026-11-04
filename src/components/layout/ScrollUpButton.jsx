@@ -24,7 +24,7 @@ function ScrollUpButton() {
       type="button"
       onClick={handleScrollToTop}
       aria-label="Scroll to top"
-      className="fixed bottom-4 right-4 z-50 bg-primary-300 p-3 rounded-full text-black cursor-pointer transition-all duration-300 hover:bg-primary-500 hover:text-white outline-none focus-visible:ring-2 focus-visible:ring-secondary-400 focus-visible:ring-offset-2 focus-visible:ring-offset-darkBackground"
+      className="fixed bottom-4 right-4 z-50 bg-primary-300 p-3 rounded-full text-black cursor-pointer transition-all duration-300 hover:bg-primary-500 hover:text-white focus-ring"
     >
       <MdArrowUpIcon />
     </button>

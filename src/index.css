@@ -17,6 +17,14 @@
   font-style: normal;
 }
 
+@layer components {
+  /* Shared focus-visible ring for pill buttons/controls on dark surfaces —
+     was copy-pasted across every button's className; keep it in one place. */
+  .focus-ring {
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-secondary-400 focus-visible:ring-offset-2 focus-visible:ring-offset-darkBackground;
+  }
+}
+
 @layer base {
   body {
     @apply font-gilroy;
