@@ -6,6 +6,7 @@ import {
   FaLinkedinIcon,
   FaGithubIcon,
 } from "../icons/TechIcons";
+import { itemVariants } from "../../data/Animation";
 
 const NavItems = [
   { name: "Home", href: "#home" },
@@ -15,19 +16,8 @@ const NavItems = [
   { name: "Contact Me", href: "#contact" },
 ];
 
-// ✅ Moved outside component — static object, no need to recreate on every render
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-};
-
-// ✅ Stagger parent so columns cascade in one by one
 const containerVariants = {
-  hidden: {},
+  initial: {},
   visible: {
     transition: {
       staggerChildren: 0.15,
@@ -48,12 +38,12 @@ export default function Footer() {
       <motion.div
         className="px-0 md:px-6 py-0 md:py-6 grid grid-cols-1 md:grid-cols-3 gap-12"
         variants={containerVariants}
-        initial="hidden"
+        initial="initial"
         whileInView="visible"
         viewport={{ once: true }}
       >
         {/* Brand */}
-        <motion.div variants={fadeUp}>
+        <motion.div variants={itemVariants}>
           <h2 className="text-2xl font-bold mb-4">
             Haytham Saba
           </h2>
@@ -65,7 +55,7 @@ export default function Footer() {
         </motion.div>
 
         {/* Quick Links */}
-        <motion.div variants={fadeUp}>
+        <motion.div variants={itemVariants}>
           <h3 className="text-2xl font-bold mb-4">
             Quick Links
           </h3>
@@ -86,7 +76,7 @@ export default function Footer() {
         </motion.div>
 
         {/* Connect */}
-        <motion.div variants={fadeUp}>
+        <motion.div variants={itemVariants}>
           <h3 className="text-2xl font-bold mb-4">Connect</h3>
           <a
             href="mailto:haythamsaba@gmail.com"
