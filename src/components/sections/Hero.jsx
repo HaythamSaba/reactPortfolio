@@ -130,7 +130,7 @@ function Hero() {
             <div className="perspective-[800px] mb-3">
               <SplitText
                 text="Haytham Saba"
-                className="text-5xl md:text-7xl font-bold tracking-tight text-background block"
+                className="text-5xl md:text-7xl min-[1537px]:text-[90px] min-[1920px]:text-[110px] font-bold tracking-tight text-background block"
                 staggerDelay={0.06}
                 startDelay={0.5}
                 instant={skipIntro}
@@ -140,7 +140,7 @@ function Hero() {
             {/* "Frontend Developer" — TypeWriter + shimmer */}
             <div className="relative inline-block mb-4">
               <ShimmerLine />
-              <span className="text-4xl md:text-8xl font-cormorant font-semibold text-secondary-400 block">
+              <span className="text-4xl md:text-8xl min-[1537px]:text-[100px] min-[1920px]:text-[120px] font-cormorant font-semibold text-secondary-400 block">
                 <TypeWriter
                   text="Frontend Developer"
                   startDelay={1.6}
