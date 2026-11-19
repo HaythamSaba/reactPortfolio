@@ -56,18 +56,25 @@ function CascadeCard({ photo, index, count, active }) {
   const opacity = useTransform(d, (v) => cardPose(v, visibleAhead).opacity);
   // Fallback for browsers that flatten the 3D context
   const zIndex = useTransform(d, (v) => 100 - Math.round(Math.abs(v) * 10));
+  // Caption/title fade faster than the card body: once a card tilts back
+  // into the waiting stack (or has folded forward past the crest), its
+  // rotateX swings the bottom-anchored figcaption into view again, making
+  // text from a card 1-2 steps away appear to float in front of its
+  // neighbor. Cutting text opacity to 0 well before the card itself fades
+  // keeps only the upright (near-crest) card's text legible.
+  const textOpacity = useTransform(d, (v) => clamp(1 - Math.abs(v) * 1.8, 0, 1));
 
   return (
     <motion.figure
       className={CARD_FACE_CLASSES}
       style={{ y, z, rotateX, scale, opacity, zIndex }}
     >
-      <CardFace photo={photo} index={index} count={count} />
+      <CardFace photo={photo} index={index} count={count} textOpacity={textOpacity} />
     </motion.figure>
   );
 }
 
-function CardFace({ photo, index, count }) {
+function CardFace({ photo, index, count, textOpacity }) {
   return (
     <>
       <img
@@ -77,6 +84,7 @@ function CardFace({ photo, index, count }) {
         decoding="async"
         draggable={false}
         className="absolute inset-0 h-full w-full select-none object-cover"
+      
       />
       <div className="photo-cascade__shade pointer-events-none absolute inset-0" aria-hidden="true" />
 
@@ -95,7 +103,10 @@ function CardFace({ photo, index, count }) {
         </span>
       ) : null}
 
-      <figcaption className="absolute inset-x-5 bottom-5 text-left text-background">
+      <motion.figcaption
+        className="absolute inset-x-5 bottom-5 text-left text-background"
+        style={{ opacity: textOpacity }}
+      >
         {photo.place ? (
           <span className="mb-1 block text-xs tracking-widest text-primary-400 uppercase">
             {photo.place}
@@ -110,7 +121,7 @@ function CardFace({ photo, index, count }) {
             {photo.caption}
           </p>
         ) : null}
-      </figcaption>
+      </motion.figcaption>
     </>
   );
 }
