@@ -8,7 +8,7 @@ function SectionHeader({
 }) {
   return (
     <motion.div
-      className="flex flex-col gap-4 mb-12 text-center items-center"
+      className="flex flex-col gap-4 mb-section-header text-center items-center"
       initial={{ opacity: 0, y: -110 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-160px" }}

@@ -34,6 +34,10 @@ module.exports = {
         gilroy: ["Gilroy", "sans-serif"],
         cormorant: ["Cormorant", "Georgia", "Times New Roman", "serif"],
       },
+      spacing: {
+        section: "var(--space-section)",
+        "section-header": "var(--space-section-header)",
+      },
       // Canonical green/gold "card glow" family — one definition per shape,
       // replacing the scattered .shadow-box class + inline boxShadow styles.
       boxShadow: {

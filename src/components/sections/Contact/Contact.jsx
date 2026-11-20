@@ -11,7 +11,7 @@ import SectionLayout from "../../layout/SectionLayout";
 
 function Contact() {
   return (
-    <SectionLayout>
+    <SectionLayout className="pb-section">
       <SectionHeader
         title="Get in"
         secondEmphasisTitle="Touch"

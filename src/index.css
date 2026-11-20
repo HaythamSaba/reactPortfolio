@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Vertical gap from the end of one section's content to the next
+     section's heading — applied as top padding only (see SectionLayout). */
+  --space-section: clamp(6rem, 5.5rem + 2.25vw, 7.5rem);
+  /* Gap between a section's heading and its content/grid below it. */
+  --space-section-header: clamp(2rem, 1.6rem + 1.5vw, 3rem);
+}
+
 @font-face {
   font-family: "Gilroy";
   src: url("/fonts/Gilroy-Regular.woff2") format("woff2");

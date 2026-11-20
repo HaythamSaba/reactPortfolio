@@ -1,6 +1,8 @@
-function SectionLayout({ children }) {
+function SectionLayout({ children, className = "" }) {
   return (
-    <section className="template flex flex-col items-center justify-center py-20">
+    <section
+      className={`template flex flex-col items-center justify-center pt-section ${className}`}
+    >
       {children}
     </section>
   );
