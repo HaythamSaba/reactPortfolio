@@ -22,8 +22,12 @@ function ProjectCard({ project, featured = false, className = "" }) {
         <img
           src={project.image}
           alt={project.title}
+          width={900}
+          height={563}
+          loading="lazy"
+          decoding="async"
           className={`w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110 ${
-            featured ? "h-[260px] md:h-[360px]" : "h-[220px]"
+            featured ? "h-[260px] md:h-[360px]" : "aspect-[16/10] object-top"
           }`}
         />
       </div>
