@@ -13,35 +13,37 @@ function Home() {
     <div className="min-h-screen bg-darkBackground text-background pb-12">
       <StarsBackground />
       <ScrollUpButton />
-      {/* Hero Section */}
-      <section id="home">
-        <Hero />
-      </section>
+      <main>
+        {/* Hero Section */}
+        <section id="home">
+          <Hero />
+        </section>
 
-      {/* About Section */}
-      <section id="about">
-        <About />
-      </section>
+        {/* About Section */}
+        <section id="about">
+          <About />
+        </section>
 
-      {/* Projects Section */}
-      <section id="projects">
-        <Projects />
-      </section>
+        {/* Projects Section */}
+        <section id="projects">
+          <Projects />
+        </section>
 
-      {/* Skills / Tech Section */}
-      <section id="tech">
-        <Skills />
-      </section>
-      
-      {/* Certificates Section */}
-      <section id="certificates">
-        <Certificates />
-      </section>
+        {/* Skills / Tech Section */}
+        <section id="tech">
+          <Skills />
+        </section>
 
-      {/* Contact Section */}
-      <section id="contact">
-        <Contact />
-      </section>
+        {/* Certificates Section */}
+        <section id="certificates">
+          <Certificates />
+        </section>
+
+        {/* Contact Section */}
+        <section id="contact">
+          <Contact />
+        </section>
+      </main>
 
       {/* Footer */}
       <Footer />
